@@ -1,0 +1,19 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment (Môi trường ảo - Không đưa lên Git)
+.venv/
+venv/
+ENV/
+env/
+
+# Cấu hình cá nhân IDE
+.vscode/
+.idea/
+
+# File tạm hệ thống
+*.log
+.DS_Store
+Thumbs.db
