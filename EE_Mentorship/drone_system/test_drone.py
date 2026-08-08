@@ -7,6 +7,7 @@ Tệp kiểm thử tự động cho hệ thống Drone Telemetry & State Engine.
 Chạy test bằng lệnh: pytest EE_Mentorship/drone_system/test_drone.py
 """
 
+from EE_Mentorship.drone_system import engine
 import pytest
 import sys
 import os
@@ -73,3 +74,20 @@ def test_safety_monitor_low_battery_warning():
     # Kiểm tra xem hệ thống có tự động bật Cảnh báo hay không
     assert len(engine.warnings) > 0
     assert "PIN YẾU DƯỚI 20%" in engine.warnings[0]
+
+
+def test_critical_battery_emergency_landing():
+    engine = DroneStateEngine(drone_id="TEST-EMERGENCY")
+    engine.arm()
+    
+    # Tạo gói tin pin cực yếu (5%)
+    critical_frame = TelemetryFrame(HEADER_MAGIC, 0, 0, 0, 20.0, 5, 0)
+    packet_bytes = pack_telemetry(critical_frame)
+    
+    # Nạp gói tin vào máy chủ
+    engine.process_binary_packet(packet_bytes)
+    
+    # Bắt pytest kiểm tra tự động:
+    assert engine.is_armed == False, "Động cơ phải tự động DISARM!"
+    assert engine.is_emergency_landed == True, "Phải bật cờ hạ cánh khẩn cấp!"
+    
