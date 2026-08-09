@@ -1,21 +1,23 @@
-# 📜 LỘ TRÌNH ĐÀO TẠO KỸ SƯ EE & CHUẨN SƯ PHẠM (CURRICULUM SYLLABUS)
+# 📜 LỘ TRÌNH ĐÀO TẠO KỸ SƯ EE & CHUẨN SƯ PHẠM KHOA HỌC (CONSTRUCTIVIST SYLLABUS)
 
-## 🎯 4 BƯỚC QUY TRÌNH GIẢNG DẠY CHUẨN KHOA HỌC (4-STEP TEACHING PROTOCOL)
+## 🎯 4 BƯỚC QUY TRÌNH GIẢNG DẠY KHOA HỌC (4-STEP CONSTRUCTIVIST PROTOCOL)
 
-Để đảm bảo kiến thức luôn được **thấu hiểu tận gốc – thực hành thành thạo – ghi nhớ lâu dài**, mỗi Module từ nay sẽ tuân thủ nghiêm ngặt quy trình 4 bước:
+Để đảm bảo người học luôn **thấu hiểu tận gốc – làm chủ công cụ – tự tay giải quyết bài toán**, khóa học tuân thủ 100% quy trình đào tạo **Bottom-Up**:
 
 ```text
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ BƯỚC 1: LÝ THUYẾT BẢN CHẤT (Low-level Hardware & Mental Model)           │
-│ - Giảng giải cơ chế phần cứng (RAM, CPU, Bus, Registers)                 │
-│ - Kết thúc bằng 1-2 câu hỏi Socratic kiểm tra tư duy trước khi code.     │
+│ BƯỚC 1: TRANG BỊ HỘP CÔNG CỤ (Toolbox Mastery & Math Foundation)         │
+│ - Giảng giải chi tiết nguyên lý toán học, tham số, công dụng của từng     │
+│   hàm/công cụ TRƯỚC (Ví dụ: GaussianBlur, threshold, findContours).      │
+│ - Trình bày phép tính bằng Khối chữ hình ảnh phẳng ASCII dễ đọc.          │
 ├──────────────────────────────────────────────────────────────────────────┤
-│ BƯỚC 2: THỰC HÀNH TỪNG NẤC THANG (Guided Milestone Coding)               │
-│ - Viết code thực tế trực tiếp trên IDE với các file bài tập chi tiết.    │
-│ - Tự tay chạy thử, đọc log phần cứng và fix bug.                         │
+│ BƯỚC 2: ĐƯA BÀI TOÁN & NGƯỜI HỌC TỰ CHỌN TOOL (Guided Problem Solving)   │
+│ - Đưa ra bài toán thực tế ngoài đời. Người học đóng vai Kỹ sư trưởng     │
+│   tự lựa chọn công cụ từ "Hộp công cụ" để tự gõ code từ con số 0.         │
 ├──────────────────────────────────────────────────────────────────────────┤
-│ BƯỚC 3: TỔNG KẾT & HỆ THỐNG HÓA (Module Summary & Cheatsheet)            │
-│ - Biên soạn file tài liệu ôn tập tóm tắt các nguyên lý cốt lõi.           │
+│ BƯỚC 3: PHÂN TÍCH TÌNH HUỐNG BIÊN & NÂNG CẤP TƯ DUY (System Defense)     │
+│ - Mổ xẻ các tình huống thực tế nguy hiểm (vết bẩn camera vs xe container) │
+│ - Nâng cấp thuật toán bằng Aspect Ratio, Motion Tracking, Sensor Fusion. │
 ├──────────────────────────────────────────────────────────────────────────┤
 │ BƯỚC 4: GIT PUSH & QUẢN LÝ DỰ ÁN PRO (Version Control & Portfolio)        │
 │ - Đóng gói commit chuẩn conventional commit (`feat:`, `fix:`).            │
@@ -36,20 +38,18 @@
 
 ---
 
-### PHASE 2: TRUYỀN THÔNG PHẦN CỨNG VÀ CHUẨN CHUYÊN NGHIỆP (CURRENT 🚀)
-*   [ ] **Module 6: Đóng gói Dữ liệu Nhị phân & Đệm Thanh ghi (Binary Structs & Endianness)**
-    *   *Lý thuyết:* Little-Endian vs Big-Endian, Memory Alignment trên chip vi điều khiển, C-Structs trong thanh RAM.
-    *   *Thực hành:* Dùng module `struct` của Python mã hóa và giải mã các gói tin cảm biến telemetry thô (Battery Voltage, Temperature, Gyroscope).
-*   [ ] **Module 7: Tự động hóa Kiểm thử & CI/CD (Pytest & GitHub Actions)**
-    *   *Lý thuyết:* Nguyên lý Unit Testing, Mocking I/O phần cứng, đường ống tự động hóa (CI/CD Pipeline).
-    *   *Thực hành:* Viết bộ test tự động kiểm tra toàn bộ hệ thống code bằng `pytest` và thiết lập GitHub Actions tự động chạy test mỗi khi `git push`.
+### PHASE 2: TRUYỀN THÔNG PHẦN CỨNG VÀ MACHINE LEARNING (CURRENT 🚀)
+*   [x] **Module 6: Đóng gói Dữ liệu Nhị phân & Đệm Thanh ghi (Binary Structs & Endianness)**
+    *   Mã hóa và giải mã C-Struct 16-Bytes Big-Endian telemetry Drone.
+*   [x] **Module 7: Tự động hóa Kiểm thử (Pytest Suite)**
+    *   Viết bộ test tự động kiểm tra tính toàn vẹn nhị phân và mã chống nhiễu Checksum.
+*   [x] **Module B: Machine Learning Foundation (NumPy & Scikit-Learn)**
+    *   NumPy 3D Tensors, Slicing $X/y$, Decision Tree Classifier, StandardScaler Z-Score Normalization.
+*   [ ] **Module C: Computer Vision & Edge AI (OpenCV & Deep Learning)**
+    *   Ma trận ảnh 3D BGR, Thresholding nhị phân, Contours, Bounding Box, Gaussian Blur, Lọc rác & Lọc theo tỷ lệ khung hình (Aspect Ratio).
 
 ---
 
 ### PHASE 3: DỰ ÁN TỔNG HỢP CAPSTONE (FINAL MASTER DIPLOMA 🎓)
-*   [ ] **Module 8: Trạm Giám sát & Điều khiển Vệ tinh / Drone (Autonomous Satellite Ground Station)**
-    *   Xây dựng một hệ thống hoàn chỉnh kết hợp **TẤT CẢ** 7 Module:
-        *   Tầng dưới: Đọc gói tin nhị phân cảm biến (Module 6).
-        *   Tầng xử lý: Đa luồng/Đa nhân tính toán quỹ đạo (Module 5).
-        *   Tầng mạng: Bắn dữ liệu telemetry qua TCP Socket tới client (Module 3).
-        *   Tầng kiểm thử: Tự động test toàn bộ hệ thống trên GitHub Actions (Module 7).
+*   [ ] **Module 8: Trạm Giám sát & Điều khiển Drone Tự bay (Autonomous Drone Ground Station)**
+    *   Tích hợp Vision AI + Telemetry Binary Structs + Async Socket + Multiprocessing + Pytest CI/CD.
