@@ -37,7 +37,11 @@ def forward_pass_neural_net(X, W1, b1, W2, b2):
     - Kích hoạt Sigmoid: output = 1.0 / (1.0 + np.exp(-Z2))
     - Trả về: output
     """
-    pass
+    Z1 = np.dot(X, W1) + b1
+    H = np.maximum(0, Z1)
+    Z2 = np.dot(H, W2) + b2
+    output = 1.0 / (1.0 + np.exp(-Z2))
+    return output
 
 
 if __name__ == "__main__":
