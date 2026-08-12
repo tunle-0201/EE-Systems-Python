@@ -36,7 +36,12 @@ def train_single_step_gradient_descent(X, y, W, lr=0.01):
     - Tính W_new = W - lr * dL_dW
     - Trả về: W_new, loss
     """
-    pass
+    y_pred = X * W
+    loss = (y_pred - y) ** 2
+    dL_dW = 2 * (y_pred - y) * X
+    W_new = W - lr * dL_dW
+    return W_new, loss
+    
 
 
 if __name__ == "__main__":
