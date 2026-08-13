@@ -29,7 +29,10 @@ def compute_losses(y_true, y_pred):
     - bce = -np.mean(y_true * np.log(y_pred + 1e-15) + (1 - y_true) * np.log(1 - y_pred + 1e-15))
     - Trả về: mse, bce
     """
-    pass
+    mse = np.mean((y_pred - y_true) ** 2)
+    bce = -np.mean(y_true * np.log(y_pred + 1e-15) + (1 - y_true) * np.log(1 - y_pred + 1e-15))
+    return mse, bce
+
 
 
 if __name__ == "__main__":
