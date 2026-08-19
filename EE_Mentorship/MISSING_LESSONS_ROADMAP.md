@@ -1,18 +1,15 @@
 # 📋 DANH SÁCH BÀI HỌC VÀ KHÁI NIỆM CẦN BÙ ĐẮP (DEEP-DIVE ROADMAP)
 
-File này ghi nhận toàn bộ các bài học, thuật toán và bản chất toán học/phần cứng mà người học sẽ được Sư phụ **MỔ XẺ CẶN KẼ 100%** khi quay trở lại cày code:
+File này ghi nhận toàn bộ các bài học, thuật toán và bản chất toán học/phần cứng mà người học sẽ được Sư phụ **MỔ XẺ CẶN KẼ 100% VÀO THỨ 5 VÀ CUỐI TUẦN (MAKE-UP DAY)**:
 
 ---
 
-## 👁️ MODULE C & G: COMPUTER VISION & AUTONOMOUS DRONE GUIDANCE
-- [ ] **Khái niệm OpenCV Channels & BGR vs RGB:** Tại sao `bgr[:, :, 1]` rút kênh màu Xanh lá?
-- [ ] **Mạch lọc mờ Gaussian Blur (`cv2.GaussianBlur`):** Phép toán Convolution ma trận $5 \times 5$ triệt tiêu nhiễu hạt.
-- [ ] **Thuật toán Contours & Bounding Box (`cv2.findContours`, `cv2.boundingRect`):** Thuật toán tìm 4 cực trị $x_{min}, y_{min}, x_{max}, y_{max}$.
-- [ ] **Bộ lọc phòng vệ Aspect Ratio ($W/H$):** Triệt tiêu 100% vết bẩn nhòe dính trên ống kính.
-- [ ] **Không gian màu HSV (Hue - Saturation - Value):** Tại sao góc $H$ độc lập 100% với nắng/bóng râm ngoài trời.
-- [ ] **Bộ đôi Phép toán Hình thái học (`cv2.erode`, `cv2.dilate`):** Bản chất con dấu Kernel $5 \times 5$ dọn rác ti ti và vá lỗ hổng rỗng.
-- [ ] **Lucas-Kanade Optical Flow (`cv2.calcOpticalFlowPyrLK`):** Định vị vị trí và giữ tọa độ Drone khi không có GPS (GPS-Denied Environment).
-- [ ] **ArUco Marker Precision Landing (`cv2.aruco`):** Thuật toán căn chỉnh hạ cánh chính xác milimet xuống trạm sạc tự động.
+## 👁️ MODULE C, G & H: COMPUTER VISION & CNN HARDWARE ACCELERATION
+- [ ] **Phép cuộn ma trận 2D Convolution (`cv_edge_convolution_2d.py`):** Bản chất con dấu Kernel trượt khắp ảnh trích xuất cạnh (Edge Detection).
+- [ ] **Phép nén không gian Max Pooling (`cv_edge_max_pooling.py`):** Giảm 75% kích thước ma trận khung hình giữ lại đặc trưng mạnh nhất.
+- [ ] **Hàm chuẩn hóa xác suất Softmax (`cv_edge_soft_max.py`):** Phép tính $e^{z_i} / \sum e^{z_j}$ chuyển đổi đa lớp thành xác suất %.
+- [ ] **Lucas-Kanade Optical Flow:** Định vị vị trí và giữ tọa độ Drone khi không có GPS (GPS-Denied Environment).
+- [ ] **ArUco Marker Precision Landing:** Thuật toán căn chỉnh hạ cánh chính xác milimet xuống trạm sạc tự động.
 - [ ] **Stereo Vision Disparity Map:** Tính bản đồ độ sâu 3D (3D Depth Map) từ 2 camera song song để né vật cản.
 
 ---
