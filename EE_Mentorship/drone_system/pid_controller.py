@@ -25,11 +25,19 @@ class PIDController:
         self.integral = 0.0
     
     def compute(self, target, current, dt=0.01):
+        """
+        Trò đóng vai Kỹ sư trưởng tự chọn công cụ PID từ Hộp Công Cụ để lập trình hàm này từ con số 0:
+        - error = target - current
+        - self.integral += error * dt
+        - derivative = (error - self.prev_error) / dt
+        - self.prev_error = error
+        - output = self.Kp * error + self.Ki * self.integral + self.Kd * derivative
+        - Trả về: output
+        """
         error = target - current
         self.integral += error * dt
         derivative = (error - self.prev_error) / dt
         self.prev_error = error
-        
         output = self.Kp * error + self.Ki * self.integral + self.Kd * derivative
         return output
 

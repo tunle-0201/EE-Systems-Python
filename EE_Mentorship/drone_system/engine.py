@@ -16,7 +16,7 @@ class DroneStateEngine:
         self.telemetry_history: List[TelemetryFrame] = []
         self.is_armed: bool = False
         self.warnings: List[str] = []
-
+        self.is_emergency_landed = False
     def arm(self):
         """Bật nguồn động cơ (ARM)"""
         self.is_armed = True
@@ -52,6 +52,11 @@ class DroneStateEngine:
         # 3. Cảnh báo Lật nghiêng quá mức (Roll/Pitch > 450 -> 45.0°)
         if abs(frame.roll) > 450 or abs(frame.pitch) > 450:
             self.warnings.append("⚠️ CẢNH BÁO: NGIÊNG QUÁ MỨC (MẤT BẰNG)!")
+        
+        if frame.battery <10:
+            self.disarm()
+            self.is_emergency_landed = True
+            self.warnings.append( "🚨 THẢM HỌA: TỰ ĐỘNG HẠ CÁNH KHẨN CẤP (CRITICAL BATTERY)!")
 
     def get_dashboard_status(self) -> str:
         """Xuất bảng điều khiển trạng thái cho Trạm mặt đất"""

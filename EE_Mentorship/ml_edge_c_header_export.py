@@ -21,11 +21,13 @@ import numpy as np
 def export_weights_to_c_header(W, var_name="W_drone_weights"):
     """
     Trò đóng vai Kỹ sư trưởng tự chọn công cụ C-Header Export từ Hộp Công Cụ để lập trình hàm này từ con số 0:
-    - c_code = f"const float {var_name}[{len(W)}] = {{" + ", ".join([f"{val:.4f}f" for val in W]) + "};"
+    - Chuyển đổi mảng W thành chuỗi mảng C: const float var_name[N] = {val1f, val2f, ...};
     - Trả về: c_code
     """
-    c_code = f"const float {var_name}[{len(W)}] = {{" + ", ".join([f"{val:.4f}f" for val in W]) + "};"
+    elements = [f"{val:.4f}f" for val in W]
+    c_code = f"const float {var_name}[{len(W)}] = {{" + ", ".join(elements) + "};"
     return c_code
+
 
 
 if __name__ == "__main__":

@@ -21,10 +21,11 @@ import numpy as np
 def prune_weights(W, threshold=0.1):
     """
     Trò đóng vai Kỹ sư trưởng tự chọn công cụ Pruning từ Hộp Công Cụ để lập trình hàm này từ con số 0:
-    - W_pruned = np.where(np.abs(W) < threshold, 0.0, W)
+    - Tỉa các trọng số có |W| < threshold về 0.0
+    - Giữ nguyên các trọng số lớn
     - Trả về: W_pruned
     """
-    W_pruned = np.where(np.abs(W) < threshold, 0.0, W)
+    W_pruned = np.where(abs(W) < threshold, 0.0, W)
     return W_pruned
 
 

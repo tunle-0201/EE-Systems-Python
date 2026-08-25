@@ -19,17 +19,27 @@ class UARTDMABytesRingBuffer:
         self.size = 0
     
     def write(self, data: bytes):
+        """
+        Ghi chuỗi bytes vào vòng đệm Circular Ring Buffer (DMA/Hardware Producer).
+        Mỗi byte ghi vào vị trí self.head, sau đó head cuốn chiếu theo vòng tròn.
+        """
         for b in data:
             self.buffer[self.head] = b
             self.head = (self.head + 1) % self.capacity
             if self.size < self.capacity:
                 self.size += 1
             else:
-                self.tail = (self.tail + 1) % self.capacity # Ghi đè cũ nhất
+                # Nếu bộ đệm đầy (Overflow): Con trỏ tail bị đẩy lên để ghi đè byte cũ nhất
+                self.tail = (self.tail + 1) % self.capacity
     
     def read(self, length: int) -> bytes:
+        """
+        Đọc và rút 'length' bytes ra khỏi vòng đệm FIFO (CPU/AI Consumer).
+        Đọc từ vị trí self.tail, sau đó tail cuốn chiếu theo vòng tròn.
+        """
+        bytes_to_read = min(length, self.size)
         read_bytes = bytearray()
-        for _ in range(min(length, self.size)):
+        for _ in range(bytes_to_read):
             read_bytes.append(self.buffer[self.tail])
             self.tail = (self.tail + 1) % self.capacity
             self.size -= 1

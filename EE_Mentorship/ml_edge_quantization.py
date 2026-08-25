@@ -25,8 +25,8 @@ import numpy as np
 def quantize_weights_int8(W):
     """
     Trò đóng vai Kỹ sư trưởng tự chọn công cụ Quantization từ Hộp Công Cụ để lập trình hàm này từ con số 0:
-    - scale = np.max(np.abs(W)) / 127.0
-    - W_int8 = np.round(W / scale).astype(np.int8)
+    - Tính scale factor
+    - Nén mảng W về kiểu số nguyên int8
     - Trả về: W_int8, scale
     """
     scale = np.max(np.abs(W)) / 127.0

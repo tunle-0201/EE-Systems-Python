@@ -21,19 +21,18 @@ import numpy as np
 def process_telemetry_packet_with_edge_ai(raw_packet, W_int8, scale):
     """
     Trò đóng vai Kỹ sư trưởng tự chọn công cụ Edge AI Telemetry để lập trình hàm này từ con số 0:
-    - Unpack raw_packet: header, roll, pitch, alt, battery, checksum = struct.unpack('>HhhhfH', raw_packet)
-    - Vector X = np.array([roll, pitch, alt, battery], dtype=np.float32)
-    - W_float = W_int8 * scale
-    - score = np.dot(X, W_float)
-    - prob = 1.0 / (1.0 + np.exp(-score / 100.0))
-    - Trả về: (prob > 0.5, prob)
+    - Giải mã 16 bytes nhị phân bằng struct.unpack
+    - Nhân ma trận nơ-ron AI với vector cảm biến
+    - Tính xác suất bằng hàm Sigmoid
+    - Trả về: (is_crash_warning, probability)
     """
-    header, roll, pitch, alt, battery, checksum = struct.unpack('>HhhhfH', raw_packet)
-    X = np.array([roll, pitch, alt, battery], dtype=np.float32)
-    W_float = W_int8 * scale
-    score = np.dot(X, W_float)
+    checksum = struct.unpack(">HhhhfH", raw_packet)
+    x = np.array([checksum[1], checksum[2], checksum[3], checksum[4]])
+    w_float = W_int8 * scale
+    score = np.dot(x, w_float)
     prob = 1.0 / (1.0 + np.exp(-score / 100.0))
-    return (prob > 0.5, prob)
+    is_crash_warning = prob > 0.5
+    return is_crash_warning, prob
 
 
 if __name__ == "__main__":
