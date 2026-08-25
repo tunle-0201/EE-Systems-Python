@@ -16,10 +16,16 @@ class DroneFailsafeSystem:
         self.last_heartbeat = 0
     
     def check_failsafe(self, current_time_ms, battery_pct):
+        """
+        Trò đóng vai Kỹ sư trưởng tự chọn công cụ Failsafe từ Hộp Công Cụ để lập trình hàm này từ con số 0:
+        - Nếu battery_pct < 10.0: trả về "CRITICAL_LANDING"
+        - Nếu (current_time_ms - self.last_heartbeat) > self.timeout_ms: trả về "LOST_SIGNAL_FAILSAFE"
+        - Ngược lại: trả về "NORMAL"
+        """
         if battery_pct < 10.0:
-            return "CRITICAL_LANDING" # Pin quá yếu
+            return "CRITICAL_LANDING"
         if (current_time_ms - self.last_heartbeat) > self.timeout_ms:
-            return "LOST_SIGNAL_FAILSAFE" # Mất kết nối tay cầm
+            return "LOST_SIGNAL_FAILSAFE"
         return "NORMAL"
 
 
