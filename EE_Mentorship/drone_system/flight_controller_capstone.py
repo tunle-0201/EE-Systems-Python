@@ -12,18 +12,23 @@ from ring_buffer_uart import UARTDMABytesRingBuffer
 from failsafe_watchdog import DroneFailsafeSystem
 
 def run_realtime_flight_loop():
+    """
+    Trò đóng vai Kỹ sư trưởng tự chọn các công cụ từ Hộp Công Cụ để lập trình hàm Capstone này từ con số 0:
+    1. Khởi tạo PIDController(2.0, 0.1, 0.05), UARTDMABytesRingBuffer(64), DroneFailsafeSystem(500)
+    2. Ghi chuỗi b"ALT_10M" vào Ring Buffer
+    3. Tính toán bù lực PID: pid.compute(target=10.0, current=9.8, dt=0.01)
+    4. Kiểm tra an toàn Failsafe: fs.check_failsafe(current_time_ms=100, battery_pct=85.0)
+    5. Trả về: (adj, st)
+    """
     pid = PIDController(2.0, 0.1, 0.05)
     rb = UARTDMABytesRingBuffer(64)
     fs = DroneFailsafeSystem(500)
-    
-    # 1. Nhận telemetry qua Ring Buffer
+
     rb.write(b"ALT_10M")
     
-    # 2. Điều khiển PID
-    adj = pid.compute(10.0, 9.8, 0.01)
+    adj = pid.compute(target=10.0, current=9.8, dt=0.01)
     
-    # 3. Kiêm tra Failsafe
-    st = fs.check_failsafe(100, 85.0)
+    st = fs.check_failsafe(current_time_ms=100, battery_pct=85.0)
     
     return adj, st
 
