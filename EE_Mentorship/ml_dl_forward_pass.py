@@ -4,44 +4,47 @@
               MILESTONE D.2: MẠNG NƠ-RON MULTI-LAYER FORWARD PASS
 ================================================================================
 
-BƯỚC 1: TRANG BỊ HỘP CÔNG CỤ FORWARD PASS (TOOLBOX MASTERY)
+BÀI TOÁN THỰC TẾ: HỆ THỐNG PHÁN ĐOÁN RỦI RO BAY ĐA CHIỀU (DRONE AVIONICS)
+Một nơ-ron đơn lẻ chỉ cắt được 1 đường thẳng. Để nhận diện các tình huống bay
+phức tạp (phi tuyến), chúng ta cần một Mạng Nơ-ron 2 Tầng:
 
-Mạng Nơ-ron 2 Lớp (2-Layer Feedforward Neural Network):
-1. Lớp Ẩn (Hidden Layer):
-   - Z1 = np.dot(X, W1) + b1
-   - Kích hoạt ReLU: H = np.maximum(0, Z1)
-2. Lớp Đầu Ra (Output Layer):
-   - Z2 = np.dot(H, W2) + b2
-   - Kích hoạt Sigmoid: output = 1.0 / (1.0 + np.exp(-Z2))
+1. TẦNG ẨN (HIDDEN LAYER - 4 Nơ-ron):
+   - Nhận ma trận đầu vào X (N chuyến bay, mỗi chuyến có 3 cảm biến: Pitch, Roll, Alt).
+   - Biến đổi tuyến tính với trọng số W1 và độ lệch b1.
+   - Phá vỡ tính tuyến tính bằng hàm kích hoạt ReLU: Các giá trị âm triệt tiêu về 0,
+     các giá trị dương giữ nguyên. (Đưa ra biểu diễn đặc trưng ẩn H).
 
-BÀI TOÁN THỰC TẾ:
-Cho Ma trận 2 mẫu bay Drone X (shape 2x3: Pitch, Roll, Alt).
-Cho W1 (shape 3x4), b1 (shape 1x4), W2 (shape 4x1), b2 (shape 1x1).
+2. TẦNG ĐẦU RA (OUTPUT LAYER - 1 Nơ-ron):
+   - Nhận biểu diễn đặc trưng ẩn H từ tầng trước.
+   - Biến đổi tuyến tính với trọng số W2 và độ lệch b2.
+   - Nén kết quả về dải xác suất [0.0..1.0] bằng hàm Sigmoid để ra phán quyết cuối cùng.
 
-Nhiệm vụ của Kỹ sư trưởng trong hàm `forward_pass_neural_net(X, W1, b1, W2, b2)`:
-1. Tính Z1 = np.dot(X, W1) + b1
-2. Tính H = np.maximum(0, Z1)
-3. Tính Z2 = np.dot(H, W2) + b2
-4. Tính output = 1.0 / (1.0 + np.exp(-Z2))
-5. Trả về: output
+YÊU CẦU CHO KỸ SƯ TRƯỞNG LÊ ĐẮC ANH TUẤN:
+Tự tay viết toàn bộ logic bên trong hàm `forward_pass_neural_net` từ con số 0.
+KHÔNG CÓ GỢI Ý CODE SẴN TRONG DOCSTRING!
 """
 
 import numpy as np
 
 def forward_pass_neural_net(X, W1, b1, W2, b2):
     """
-    Trò đóng vai Kỹ sư trưởng tự chọn công cụ Forward Pass từ Hộp Công Cụ để lập trình hàm này từ con số 0:
-    - Tính Z1 = np.dot(X, W1) + b1
-    - Kích hoạt ReLU: H = np.maximum(0, Z1)
-    - Tính Z2 = np.dot(H, W2) + b2
-    - Kích hoạt Sigmoid: output = 1.0 / (1.0 + np.exp(-Z2))
-    - Trả về: output
+    Tham so:
+      X:  Ma tran dau vao (N mau bay x 3 cam bien)
+      W1: Trong so tang an (3 x 4)
+      b1: Do lech tang an (1 x 4)
+      W2: Trong so tang ra (4 x 1)
+      b2: Do lech tang ra (1 x 1)
+      
+    Tra ve:
+      output: Ma tran xac suat rui ro (N mau bay x 1)
     """
-    Z1 = np.dot(X, W1) + b1
-    H = np.maximum(0, Z1)
-    Z2 = np.dot(H, W2) + b2
-    output = 1.0 / (1.0 + np.exp(-Z2))
-    return output
+    # TODO: Ky su Truong Tuan tu tay thiet ke luong Forward Pass tai day!
+    matran = np.array(X)
+    H = np.dot(X, W1) + b1
+    output = 1/(1+np.exp(-H))
+    output2 = np.dot(output, W2) + b2
+    output2 = 1/(1+np.exp(-output2))
+    return output2
 
 
 if __name__ == "__main__":
@@ -50,7 +53,8 @@ if __name__ == "__main__":
     print("=========================================================\n")
     
     np.random.seed(42)
-    X_input = np.array([[12.0, -5.0, 100.0], [45.0, 30.0, 5.0]]) # 2 chuyến bay
+    # 2 chuyen bay: [Pitch, Roll, Altitude]
+    X_input = np.array([[12.0, -5.0, 100.0], [45.0, 30.0, 5.0]]) 
     
     W1 = np.random.randn(3, 4)
     b1 = np.zeros((1, 4))
@@ -60,13 +64,14 @@ if __name__ == "__main__":
     predictions = forward_pass_neural_net(X_input, W1, b1, W2, b2)
     
     if predictions is not None:
-        print(f"1. KẾT QUẢ FORWARD PASS CỦA MẠNG NƠ-RON 2 LỚP:")
-        print(f"   -> Kích thước ma trận Dự đoán (Shape) : {predictions.shape}")
-        print(f"   -> Xác suất Dự đoán Mẫu 1 (An toàn)  : {predictions[0, 0]*100:.1f}%")
-        print(f"   -> Xác suất Dự đoán Mẫu 2 (Nguy hiểm): {predictions[1, 0]*100:.1f}%")
+        print("1. KET QUA FORWARD PASS CUA MANG NO-RON 2 LOP:")
+        print(f"   -> Kich thuoc ma tran Du doan (Shape) : {predictions.shape}")
+        print(f"   -> Xac suat Du doan Mau 1 (An toan)  : {predictions[0, 0]*100:.1f}%")
+        print(f"   -> Xac suat Du doan Mau 2 (Nguy hiem): {predictions[1, 0]*100:.1f}%")
         
-        # Kiểm tra tính chính xác
-        assert predictions.shape == (2, 1), "Lỗi kích thước ma trận đầu ra!"
-        assert 0.0 <= predictions[0, 0] <= 1.0, "Lỗi giá trị Sigmoid!"
-        
-        print("\n[THÀNH CÔNG] TRÒ ĐÃ TỰ TAY THIẾT KẾ DÒNG CHẢY DỮ LIỆU FORWARD PASS CHO MẠNG NƠ-RON!")
+        # Kiem tra tinh chinh xac
+        assert predictions.shape == (2, 1), "Loi kich thuoc ma tran dau ra!"
+        assert 0.0 <= predictions[0, 0] <= 1.0, "Loi gia tri Sigmoid!"
+        print("\n[THANH CONG] MANG NO-RON 2 LOP DA TINH TOAN TOAN BO LUONG DU LIEU CHINH XAC!")
+    else:
+        print("[CHO XU LY] Ham forward_pass_neural_net dang tra ve None. Moi tro vao code!")

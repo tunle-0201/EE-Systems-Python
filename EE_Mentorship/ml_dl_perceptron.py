@@ -37,10 +37,12 @@ def single_neuron_drone_warning(speed, distance, W, b):
     - Tính xác suất qua Sigmoid: 1.0 / (1.0 + np.exp(-Z))
     - Trả về: probability
     """
+    # TODO: Trò tự tay viết hàm này theo Hộp Công Cụ bên dưới!
     X = np.array([speed, distance])
     Z = np.dot(X, W) + b
-    probability = 1.0 / (1.0 + np.exp(-Z))
-    return probability
+    prob = 1/(1+np.exp(-Z))
+    return prob
+
 
 
 if __name__ == "__main__":
@@ -56,14 +58,14 @@ if __name__ == "__main__":
     prob = single_neuron_drone_warning(85.0, 2.0, W_weights, b_bias)
     
     if prob is not None:
-        print(f"1. KẾT QUẢ TÍNH TOÁN CỦA TẾ BÀO NƠ-RON AI:")
-        print(f"   -> Tổng tín hiệu tích tụ (Z)      : {np.log(prob / (1 - prob)):.2f}")
-        print(f"   -> Xác suất Cảnh báo Va chạm     : {prob * 100:.1f}%")
+        print("1. KET QUA TINH TOAN CUA TE BAO NO-RON AI:")
+        print(f"   -> Tong tin hieu tich tu (Z)      : {np.log(prob / (1 - prob)):.2f}")
+        print(f"   -> Xac suat Canh bao Va cham     : {prob * 100:.1f}%")
         
-        status = "🚨 NGUY HIỂM: NÊ VẬT CẢN KHẨN CẤP!" if prob > 0.5 else "AN TOÀN 🟢"
-        print(f"   -> Trạng thái Nơ-ron AI          : {status}")
+        status = "NGUY HIEM: NE VAT CAN KHAN CAP!" if prob > 0.5 else "AN TOAN"
+        print(f"   -> Trang thai No-ron AI          : {status}")
         
-        # Kiểm tra tính chính xác (Tốc độ 85km/h, Khoảng cách 2m -> Nguy hiểm > 90%)
-        assert prob > 0.8, "Lỗi tính toán Nơ-ron!"
+        # Kiem tra tinh chinh xac (Toc do 85km/h, Khoang cach 2m -> Nguy hiem > 90%)
+        assert prob > 0.8, "Loi tinh toan No-ron!"
         
-        print("\n[THÀNH CÔNG] NƠ-RON AI ĐẦU TIÊN CỦA TRÒ ĐÃ TÍNH TOÁN XÁC SUẤT NGUY HIỂM CHÍNH XÁC!")
+        print("\n[THANH CONG] NO-RON AI DAU TIEN CUA TRO DA TINH TOAN XAC SUAT NGUY HIEM CHINH XAC!")
