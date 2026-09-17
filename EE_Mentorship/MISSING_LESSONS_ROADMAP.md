@@ -29,8 +29,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đúng phương pháp Bottom-Up:
 
 ### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI)
-- [ ] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid.
-- [ ] **Bài 2:** `ml_dl_forward_pass.py` -> Mạng 2 lớp & Hàm ReLU xấp xỉ vạn năng.
+- [x] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid (COMPLETED ✅).
+- [x] **Bài 2:** `ml_dl_forward_pass.py` -> Mạng 2 lớp & Hàm ReLU xấp xỉ vạn năng (COMPLETED ✅).
 - [ ] **Bài 3:** `ml_dl_backprop.py` -> Đạo hàm lan truyền ngược Backpropagation (Chain Rule dL/dW).
 - [ ] **Bài 4:** `ml_dl_loss_functions.py` -> So sánh hàm mất mát MSE vs Binary Cross-Entropy.
 - [ ] **Bài 5:** `ml_dl_minibatch.py` -> Thuật toán Mini-Batch Gradient Descent (Batch size = 20, X.T).
