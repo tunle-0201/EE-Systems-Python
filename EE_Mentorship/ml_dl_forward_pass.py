@@ -39,10 +39,11 @@ def forward_pass_neural_net(X, W1, b1, W2, b2):
       output: Ma tran xac suat rui ro (N mau bay x 1)
     """
     # TODO: Ky su Truong Tuan tu tay thiet ke luong Forward Pass tai day!
-    matran = np.array(X)
-    H = np.dot(X, W1) + b1
-    output = 1/(1+np.exp(-H))
-    output2 = np.dot(output, W2) + b2
+    
+    K = np.dot(X, W1) + b1
+    H = np.maximum(0, K)
+    
+    output2 = np.dot(H, W2) + b2
     output2 = 1/(1+np.exp(-output2))
     return output2
 
