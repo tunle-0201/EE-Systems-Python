@@ -87,12 +87,12 @@ if __name__ == "__main__":
         W_curr, b_curr = train_minibatch_gd(X_data, y_data, W_curr, b_curr, batch_size=20, lr=0.05)
     
     if W_curr is not None:
-        print(f"1. KẾT QUẢ HUẤN LUYỆN BẰNG THUẬT TOÁN MINI-BATCH GRADIENT DESCENT:")
-        print(f"   -> Trọng số W1 học được : {W_curr[0, 0]:.2f} (Sát mốc chuẩn 3.00!)")
-        print(f"   -> Trọng số W2 học được : {W_curr[1, 0]:.2f} (Sát mốc chuẩn -2.00!)")
-        print(f"   -> Bias b học được      : {b_curr:.2f} (Sát mốc chuẩn 1.50!)")
+        print(f"1. KET QUA HUAN LUYEN BANG THUAT TOAN MINI-BATCH GRADIENT DESCENT:")
+        print(f"   -> Trong so W1 hoc duoc : {W_curr[0, 0]:.2f} (Sat moc chuan 3.00!)")
+        print(f"   -> Trong so W2 hoc duoc : {W_curr[1, 0]:.2f} (Sat moc chuan -2.00!)")
+        print(f"   -> Bias b hoc duoc      : {b_curr:.2f} (Sat moc chuan 1.50!)")
         
-        # Kiểm tra tính chính xác
-        assert abs(W_curr[0, 0] - 3.0) < 0.2 and abs(W_curr[1, 0] - (-2.0)) < 0.2, "Lỗi huấn luyện Mini-Batch!"
+        # Kiem tra tinh chinh xac
+        assert abs(W_curr[0, 0] - 3.0) < 0.2 and abs(W_curr[1, 0] - (-2.0)) < 0.2, "Loi huan luyen Mini-Batch!"
         
-        print("\n[THÀNH CÔNG] TRÒ ĐÃ LÀM CHỦ KỸ THUẬT HUẤN LUYỆN CỦA CÁC SIÊU MÁY CHỦ AI KHI XỬ LÝ DỮ LIỆU LỚN!")
+        print("\n[THANH CONG] TRO DA LAM CHU KY THUAT HUAN LUYEN CUA CAC SIEU MAY CHU AI KHI XU LY DU LIEU LON!")
