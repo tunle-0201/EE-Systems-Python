@@ -28,13 +28,13 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đúng phương pháp Bottom-Up:
 
-### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI)
+### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI) [HOÀN THÀNH 100% ✅]
 - [x] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid (COMPLETED ✅).
 - [x] **Bài 2:** `ml_dl_forward_pass.py` -> Mạng 2 lớp & Hàm ReLU xấp xỉ vạn năng (COMPLETED ✅).
-- [ ] **Bài 3:** `ml_dl_backprop.py` -> Đạo hàm lan truyền ngược Backpropagation (Chain Rule dL/dW).
-- [ ] **Bài 4:** `ml_dl_loss_functions.py` -> So sánh hàm mất mát MSE vs Binary Cross-Entropy.
-- [ ] **Bài 5:** `ml_dl_minibatch.py` -> Thuật toán Mini-Batch Gradient Descent (Batch size = 20, X.T).
-- [ ] **Bài 6:** `ml_dl_pytorch_autograd.py` -> Đồ thị tính toán PyTorch Computational Graph & `loss.backward()`.
+- [x] **Bài 3:** `ml_dl_backprop.py` -> Đạo hàm lan truyền ngược Backpropagation (Chain Rule dL/dW) (COMPLETED ✅).
+- [x] **Bài 4:** `ml_dl_loss_functions.py` -> So sánh hàm mất mát MSE vs Binary Cross-Entropy (COMPLETED ✅).
+- [x] **Bài 5:** `ml_dl_minibatch.py` -> Thuật toán Mini-Batch Gradient Descent (Batch size = 20, X.T) (COMPLETED ✅).
+- [x] **Bài 6:** `ml_dl_pytorch_autograd.py` -> Đồ thị tính toán PyTorch Computational Graph & `loss.backward()` (COMPLETED ✅).
 
 ### 👁️ NHÓM 2: THỊ GIÁC MÁY TÍNH & CNN TRÍ TUỆ NHÂN TẠO (MODULE G & H - 6 BÀI)
 - [ ] **Bài 7:** `cv_edge_convolution_2d.py` -> Phép nhân chập ma trận 2D Convolution trích xuất cạnh.

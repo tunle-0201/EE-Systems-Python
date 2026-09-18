@@ -66,12 +66,12 @@ if __name__ == "__main__":
     loss_val, grad_val = compute_pytorch_autograd(X_in, y_target, W_weight)
     
     if loss_val is not None:
-        print(f"1. KẾT QUẢ TỰ ĐỘNG TÍNH ĐẠO HÀM AUTOGRAD (COMPUTATIONAL GRAPH):")
-        print(f"   -> Giá trị Sai số (Loss)            : {loss_val:.2f}")
-        print(f"   -> Đạo hàm Autograd (W.grad / dL_dW): {grad_val:.2f}")
+        print(f"1. KET QUA TU DONG TINH DAO HAM AUTOGRAD (COMPUTATIONAL GRAPH):")
+        print(f"   -> Gia tri Sai so (Loss)            : {loss_val:.2f}")
+        print(f"   -> Dao ham Autograd (W.grad / dL_dW): {grad_val:.2f}")
         
-        # Kiểm tra tính chính xác (Loss = (2 - 10)^2 = 64, Grad = 2*(2-10)*2 = -32)
-        assert abs(loss_val - 64.0) < 1e-5, "Lỗi tính Loss Autograd!"
-        assert abs(grad_val - (-32.0)) < 1e-5, "Lỗi tính Gradient Autograd!"
+        # Kiem tra tinh chinh xac (Loss = (2 - 10)^2 = 64, Grad = 2*(2-10)*2 = -32)
+        assert abs(loss_val - 64.0) < 1e-5, "Loi tinh Loss Autograd!"
+        assert abs(grad_val - (-32.0)) < 1e-5, "Loi tinh Gradient Autograd!"
         
-        print("\n[THÀNH CÔNG] TRÒ ĐÃ LÀM CHỦ NGUYÊN LÝ TỰ ĐỘNG LẤY ĐẠO HÀM AUTOGRAD CỦA PYTORCH!")
+        print("\n[THANH CONG] TRO DA LAM CHU NGUYEN LY TU DONG LAY DAO HAM AUTOGRAD CUA PYTORCH!")
