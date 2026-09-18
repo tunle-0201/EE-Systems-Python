@@ -54,17 +54,17 @@ if __name__ == "__main__":
     W_current = 1.0
     learning_rate = 0.01
     
-    print(f"Ban đầu: W = {W_current:.2f}, Dự đoán y_pred = {X_val * W_current:.2f} (Đáp án đúng là 10.0)")
+    print(f"Ban dau: W = {W_current:.2f}, Du doan y_pred = {X_val * W_current:.2f} (Dap an dung la 10.0)")
     
     W_new, loss = train_single_step_gradient_descent(X_val, y_true, W_current, learning_rate)
     
     if W_new is not None:
-        print(f"\n1. KẾT QUẢ CẬP NHẬT TRỌNG SỐ SAU 1 BƯỚC HỌC (BACKPROP):")
-        print(f"   -> Sai số Loss                     : {loss:.2f}")
-        print(f"   -> Trọng số W mới (W_new)          : {W_new:.2f} (Đã tăng từ 1.00 lên sát hơn!)")
-        print(f"   -> Dự đoán mới sau khi học         : {X_val * W_new:.2f}")
+        print(f"\n1. KET QUA CAP NHAT TRONG SO SAU 1 BUOC HOC (BACKPROP):")
+        print(f"   -> Sai so Loss                     : {loss:.2f}")
+        print(f"   -> Trong so W moi (W_new)          : {W_new:.2f} (Da tang tu 1.00 len sat hon!)")
+        print(f"   -> Du doan moi sau khi hoc         : {X_val * W_new:.2f}")
         
-        # Kiểm tra tính chính xác (Trọng số W phải tăng lên để kéo 2.0 lên sát 10.0)
-        assert W_new > W_current, "Lỗi thuật toán Gradient Descent!"
+        # Kiem tra tinh chinh xac (Trong so W phai tang len de keo 2.0 len sat 10.0)
+        assert W_new > W_current, "Loi thuat toan Gradient Descent!"
         
-        print("\n[THÀNH CÔNG] THUẬT TOÁN HỌC BACKPROPAGATION ĐÃ CẬP NHẬT TRỌNG SỐ AI TỰ ĐỘNG!")
+        print("\n[THANH CONG] THUAT TOAN HOC BACKPROPAGATION DA CAP NHAT TRONG SO AI TU DONG!")
