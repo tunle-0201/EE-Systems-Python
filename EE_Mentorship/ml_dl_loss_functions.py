@@ -46,11 +46,11 @@ if __name__ == "__main__":
     mse, bce = compute_losses(y_t, y_p)
     
     if mse is not None:
-        print(f"1. KẾT QUẢ ĐO ĐẠC SAI SỐ CỦA MẠNG NƠ-RON AI:")
+        print(f"1. KET QUA DO DAC SAI SO CUA MANG NO-RON AI:")
         print(f"   -> MSE Loss (Mean Squared Error)     : {mse:.4f}")
-        print(f"   -> BCE Loss (Binary Cross Entropy)   : {bce:.4f} (Rất nhỏ sát 0!)")
+        print(f"   -> BCE Loss (Binary Cross Entropy)   : {bce:.4f} (Rat nho sat 0!)")
         
-        # Kiểm tra tính chính xác
-        assert mse < 0.05 and bce < 0.15, "Lỗi tính toán hàm Loss!"
+        # Kiem tra tinh chinh xac
+        assert mse < 0.05 and bce < 0.15, "Loi tinh toan ham Loss!"
         
-        print("\n[THÀNH CÔNG] TRÒ ĐÃ LÀM CHỦ CẢ 2 HÀM SAI SỐ TỔN THẤT MSE VÀ BCE DÀNH CHO DEEP LEARNING!")
+        print("\n[THANH CONG] TRO DA LAM CHU CA 2 HAM SAI SO TON THAT MSE VA BCE DANH CHO DEEP LEARNING!")
