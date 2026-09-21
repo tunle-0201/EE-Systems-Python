@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **27/08/2026**  
+Bản cập nhật ngày: **20/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -36,13 +36,13 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 - [x] **Bài 5:** `ml_dl_minibatch.py` -> Thuật toán Mini-Batch Gradient Descent (Batch size = 20, X.T) (COMPLETED ✅).
 - [x] **Bài 6:** `ml_dl_pytorch_autograd.py` -> Đồ thị tính toán PyTorch Computational Graph & `loss.backward()` (COMPLETED ✅).
 
-### 👁️ NHÓM 2: THỊ GIÁC MÁY TÍNH & CNN TRÍ TUỆ NHÂN TẠO (MODULE G & H - 6 BÀI)
-- [ ] **Bài 7:** `cv_edge_convolution_2d.py` -> Phép nhân chập ma trận 2D Convolution trích xuất cạnh.
-- [ ] **Bài 8:** `cv_edge_max_pooling.py` -> Phép nén không gian Max Pooling 2x2.
-- [ ] **Bài 9:** `cv_edge_soft_max.py` -> Hàm chuẩn hóa xác suất đa lớp Softmax.
-- [ ] **Bài 10:** `cv_edge_optical_flow.py` -> Lucas-Kanade Optical Flow giữ tọa độ Drone không có GPS.
-- [ ] **Bài 11:** `cv_edge_aruco_landing.py` -> ArUco Marker Precision Landing hạ cánh chính xác trạm sạc.
-- [ ] **Bài 12:** `cv_edge_stereo_depth.py` -> Stereo Vision Disparity Map đo độ sâu 3D né vật cản.
+### 👁️ NHÓM 2: THỊ GIÁC MÁY TÍNH & CNN TRÍ TUỆ NHÂN TẠO (MODULE G & H - 6 BÀI) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 7:** `cv_edge_convolution_2d.py` -> Phép nhân chập ma trận 2D Convolution trích xuất cạnh (COMPLETED ✅).
+- [x] **Bài 8:** `cv_edge_max_pooling.py` -> Phép nén không gian Max Pooling 2x2 (COMPLETED ✅).
+- [x] **Bài 9:** `cv_edge_soft_max.py` -> Hàm chuẩn hóa xác suất đa lớp Softmax (COMPLETED ✅).
+- [x] **Bài 10:** `cv_edge_optical_flow.py` -> Lucas-Kanade Optical Flow giữ tọa độ Drone không có GPS (COMPLETED ✅).
+- [x] **Bài 11:** `cv_edge_aruco_landing.py` -> ArUco Marker Precision Landing hạ cánh chính xác trạm sạc (COMPLETED ✅).
+- [x] **Bài 12:** `cv_edge_stereo_depth.py` -> Stereo Vision Disparity Map đo độ sâu 3D né vật cản (COMPLETED ✅).
 
 ### 🎯 NHÓM 3: PHÁT HIỆN VẬT THỂ & KHUNG BAO OBJECT DETECTION (MODULE I - 3 BÀI)
 - [ ] **Bài 13:** `cv_edge_iou_calculator.py` -> Tỷ lệ giao nhau Intersection over Union (IoU).

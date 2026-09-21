@@ -7,7 +7,26 @@
 TẠI SAO CẦN THẺ ARUCO MARKER CHO HẠ CÁNH CHÍNH XÁC?
 Để Drone tự động hạ cánh xuống trạm sạc không dây với độ chính xác milimet:
 - Thẻ ArUco (Ma trận mã vạch hình vuông) được dán ở tâm trạm sạc.
-- Camera phát hiện 4 góc thẻ ArUco -> Tính toán góc lệch Roll, Pitch và Khoảng cách z_distance.
+- Sơ đồ định vị sai lệch hạ cánh tâm trạm sạc:
+
+  Khung hình Camera Drone (Tâm khung ảnh: x_c, y_c)
+  ┌──────────────────────────────────────────────┐
+  │                                              │
+  │              Tâm Camera (x_c, y_c)           │
+  │                      +                       │
+  │                       \                      │
+  │                        \  Vector lệch        │
+  │                         \   (dx, dy)         │
+  │                          ▼                   │
+  │                      ┌──────┐                │
+  │                      │ArUco │ Tâm thẻ trạm sạc
+  │                      │Marker│ (x_m, y_m)     │
+  │                      └──────┘                │
+  │                                              │
+  └──────────────────────────────────────────────┘
+
+- Công thức sai số khoảng cách Euclid (Dạng chữ phẳng):
+     distance_err = sqrt(dx^2 + dy^2)
 """
 
 import numpy as np

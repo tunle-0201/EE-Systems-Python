@@ -5,9 +5,9 @@
 ================================================================================
 
 TẠI SAO CẦN LƯỚI KHUNG NEO ANCHOR BOXES TRONG YOLO / SSD?
-Thuật toán AI chia khung hình thành lưới Grid (ví dụ $7 \times 7$ hoặc $13 \times 13$):
-- Tại mỗi ô lưới, AI chuẩn bị sẵn 3 hoặc 5 khung mẫu (Anchor Boxes) với các tỷ lệ Aspect Ratio khác nhau ($1:1, 1:2, 2:1$).
-- AI chỉ cần dự đoán độ lệch $\Delta x, \Delta y, \Delta w, \Delta h$ so với Anchor Box mẫu!
+Thuật toán AI chia khung hình thành lưới Grid (ví dụ 7x7 hoặc 13x13):
+- Tại mỗi ô lưới, AI chuẩn bị sẵn 3 hoặc 5 khung mẫu (Anchor Boxes) với các tỷ lệ Aspect Ratio khác nhau (1:1, 1:2, 2:1).
+- AI chỉ cần dự đoán độ lệch delta_x, delta_y, delta_w, delta_h so với Anchor Box mẫu!
 """
 
 import numpy as np

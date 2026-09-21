@@ -6,8 +6,25 @@
 
 TẠI SAO CẦN STEREO VISION CAM DOUBLE DÀNH CHO DRONE?
 Camera kép (Stereo Camera) mô phỏng 2 con mắt con người:
+- Sơ đồ tam giác đồng dạng tính độ sâu 3D (Stereo Triangulation):
+
+    Camera Trái (Left)           Camera Phải (Right)
+          \                             /
+           \    Khoảng cách đế B       /
+            \◄────────────────────────►/
+             \                        /
+              \                      /  Khoảng cách độ sâu Z (Depth)
+               \                    /
+                \                  /
+                 ▼                ▼
+                   [ VẬT CẢN 3D ]
+
 - Phép lệch pha (Disparity = x_left - x_right) giữa 2 bức ảnh.
-- Khoảng cách 3D Z = (focal_length * baseline) / disparity.
+- Công thức tính độ sâu Z (Dạng chữ phẳng):
+              focal_length * baseline_m
+       Z  =  ───────────────────────────
+                    disparity_pixel
+
 - Giúp Drone tái tạo bản đồ 3D né vật cản trong đêm tối!
 """
 
