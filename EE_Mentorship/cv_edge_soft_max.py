@@ -7,8 +7,23 @@
 TẠI SAO CẦN HÀM SOFTMAX Ở LỚP CUỐI CỦA MẠNG AI PHÂN LOẠI ĐA LỚP?
 Khi AI nhận diện 3 vật thể (0: Cây cối, 1: Xe hơi, 2: Con người):
 - Lớp Output cho ra 3 con số thô (Logits - Ví dụ [2.0, 1.0, 0.1]).
-- Hàm Softmax chuyển đổi 3 con số thô này thành **Mảng Xác suất tổng bằng 1.0 (100%)**:
-  softmax(z_i) = exp(z_i) / sum(exp(z_j))
+- Sơ đồ chuyển đổi xác suất số học ổn định (Numerically Stable Softmax):
+
+  Raw Logits (z) ────> [ 2.0,  1.0,  0.1 ]
+                             │
+                             ▼  (Trừ max(z) = 2.0 chống tràn số float32)
+  Shifted (z - max) ──> [ 0.0, -1.0, -1.9 ]
+                             │
+                             ▼  (Lấy hàm mũ exp)
+  Numerators ─────────> [ 1.0, 0.3679, 0.1496 ]
+                             │
+                             ▼  (Chia cho tổng sum = 1.5175)
+  Probabilities P ────> [ 0.659, 0.242, 0.099 ]  ===>  Tổng = 1.0 (100%)
+
+- Công thức toán học (Dạng chữ phẳng):
+                  exp(z_i - max(z))
+  Softmax(z_i) = ────────────────────
+                 sum(exp(z_j - max(z)))
 """
 
 import numpy as np
