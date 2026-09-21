@@ -5,10 +5,21 @@
 ================================================================================
 
 TẠI SAO PHÉP CUỘN 2D CONVOLUTION LÀ TRÁI TIM CỦA COMPUTER VISION AI (CNN)?
-Mô hình CNN trượt một cửa sổ con dấu nhỏ (Kernel $3 \times 3$) khắp bức ảnh:
+Mô hình CNN trượt một cửa sổ con dấu nhỏ (Kernel 3x3) khắp bức ảnh:
 - Trích xuất các cạnh đường viền (Edge Detection), góc nhọn, và kết cấu vật thể.
+- Sơ đồ nguyên lý tích chập 2D:
+
+  Image Patch (3x3)         Sobel Kernel (3x3)       Feature Cell
+  ┌────┬────┬────┐          ┌────┬────┬────┐
+  │ 10 │ 10 │ 0  │          │  1 │  0 │ -1 │
+  ├────┼────┼────┤     *    ├────┼────┼────┤   ===>   output[i, j] = 30.0
+  │ 10 │ 10 │ 0  │          │  1 │  0 │ -1 │
+  ├────┼────┼────┤          ├────┼────┼────┤
+  │ 10 │ 10 │ 0  │          │  1 │  0 │ -1 │
+  └────┴────┴────┘          └────┴────┴────┘
+
 - Công thức tại mỗi vị trí (i, j):
-  output[i, j] = np.sum(image_patch * kernel)
+  output[i, j] = sum(patch * kernel)
 """
 
 import numpy as np

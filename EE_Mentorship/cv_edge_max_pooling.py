@@ -6,8 +6,21 @@
 
 TẠI SAO CẦN PHÉP NÉN MAX POOLING 2X2 TRONG MẠNG CNN?
 Để giảm 75% số lượng điểm ảnh, tăng tốc AI gấp 4 lần nhưng vẫn giữ lại đặc trưng mạnh nhất:
-- Trượt cửa sổ $2 \times 2$ với bước nhảy (Stride) = 2.
-- Lấy giá trị lớn nhất: `output[i, j] = np.max(patch_2x2)`
+- Trượt cửa sổ 2x2 với bước nhảy (Stride) = 2.
+- Sơ đồ nguyên lý nén không gian Max Pooling 2x2:
+
+  Input Feature Map (4x4)               Max Pooled Map (2x2)
+  ┌─────┬─────┬─────┬─────┐
+  │ 1.0 │ 3.0 │ 2.0 │ 4.0 │
+  ├─────┼─────┼─────┼─────┤             ┌─────┬─────┐
+  │ 5.0 │ 6.0 │ 1.0 │ 2.0 │    ===>     │ 6.0 │ 4.0 │
+  ├─────┼─────┼─────┼─────┤   (max)     ├─────┼─────┤
+  │ 8.0 │ 7.0 │ 3.0 │ 9.0 │             │ 8.0 │ 9.0 │
+  ├─────┼─────┼─────┼─────┤             └─────┴─────┘
+  │ 0.0 │ 2.0 │ 4.0 │ 1.0 │
+  └─────┴─────┴─────┴─────┘
+
+- Lấy giá trị lớn nhất: output[i, j] = max(patch_2x2)
 """
 
 import numpy as np
