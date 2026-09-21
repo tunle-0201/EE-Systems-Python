@@ -7,8 +7,23 @@
 TẠI SAO CẦN OPTICAL FLOW TRONG MÔI TRƯỜNG KHÔNG CÓ GPS (GPS-DENIED)?
 Khi Drone bay trong nhà, hầm mỏ hoặc tán cây che khuất vệ tinh GPS:
 - Camera nhìn xuống đất (Downward-facing camera) liên tục chụp ảnh.
-- Thuật toán **Optical Flow (Dòng chảy Quang học Lucas-Kanade)** theo dõi sự dịch chuyển của các điểm đặc trưng (Features) giữa 2 khung hình liên tiếp.
-- Vận tốc Drone = (Dịch chuyển Pixel / dt) * Độ cao bay.
+- Sơ đồ nguyên lý dòng chảy quang học (Optical Flow Odometry):
+
+  Drone ở độ cao h (altitude = 2.0m)
+       │
+       ▼  Camera hướng xuống mặt đất chụp liên tiếp 2 Frame (dt = 33ms)
+  ┌───────────────────────────────────────────────┐
+  │ Frame 1 (t)   : Điểm P(x, y)                  │
+  │ Frame 2 (t+dt): Điểm P(x+dx, y+dy)            │
+  └───────────────────────────────────────────────┘
+                        │
+                        ▼  Vector trôi điểm ảnh (dx, dy)
+  Công thức tính vận tốc trôi thực tế (Dạng chữ phẳng):
+                     avg_pixel_shift     altitude_m
+      velocity_m_s = ───────────────  *  ──────────
+                           dt              f_scale
+
+- Giúp bộ điều khiển bay (Flight Controller) bù lực đẩy cánh quạt, giữ Drone đứng yên lơ lửng (Position Hover Hold).
 """
 
 import numpy as np
