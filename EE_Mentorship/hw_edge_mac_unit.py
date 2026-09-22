@@ -10,6 +10,28 @@ Trong Mạng Nơ-ron, 99% phép tính là:
 Khối phần cứng Multiply-Accumulate (MAC Unit) thực hiện phép tính:
   Accumulator = Accumulator + (Input * Weight)
 trong đúng 1 chu kỳ xung nhịp Clock (1 Clock Cycle)!
+
+Sơ đồ khối vi mạch phần cứng khối MAC Unit (Hardware Circuit Block):
+
+  Tín hiệu Vào Input X ────┐
+                           ▼
+                         ┌───┐
+                         │ * │ (Bộ Nhân Multiplier: x * w)
+                         └───┘
+  Trọng số Weight W ───────┘
+                           │
+                           ▼
+                         ┌───┐
+                         │ + │ (Bộ Cộng Adder: acc + x * w)
+                         └───┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │     Thanh ghi     │
+                 │    Accumulator    │ ────> Kết quả MAC Output
+                 └───────────────────┘
+                           │
+                           └──────── (Đường hồi tiếp Feedback)
 """
 
 class HardwareMACUnit:

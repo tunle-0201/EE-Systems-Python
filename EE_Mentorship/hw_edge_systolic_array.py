@@ -8,7 +8,22 @@ TẠI SAO GOOGLE TPU & NPU DÙNG KIẾN TRÚC MẢNG SYSTOLIC ARRAY?
 Systolic Array (Mảng co bóp như nhịp tim):
 - Thay vì đọc/ghi RAM liên tục gây nghẽn cổ chai bus (Memory Wall).
 - Dữ liệu được đẩy chuyền tay giữa các phần tử Processing Elements (PE) láng giềng.
-- Nhân ma trận $2 \times 2$ với tốc độ phần cứng cực đại!
+- Nhân ma trận 2x2 với tốc độ phần cứng cực đại!
+
+Sơ đồ dòng chảy dữ liệu Mảng Systolic Array 2x2 (Google TPU Dataflow):
+
+           Dữ liệu Ma trận B (Weight) truyền từ trên xuống:
+                     B[0, 0]          B[0, 1]
+                        │                │
+                        ▼                ▼
+  A[0, 0] ───────> ┌─────────┐ ──────> ┌─────────┐
+  (Ma trận A       │ PE(0,0) │         │ PE(0,1) │
+   truyền ngang)   └─────────┘         └─────────┘
+                        │                │
+                        ▼                ▼
+  A[1, 0] ───────> ┌─────────┐ ──────> ┌─────────┐
+                   │ PE(1,0) │         │ PE(1,1) │
+                   └─────────┘         └─────────┘
 """
 
 import numpy as np

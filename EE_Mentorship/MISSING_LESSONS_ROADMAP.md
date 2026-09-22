@@ -50,7 +50,7 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 - [x] **Bài 15:** `cv_edge_yolo_drone_detector.py` -> Kiến trúc phát hiện mục tiêu YOLO cho Drone (COMPLETED ✅).
 
 ### ⚡ NHÓM 4: CÁC CHUYÊN ĐỀ PHẦN CỨNG & HỆ THỐNG CAO CẤP (MODULE J -> Q - 8 CHUYÊN ĐỀ)
-- [ ] **Chuyên đề J:** Kiến trúc chip NPU (Khối MAC, Mảng Systolic Array, Vector SIMD 128-bit).
+- [x] **Chuyên đề J:** Kiến trúc chip NPU (Khối MAC, Mảng Systolic Array, Vector SIMD 128-bit) (COMPLETED ✅).
 - [ ] **Chuyên đề K:** Hệ điều hành thời gian thực FreeRTOS (Task Scheduler, Mutex, Message Queue).
 - [ ] **Chuyên đề L:** Xử lý tín hiệu số DSP (Mạch lọc FIR, Phân tích phổ FFT cánh quạt, Mạch IIR).
 - [ ] **Chuyên đề M:** Mạng truyền thông xe hơi CAN-Bus (11-bit ID, Bit Stuffing, Bitwise Arbitration).

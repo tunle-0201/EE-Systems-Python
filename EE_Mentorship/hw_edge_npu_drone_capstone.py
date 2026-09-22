@@ -4,6 +4,29 @@
 ================================================================================
 
 TÍCH HỢP TOÀN BỘ PHẦN CỨNG TĂNG TỐC AI: MAC UNIT + SYSTOLIC ARRAY + VECTOR SIMD
+
+Sơ đồ khối vi xử lý đồng hành Edge NPU SoC (Hardware Co-processor Architecture):
+
+               Dòng dữ liệu Cảm biến / Trọng số AI
+                                │
+             ┌──────────────────┴──────────────────┐
+             ▼                                     ▼
+  ┌───────────────────────┐             ┌─────────────────────┐
+  │ 2x2 Systolic Array    │             │ 128-bit Vector SIMD │
+  │ Nhân ma trận Tensor   │             │ Tích vô hướng 4 làn │
+  └───────────────────────┘             └─────────────────────┘
+             │                                     │
+             ▼                                     ▼
+      Ma trận Trọng số                      Dòng tổng tích
+                                                   │
+                                                   ▼
+                                        ┌─────────────────────┐
+                                        │ Hardware MAC Unit   │
+                                        │ Thanh ghi Tích lũy  │
+                                        └─────────────────────┘
+                                                   │
+                                                   ▼
+                                    Kết quả suy luận AI Co-processor
 """
 
 from hw_edge_mac_unit import HardwareMACUnit
