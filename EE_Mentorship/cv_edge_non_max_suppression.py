@@ -9,6 +9,21 @@ Khi AI quét 1 con Drone, nó phát hiện hàng chục khung Bounding Box chèn
 Thuật toán **Non-Maximum Suppression (NMS)** giúp:
 1. Giữ lại khung có Độ tin cậy (Confidence score) cao nhất.
 2. Sàng lọc loại bỏ tất cả các khung xung quanh có IoU > threshold.
+
+Sơ đồ quy trình lọc khung trùng lặp NMS:
+
+  Danh sách khung thô kèm điểm số Confidence:
+    Box 1: Score 0.95 ──┐
+    Box 2: Score 0.80 ──┼──> Sắp xếp theo Score giảm dần
+    Box 3: Score 0.90 ──┘    ===> [ Box 1 (0.95), Box 3 (0.90), Box 2 (0.80) ]
+                                      │
+                                      ▼
+  Vòng lặp triệt tiêu khung:
+    - Bước 1: Chọn Box 1 (0.95) làm mốc chuẩn (GIỮ LẠI).
+    - Bước 2: So sánh IoU với các khung còn lại:
+              + IoU(Box 1, Box 3) = 0.00 < 0.5  ──> GIỮ LẠI (Vật thể khác)
+              + IoU(Box 1, Box 2) = 0.98 > 0.5  ──> LOẠI BỎ (Trùng lặp bóng ma)
+    ===> Kết quả sau NMS: 2 khung mục tiêu rõ nét, sạch hoàn toàn trùng lặp!
 """
 
 from cv_edge_iou_calculator import compute_bounding_box_iou
