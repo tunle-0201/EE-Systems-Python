@@ -5,6 +5,28 @@
 
 TÍCH HỢP TOÀN BỘ HỆ THỐNG ANCHORS + IOU + NMS FILTERING:
 Tích hợp Anchor Boxes + IoU + Non-Maximum Suppression (NMS) thành Detector hoàn chỉnh.
+
+Sơ đồ khối toàn chuỗi kiến trúc Drone YOLO Detector:
+
+  Ảnh Camera Drone (300x300 px)
+              │
+              ▼
+  ┌──────────────────────────────────────────────┐
+  │ 1. Lưới Khung Neo (Anchor Grid Generator)    │ ──> Sinh 9 Anchor Boxes tại lưới 3x3 Grid
+  └──────────────────────────────────────────────┘
+              │
+              ▼
+  ┌──────────────────────────────────────────────┐
+  │ 2. Dự đoán xác suất (Confidence Scoring)     │ ──> Gán điểm xác suất cho từng Anchor Box
+  └──────────────────────────────────────────────┘
+              │
+              ▼
+  ┌──────────────────────────────────────────────┐
+  │ 3. Khử trùng lặp (IoU + NMS Suppression)     │ ──> Triệt tiêu khung đè nhau (IoU > 0.3)
+  └──────────────────────────────────────────────┘
+              │
+              ▼
+  Danh sách Mục tiêu Bounding Boxes chuẩn xác gửi tới Flight Controller điều hướng né tránh!
 """
 
 from cv_edge_anchor_box_generator import generate_grid_anchor_boxes

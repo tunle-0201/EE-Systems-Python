@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **20/09/2026**  
+Bản cập nhật ngày: **21/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -44,10 +44,10 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 - [x] **Bài 11:** `cv_edge_aruco_landing.py` -> ArUco Marker Precision Landing hạ cánh chính xác trạm sạc (COMPLETED ✅).
 - [x] **Bài 12:** `cv_edge_stereo_depth.py` -> Stereo Vision Disparity Map đo độ sâu 3D né vật cản (COMPLETED ✅).
 
-### 🎯 NHÓM 3: PHÁT HIỆN VẬT THỂ & KHUNG BAO OBJECT DETECTION (MODULE I - 3 BÀI)
-- [ ] **Bài 13:** `cv_edge_iou_calculator.py` -> Tỷ lệ giao nhau Intersection over Union (IoU).
-- [ ] **Bài 14:** `cv_edge_non_max_suppression.py` -> Thuật toán khử trùng lặp khung NMS.
-- [ ] **Bài 15:** `cv_edge_yolo_drone_detector.py` -> Kiến trúc phát hiện mục tiêu YOLO cho Drone.
+### 🎯 NHÓM 3: PHÁT HIỆN VẬT THỂ & KHUNG BAO OBJECT DETECTION (MODULE I - 3 BÀI) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 13:** `cv_edge_iou_calculator.py` -> Tỷ lệ giao nhau Intersection over Union (IoU) (COMPLETED ✅).
+- [x] **Bài 14:** `cv_edge_non_max_suppression.py` -> Thuật toán khử trùng lặp khung NMS (COMPLETED ✅).
+- [x] **Bài 15:** `cv_edge_yolo_drone_detector.py` -> Kiến trúc phát hiện mục tiêu YOLO cho Drone (COMPLETED ✅).
 
 ### ⚡ NHÓM 4: CÁC CHUYÊN ĐỀ PHẦN CỨNG & HỆ THỐNG CAO CẤP (MODULE J -> Q - 8 CHUYÊN ĐỀ)
 - [ ] **Chuyên đề J:** Kiến trúc chip NPU (Khối MAC, Mảng Systolic Array, Vector SIMD 128-bit).
