@@ -7,8 +7,23 @@
 TẠI SAO CẦN THUẬT TOÁN IOU TRONG KHAI THÁC AI THỊ GIÁC (YOLO / DETECTOR)?
 Khi AI vẽ 2 khung hình chữ nhật Bounding Box xung quanh vật thể:
 - Làm sao biết 2 khung đó có đang đè lên cùng 1 vật thể hay không?
-- Ta dùng chỉ số **Intersection over Union (IoU)**:
-  IoU = Diện tích Phần Giao nhau (Intersection) / Diện tích Phần Hợp nhất (Union)
+- Sơ đồ hình học diện tích giao nhau và hợp nhất:
+
+    ┌────────────────────────┐
+    │ Khung Box A            │
+    │        ┌───────────────┼──────────────┐
+    │        │ Phần Giao     │              │
+    │        │ (Intersection)│              │
+    └────────┼───────────────┘              │
+             │                 Khung Box B  │
+             └──────────────────────────────┘
+
+- Công thức toán học tính chỉ số IoU (Dạng chữ phẳng):
+                Diện tích Giao (Intersection)
+     IoU  =  ──────────────────────────────────────
+              Diện tích Hợp nhất (Union Area)
+
+  với: Union Area = Area(A) + Area(B) - Intersection
   (Nếu IoU > 0.5 -> 2 khung đè lên cùng 1 mục tiêu!).
 """
 
