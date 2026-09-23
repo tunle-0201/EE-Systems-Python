@@ -5,11 +5,23 @@
 ================================================================================
 
 TẠI SAO CẦN REAL-TIME OPERATING SYSTEM (FREERTOS) TRÊN DRONE?
-Nếu Drone dùng vòng lặp `while True` thông thường:
+Nếu Drone dùng vòng lặp while True thông thường:
 - Luồng AI chạy tốn 50ms sẽ chặn luồng Điều khiển Motor giữ thăng bằng (cần chạy mỗi 2ms).
 - Drone sẽ bị lộn nhào rơi ngay!
 - Kỹ sư EE dùng **FreeRTOS Preemptive Task Scheduler**:
-  + Tác vụ Ưu tiên cao (Motor Control) luôn CẮP QUYỀN (Preempt) tác vụ ưu tiên thấp (AI Vision / Telemetry).
+  + Tác vụ Ưu tiên cao (Motor Control) luôn CƯỚP QUYỀN (Preempt) tác vụ ưu tiên thấp (AI Vision / Telemetry).
+
+Sơ đồ trục thời gian điều phối cướp quyền (Preemptive Timeline):
+
+  Thời gian: 0ms          2ms          4ms          ...     50ms
+             ┌────────────┬────────────┬────────────┐       ┌────────────────────────┐
+  Priority 10│ Motor Task │ Motor Task │ Motor Task │  ...  │ Motor Task (CƯỚP CPU!) │
+  (Period 2ms│ (Chạy 0.2ms│ (Chạy 0.2ms│ (Chạy 0.2ms│       └──────────┬─────────────┘
+             └────────────┴────────────┴────────────┘                  │ Cướp quyền
+                                                            ┌──────────▼─────────────┐
+  Priority 1 :                                              │ AI Vision Task (50ms)  │
+  (Period 50m)                                              │ (Bị tạm dừng nhường CPU│
+                                                            └────────────────────────┘
 """
 
 class RealTimeTask:
