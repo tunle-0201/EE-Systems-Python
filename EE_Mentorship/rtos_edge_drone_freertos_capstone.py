@@ -4,6 +4,23 @@
 ================================================================================
 
 TÍCH HỢP TOÀN BỘ KIẾN TRÚC FREERTOS: SCHEDULER + MUTEX + MESSAGE QUEUE
+
+Sơ đồ khối toàn hệ thống đa nhiệm FreeRTOS trên Drone:
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │         DRONE MULTI-TASKING FREERTOS FLIGHT ENGINE          │
+  └──────────────────────────────┬──────────────────────────────┘
+                                 │
+            ┌────────────────────┼────────────────────┐
+            ▼                    ▼                    ▼
+  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+  │ Preemptive       │  │ Hardware Mutex   │  │ Inter-Task Queue │
+  │ Task Scheduler   │  │ Bus Protection   │  │ Thread-Safe FIFO │
+  │ (Ưu tiên 10..1)  │  │ (SPI/I2C IMU)    │  │ (AI -> Motors)   │
+  └──────────────────┘  └──────────────────┘  └──────────────────┘
+            │                    │                    │
+            ▼                    ▼                    ▼
+  Ổn định bay 2ms      Chống tranh chấp bus   Truyền thông an toàn
 """
 
 from rtos_edge_task_scheduler import PreemptiveTaskScheduler, RealTimeTask

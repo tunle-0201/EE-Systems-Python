@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **21/09/2026**  
+Bản cập nhật ngày: **22/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -51,7 +51,7 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 
 ### ⚡ NHÓM 4: CÁC CHUYÊN ĐỀ PHẦN CỨNG & HỆ THỐNG CAO CẤP (MODULE J -> Q - 8 CHUYÊN ĐỀ)
 - [x] **Chuyên đề J:** Kiến trúc chip NPU (Khối MAC, Mảng Systolic Array, Vector SIMD 128-bit) (COMPLETED ✅).
-- [ ] **Chuyên đề K:** Hệ điều hành thời gian thực FreeRTOS (Task Scheduler, Mutex, Message Queue).
+- [x] **Chuyên đề K:** Hệ điều hành thời gian thực FreeRTOS (Task Scheduler, Mutex, Message Queue) (COMPLETED ✅).
 - [ ] **Chuyên đề L:** Xử lý tín hiệu số DSP (Mạch lọc FIR, Phân tích phổ FFT cánh quạt, Mạch IIR).
 - [ ] **Chuyên đề M:** Mạng truyền thông xe hơi CAN-Bus (11-bit ID, Bit Stuffing, Bitwise Arbitration).
 - [ ] **Chuyên đề N:** Dung hợp cảm biến Sensor Fusion (Complementary Filter, Kalman Filter 1D).
