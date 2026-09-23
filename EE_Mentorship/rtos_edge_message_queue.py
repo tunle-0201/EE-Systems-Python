@@ -7,8 +7,23 @@
 TẠI SAO CẦN MESSAGE QUEUE GIỮA LUỒNG AI VÀ LUỒNG ĐIỀU KHIỂN BAY?
 Để truyền lệnh từ Bộ não AI sang Motor mà không làm nghẽn CPU:
 - FreeRTOS Message Queue là một hàng đợi FIFO an toàn luồng (Thread-Safe FIFO).
-- Luồng AI đẩy lệnh né vật cản `send(msg)` vào hàng đợi.
-- Luồng Motor rút lệnh `receive()` ra xử lý ngay lập tức!
+- Luồng AI đẩy lệnh né vật cản send(msg) vào hàng đợi.
+- Luồng Motor rút lệnh receive() ra xử lý ngay lập tức!
+
+Sơ đồ truyền thông liên tác vụ qua FreeRTOS Message Queue FIFO:
+
+  Producer Task (AI Vision)                   Consumer Task (Motor Control)
+  ┌───────────────────────┐                   ┌───────────────────────────┐
+  │ Phát hiện vật cản 3D  │                   │ Nhận lệnh điều tốc Motor  │
+  └──────────┬────────────┘                   └─────────────▲─────────────┘
+             │ send(msg)                                    │ receive()
+             ▼                                              │
+    ┌───────────────────────────────────────────────────────┴─┐
+    │  FreeRTOS Message Queue (Vòng đệm tròn FIFO Thread-Safe) │
+    │  ┌──────────────┬──────────────┬──────────────┬───────┐ │
+    │  │ Msg 0 (Đầu)  │ Msg 1        │ Msg 2        │  ...  │ │
+    │  └──────────────┴──────────────┴──────────────┴───────┘ │
+    └─────────────────────────────────────────────────────────┘
 """
 
 class FreeRTOSMessageQueue:
