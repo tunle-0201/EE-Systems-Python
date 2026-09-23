@@ -10,6 +10,19 @@ Khi cả 2 luồng (Luồng Lái Drone và Luồng Ghi Hộp đen) cùng đọc 
 - Kỹ sư EE dùng **Khóa Mutex (Mutual Exclusion Lock)**:
   + Tác vụ nào giữ Mutex mới được truy cập bus I2C.
   + Tác vụ khác phải đợi đến khi Mutex được giải phóng (Unlock).
+
+Sơ đồ phân quyền truy cập tài nguyên dùng chung qua Khóa Mutex:
+
+  MOTOR_TASK ──────> [ Xin Khóa Mutex ] ──> THÀNH CÔNG! (Giữ khóa I2C Bus)
+                           │
+                           ▼
+                  ┌──────────────────┐
+                  │ I2C Sensor Bus   │ <── Đọc dữ liệu con quay hồi chuyển an toàn!
+                  │ (Tài nguyên IMU) │
+                  └──────────────────┘
+                           ▲
+                           │
+  AI_VISION_TASK ──> [ Xin Khóa Mutex ] ──> BỊ CHẶN! (Bus bận, đưa vào hàng đợi)
 """
 
 class HardwareMutexLock:
