@@ -7,9 +7,25 @@
 TẠI SAO CẦN MẠCH LỌC SỐ IIR CHO VI ĐIỀU KHIỂN CÓ ÍT BỘ NHỚ RAM?
 Khác với mạch FIR cần lưu trữ 50 mẫu trong mảng buffer:
 - Mạch lọc số IIR (Infinite Impulse Response) chỉ cần **1 biến duy nhất trong RAM**!
-- Công thức:
-  output = alpha * raw_sample + (1.0 - alpha) * prev_output
 - Cực kỳ nhẹ, xử lý trong đúng 2 lệnh vi xử lý!
+
+Sơ đồ khối hồi tiếp mạch lọc vô hạn xung IIR (Exponential Moving Average):
+
+  Tín hiệu vào x[n] ───> [ * alpha ] ──────────┐
+                                               ▼
+                                             [ + ] ──┬──> Tín hiệu ra y[n]
+                                               ▲     │
+                                               │     │
+                                  ┌────────────┴─┐   │
+                                  │  * (1-alpha) │   │
+                                  └──────────────┘   │
+                                          ▲          │
+                                          │  ┌─────┐ │
+                                          └──┤Z^-1 ├─┘ (Đường hồi tiếp y[n-1])
+                                             └─────┘
+
+Công thức sai phân (Dạng chữ phẳng):
+  y[n] = alpha * x[n] + (1.0 - alpha) * y[n-1]
 """
 
 class ExponentialMovingAverageIIR:
