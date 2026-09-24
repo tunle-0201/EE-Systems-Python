@@ -7,11 +7,25 @@
 TẠI SAO CẦN MẠCH LỌC SỐ FIR TRÊN DRONE?
 Động cơ Drone quay 10,000 RPM tạo ra dao động rung cơ học tần số cao làm nhiễu cảm biến con quay hồi chuyển Gyroscope.
 Mạch lọc số FIR (Finite Impulse Response):
-- Nhân chập tín hiệu cảm biến với các hệ số lọc (Filter Coefficients $b_k$).
+- Nhân chập tín hiệu cảm biến với các hệ số lọc (Filter Coefficients b[k]).
 - Triệt tiêu 100% tiếng ồn tần số cao, cho tín hiệu góc nghiêng phẳng mượt mà!
 
-Công thức:
-  y[n] = b0*x[n] + b1*x[n-1] + b2*x[n-2]
+Sơ đồ khối đường trễ đa điểm FIR (Tapped Delay Line Architecture):
+
+  Tín hiệu vào x[n] ───┬───────────────> [ * b0 ] ───┐
+                       │                              │
+                     ┌─▼───┐                          │
+                     │Z^-1 │ (Trễ 1 chu kỳ)           │
+                     └─┬───┘                          │
+                       ├───────────────> [ * b1 ] ────┼──> [ + ] ──> Tín hiệu ra y[n]
+                       │                              │
+                     ┌─▼───┐                          │
+                     │Z^-1 │ (Trễ 1 chu kỳ)           │
+                     └─┬───┘                          │
+                       └───────────────> [ * b2 ] ────┘
+
+Công thức sai phân (Dạng chữ phẳng):
+  y[n] = b0 * x[n] + b1 * x[n-1] + b2 * x[n-2]
 """
 
 import numpy as np
