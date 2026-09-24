@@ -9,6 +9,16 @@ Khi cánh quạt bị mẻ hoặc cong vênh:
 - Nó tạo ra rung động cực mạnh ở đúng tần số quay chính (Peak Frequency).
 - Thuật toán **FFT (Fast Fourier Transform)** chuyển tín hiệu từ Miền Thời gian (Time Domain) sang Miền Tần số (Frequency Domain).
 - Phát hiện trước nguy cơ gãy cánh quạt để hạ cánh bảo trì!
+
+Sơ đồ chuyển đổi miền tín hiệu và đỉnh phổ rung động (FFT Spectrum):
+
+  Miền Thời gian (Time Domain):        Miền Tần số FFT (Frequency Domain):
+  Biên độ dao động                     Biên độ phổ |X(f)|
+    ^   ~/\~/\~/\~                       ^        │
+    │  /  \/  \/  \                      │        │ (Đỉnh Peak 150 Hz - Rung cánh quạt)
+    │ /            \                     │        │
+    ┼──────────────────> Thời gian (t)   ┼────────┴──────────────> Tần số f (Hz)
+                                                 150 Hz
 """
 
 import numpy as np
