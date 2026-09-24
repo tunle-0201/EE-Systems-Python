@@ -4,6 +4,23 @@
 ================================================================================
 
 TÍCH HỢP TOÀN BỘ DSP: FIR FILTER + FFT SPECTRUM ANALYZER + IIR EMA FILTER
+
+Sơ đồ khối toàn hệ thống DSP giám sát và chẩn đoán sức khỏe Drone:
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │       EMBEDDED DSP REAL-TIME DRONE HEALTH MONITOR          │
+  └──────────────────────────────┬──────────────────────────────┘
+                                 │
+            ┌────────────────────┼────────────────────┐
+            ▼                    ▼                    ▼
+  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+  │ FIR Low-Pass     │  │ FFT Vibration    │  │ IIR Exponential  │
+  │ Filter           │  │ Spectrum Peak    │  │ Filter           │
+  │ (Lọc nhiễu Gyro) │  │ (Bắt lỗi cánh quạt│ │ (Lọc dòng Motor) │
+  └──────────────────┘  └──────────────────┘  └──────────────────┘
+            │                    │                    │
+            ▼                    ▼                    ▼
+     Góc nghiêng êm      Cảnh báo nứt cánh     Giám sát quá tải
 """
 
 from dsp_edge_fir_filter import DigitalFIRLowPassFilter
