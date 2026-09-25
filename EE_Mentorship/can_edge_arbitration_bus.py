@@ -10,6 +10,14 @@ Cơ chế Tranh chấp Bitwise Arbitration:
 - Bit 1 là Recessive (Bit Lép vế).
 - Khi 2 thiết bị cùng truyền: Thiết bị nào có ID nhỏ hơn (nhiều bit 0 hơn) sẽ THẮNG và chiếm trọn bus CAN.
 - Thiết bị thua tự động chuyển sang chế độ Lắng nghe mà không làm hỏng gói tin của thiết bị thắng!
+
+Sơ đồ nguyên lý tranh chấp từng bit (Bitwise Arbitration Resolution):
+
+  Bit kiểm tra:     Bit 10        Bit 9         Bit 8
+  Node 1 (0x010):   [ 0 ]         [ 0 ]         [ 0 ]  ──> THẮNG! (Chiếm trọn bus CAN)
+  Node 2 (0x250):   [ 0 ]         [ 1 ](Thua!)    -    ──> Thấy bus là '0' -> Tự động dừng phát!
+  -------------------------------------------------------------------------
+  Trạng thái Bus:     0             0             0    ──> Bus không bị nghẽn (Zero collision!)
 """
 
 def simulate_can_bus_arbitration(node1_id: int, node2_id: int) -> int:
