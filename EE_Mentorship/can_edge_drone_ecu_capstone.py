@@ -4,6 +4,20 @@
 ================================================================================
 
 TÍCH HỢP TOÀN BỘ KIẾN TRÚC CAN-BUS: ENCODER + BIT STUFFING + ARBITRATION
+
+Sơ đồ mạng đa nốt vi mạch CAN-Bus trên Xe tự hành & Drone (Multi-ECU Topology):
+
+  CAN_H (Đường truyền vi sai) ═════╤═══════════════════╤═══════════════════╤═════
+  CAN_L (Đường truyền vi sai) ═════╧═══════════════════╧═══════════════════╧═════
+                                   │                   │                   │
+                                   ▼                   ▼                   ▼
+                         ┌───────────────────┐ ┌───────────────┐ ┌───────────────────┐
+                         │ Flight Controller │ │ Motor ESC ECU │ │ Battery BMS Node  │
+                         │ Node (ID: 0x050)  │ │ (ID: 0x100)   │ │ (ID: 0x200)       │
+                         │ Lệnh khẩn cấp ESTOP│ │ Điều tốc RPM  │ │ Báo cáo dòng điện │
+                         └───────────────────┘ └───────────────┘ └───────────────────┘
+                                   │                   │                   │
+                                   └─── Tranh chấp ────┴── Trọng tài Bus ──┘
 """
 
 from can_edge_packet_encoder import encode_can_standard_frame
