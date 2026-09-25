@@ -10,6 +10,14 @@ Chuẩn CAN-Bus (Controller Area Network) dùng 2 dây xoắn (CAN_H và CAN_L) 
   + ID định danh 11-bit (Ví dụ 0x100: Motor Control, 0x200: Battery Status).
   + Chiều dài dữ liệu DLC (Data Length Code: 0..8 bytes).
   + Mảng dữ liệu tải Payload (tối đa 8 bytes).
+
+Sơ đồ cấu trúc khung tin CAN-Bus 2.0A chuẩn (Standard Frame Format):
+
+  ┌─────┬──────────────┬─────┬─────┬─────┬───────────────────┬──────────────┬─────┐
+  │ SOF │ Identifier   │ RTR │ IDE │ r0  │ DLC (Data Length) │ Data Payload │ CRC │
+  │ 1b  │ 11 bits      │ 1b  │ 1b  │ 1b  │ 4 bits (0..8 B)   │ 0..8 Bytes   │ 15b │
+  └─────┴──────────────┴─────┴─────┴─────┴───────────────────┴──────────────┴─────┘
+        │◄── CAN ID 11-bit ─────────────►│   │◄─ Độ dài Data ─►│   │◄─ Dữ liệu ──►│
 """
 
 import struct
