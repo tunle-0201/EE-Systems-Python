@@ -9,6 +9,20 @@ Trên bus CAN không có dây Clock riêng (Asynchronous Serial):
 - Nếu truyền 5 bit giống nhau liên tiếp (ví dụ 11111 hoặc 00000).
 - Bộ thu phát CAN Transceiver sẽ bị mất đồng bộ xung nhịp (Clock Drift).
 - Quy tắc Bit Stuffing: Cứ sau 5 bit giống nhau liên tiếp, phần cứng TỰ ĐỘNG CHÈN 1 bit ngược dấu!
+
+Sơ đồ nguyên lý chèn bit đồng bộ xung nhịp (Hardware Bit Stuffing):
+
+  Luồng bit dữ liệu thô ban đầu (6 bit '1' liên tiếp):
+  ┌───┬───┬───┬───┬───┬───┐
+  │ 1 │ 1 │ 1 │ 1 │ 1 │ 1 │
+  └───┴───┴───┴───┴───┴───┘
+  │◄── 5 bit giống nhau ──►│
+             │
+             ▼ Tự động chèn bit đảo '0' tạo sườn xung (Edge Transition)
+  ┌───┬───┬───┬───┬───┬───────┬───┐
+  │ 1 │ 1 │ 1 │ 1 │ 1 │ [ 0 ] │ 1 │  ===> Chuỗi bit truyền thực tế: "1111101"
+  └───┴───┴───┴───┴───┴───────┴───┘
+                      Stuffed Bit
 """
 
 def apply_can_bit_stuffing(bit_stream: str) -> str:
