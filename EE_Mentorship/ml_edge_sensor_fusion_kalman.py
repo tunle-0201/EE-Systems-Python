@@ -7,9 +7,17 @@
 TẠI SAO CẦN SENSOR FUSION TRÊN DRONE?
 - Cảm biến Áp suất khí quyển (Barometer) bị nhiễu do gió cuộn.
 - Cảm biến Gia tốc (IMU Accelerometer) bị trôi tích lũy theo thời gian.
-- Kỹ sư EE dùng **Sensor Fusion (Hợp nhất Cảm biến)** kết hợp AI để tính ra Độ cao chuẩn tuyệt đối!
+- Kỹ sư EE dùng **Sensor Fusion (Hợp nhất Cảm biến)** kết hợp để tính ra Độ cao chuẩn tuyệt đối!
 
-Công thức Hợp nhất Cảm biến:
+Sơ đồ khối hợp nhất cảm biến đo độ cao Drone (Altitude Sensor Fusion):
+
+  Cảm biến Gia tốc Trục Z ────> [ Tích phân 2 lần ] ───> [ * alpha ] ────┐
+  (Đo phản ứng tức thời)                                                 ▼
+                                                                       [ + ] ──> Độ cao chuẩn Fused Alt
+  Khí áp kế Barometer ─────────────────────────────────> [ * (1-alpha) ] ┘
+  (Đo áp suất khí quyển)
+
+Công thức Hợp nhất Cảm biến (Dạng chữ phẳng):
   altitude_fused = alpha * (altitude_prev + acc_dist) + (1.0 - alpha) * baro_alt
 """
 
