@@ -6,10 +6,29 @@
 
 TẠI SAO BỘ LỌC KALMAN LÀ TIÊU CHUẨN VÀNG TRONG HÀNG KHÔNG VŨ TRỤ (APOLLO, SPACEX)?
 Kalman Filter dự đoán và cập nhật trạng thái tối ưu theo hiệp phương sai nhiễu:
-1. Dự đoán (Predict): x_hat = x_hat, P = P + Q
-2. Tính Kalman Gain: K = P / (P + R)
-3. Cập nhật đo lường (Update): x_hat = x_hat + K * (measurement - x_hat)
-4. Cập nhật hiệp phương sai: P = (1 - K) * P
+
+Sơ đồ chu trình dự đoán và cập nhật tối ưu (Kalman Predict-Update Loop):
+
+  ┌──────────────────────────────────────────────────┐
+  │ 1. DỰ ĐOÁN TRẠNG THÁI (PREDICT STEP)             │
+  │    - Dự đoán biến trạng thái : x_hat = x_hat     │
+  │    - Tăng độ bất định Cov P  : P = P + Q         │
+  └────────────────────────┬─────────────────────────┘
+                           │
+                           ▼
+  ┌──────────────────────────────────────────────────┐
+  │ 2. TÍNH TOÁN HỆ SỐ TỐI ƯU KALMAN GAIN            │
+  │                     P                            │
+  │             K = ───────────                      │
+  │                    P + R                         │
+  └────────────────────────┬─────────────────────────┘
+                           │
+                           ▼
+  ┌──────────────────────────────────────────────────┐
+  │ 3. HIỆU CHỈNH ĐO LƯỜNG (MEASUREMENT UPDATE STEP) │
+  │    - Ước lượng trạng thái    : x = x + K * (z - x│
+  │    - Giảm hiệp phương sai P  : P = (1 - K) * P   │
+  └──────────────────────────────────────────────────┘
 """
 
 class Simple1DKalmanFilter:
@@ -18,8 +37,14 @@ class Simple1DKalmanFilter:
         self.r = measurement_noise_r
         self.x = 0.0 # Trạng thái ước lượng
         self.p = 1.0 # Hiệp phương sai sai số
+        self.initialized = False
     
     def update(self, measurement: float) -> float:
+        if not self.initialized:
+            self.x = measurement
+            self.initialized = True
+            return self.x
+
         # 1. Dự đoán
         self.p = self.p + self.q
         

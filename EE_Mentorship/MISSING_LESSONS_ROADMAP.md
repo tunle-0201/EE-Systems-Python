@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **24/09/2026**  
+Bản cập nhật ngày: **25/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -54,7 +54,7 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 - [x] **Chuyên đề K:** Hệ điều hành thời gian thực FreeRTOS (Task Scheduler, Mutex, Message Queue) (COMPLETED ✅).
 - [x] **Chuyên đề L:** Xử lý tín hiệu số DSP (Mạch lọc FIR, Phân tích phổ FFT cánh quạt, Mạch IIR) (COMPLETED ✅).
 - [x] **Chuyên đề M:** Mạng truyền thông xe hơi CAN-Bus (11-bit ID, Bit Stuffing, Bitwise Arbitration) (COMPLETED ✅).
-- [ ] **Chuyên đề N:** Dung hợp cảm biến Sensor Fusion (Complementary Filter, Kalman Filter 1D).
+- [x] **Chuyên đề N:** Dung hợp cảm biến Sensor Fusion (Complementary Filter, Kalman Filter 1D) (COMPLETED ✅).
 - [ ] **Chuyên đề O:** An ninh mạng nhúng Cybersecurity (HMAC-SHA256, AES-128, Secure Boot).
 - [ ] **Chuyên đề P:** Động học Robot & Điều hướng (Đại số 4D Quaternion, Quỹ đạo bậc 3, Forward Kinematics).
 - [ ] **Chuyên đề Q:** Hệ thống giao dịch siêu tốc Low-Latency (Limit Order Book, FIX Protocol, VWAP).
