@@ -55,6 +55,6 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 - [x] **Chuyên đề L:** Xử lý tín hiệu số DSP (Mạch lọc FIR, Phân tích phổ FFT cánh quạt, Mạch IIR) (COMPLETED ✅).
 - [x] **Chuyên đề M:** Mạng truyền thông xe hơi CAN-Bus (11-bit ID, Bit Stuffing, Bitwise Arbitration) (COMPLETED ✅).
 - [x] **Chuyên đề N:** Dung hợp cảm biến Sensor Fusion (Complementary Filter, Kalman Filter 1D) (COMPLETED ✅).
-- [ ] **Chuyên đề O:** An ninh mạng nhúng Cybersecurity (HMAC-SHA256, AES-128, Secure Boot).
+- [x] **Chuyên đề O:** An ninh mạng nhúng Cybersecurity (HMAC-SHA256, AES-128, Secure Boot) (COMPLETED ✅).
 - [ ] **Chuyên đề P:** Động học Robot & Điều hướng (Đại số 4D Quaternion, Quỹ đạo bậc 3, Forward Kinematics).
 - [ ] **Chuyên đề Q:** Hệ thống giao dịch siêu tốc Low-Latency (Limit Order Book, FIX Protocol, VWAP).

@@ -10,6 +10,17 @@ Nếu hacker phát sóng giả mạo lệnh hạ cánh (Spoofing Attack):
 - Kỹ sư EE dùng **HMAC-SHA256 (Hash-based Message Authentication Code)**:
   + Dùng Khóa bí mật phần cứng (Hardware Secret Key) băm kèm Timestamp.
   + Nếu chữ ký sai hoặc gói tin bị gửi lại quá 2 giây (Replay Attack) -> TỪ CHỐI NGAY!
+
+Sơ đồ nguyên lý xác thực chữ ký số HMAC-SHA256:
+
+  Lệnh điều khiển + Timestamp ──────┐
+                                    ▼
+                         ┌────────────────────┐
+  Khóa phần cứng bí mật ─>│ Thuật toán SHA-256 │ ──> Chữ ký số HMAC 32-bytes
+                         └────────────────────┘
+                                    │
+                                    ▼
+                         [ So sánh hmac.compare_digest ] ──> Hợp lệ / Giả mạo!
 """
 
 import hmac

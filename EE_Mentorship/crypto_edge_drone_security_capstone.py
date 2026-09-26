@@ -4,6 +4,23 @@
 ================================================================================
 
 TÍCH HỢP TOÀN BỘ BẢO MẬT PHẦN CỨNG: SECURE BOOT + HMAC AUTH + AES-128 CIPHER
+
+Sơ đồ khối hệ thống phòng thủ không gian mạng trên Drone:
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │         MILITARY-GRADE EMBEDDED DRONE CYBER DEFENSE         │
+  └──────────────────────────────┬──────────────────────────────┘
+                                 │
+            ┌────────────────────┼────────────────────┐
+            ▼                    ▼                    ▼
+  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+  │ Secure Boot      │  │ HMAC-SHA256 Auth │  │ AES-128 Hardware │
+  │ Root of Trust    │  │ Anti-Spoofing    │  │ Cipher Engine    │
+  │ (Bảo vệ Flash)   │  │ (Xác thực lệnh)  │  │ (Mã hóa tọa độ)  │
+  └──────────────────┘  └──────────────────┘  └──────────────────┘
+            │                    │                    │
+            ▼                    ▼                    ▼
+   Khóa mã độc Flash     Chống chiếm quyền      Chống nghe lén
 """
 
 from crypto_edge_hmac_auth import DroneHMACAuthenticator
