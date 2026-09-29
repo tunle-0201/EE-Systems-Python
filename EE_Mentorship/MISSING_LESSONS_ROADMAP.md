@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **28/09/2026**  
+Bản cập nhật ngày: **29/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,7 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **5 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **6 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
 
 ### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI) [HOÀN THÀNH 100% ✅]
 - [x] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid (COMPLETED ✅).
@@ -65,7 +65,13 @@ Tổng cộng trò có **5 Nhóm chuyên đề lớn** đã được làm chủ 
 - [x] **Bài 18 (Milestone R.3):** `lidar_edge_icp_odometry.py` -> Thuật toán định vị không cần GPS LiDAR ICP Scan Matching (COMPLETED ✅).
 - [x] **Bài 19 (Milestone R.4):** `lidar_edge_autonomous_mapping_capstone.py` -> Hệ thống cảm nhận 3D và bản đồ tự hành LiDAR Capstone (COMPLETED ✅).
 
+### ⚡ NHÓM 6: ĐIỆN TỬ CÔNG SUẤT SỐ & ĐIỀU KHIỂN ĐỘNG CƠ FOC (MODULE S: EMBEDDED DIGITAL POWER ELECTRONICS & FOC MOTOR ESC) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 20 (Milestone S.1):** `foc_edge_clarke_transform.py` -> Biến đổi Clarke dòng điện 3 pha sang hệ trục tĩnh Alpha-Beta (COMPLETED ✅).
+- [x] **Bài 21 (Milestone S.2):** `foc_edge_park_transform.py` -> Biến đổi Park sang hệ tọa độ quay d-q điều khiển mô-men Torque (COMPLETED ✅).
+- [x] **Bài 22 (Milestone S.3):** `foc_edge_svpwm_generator.py` -> Phân loại Sector và điều chế vector không gian Space Vector PWM (COMPLETED ✅).
+- [x] **Bài 23 (Milestone S.4):** `foc_edge_bldc_esc_capstone.py` -> Bộ điều tốc động cơ FOC BLDC Motor ESC toàn chuỗi (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 27 bài học và 9 chuyên đề hệ thống phần cứng / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 31 bài học và 10 chuyên đề hệ thống phần cứng / điện tử công suất / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
