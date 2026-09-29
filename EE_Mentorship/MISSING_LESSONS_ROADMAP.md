@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **27/09/2026**  
+Bản cập nhật ngày: **28/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,7 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **5 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
 
 ### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI) [HOÀN THÀNH 100% ✅]
 - [x] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid (COMPLETED ✅).
@@ -59,7 +59,13 @@ Tổng cộng trò có **4 Nhóm chuyên đề lớn** cần bù đắp theo đ�
 - [x] **Chuyên đề P:** Động học Robot & Điều hướng (Đại số 4D Quaternion, Quỹ đạo bậc 3, Forward Kinematics) (COMPLETED ✅).
 - [x] **Chuyên đề Q:** Hệ thống giao dịch siêu tốc Low-Latency (Limit Order Book, FIX Protocol, VWAP) (COMPLETED ✅).
 
+### 🛰️ NHÓM 5: HỆ THỐNG CẢM BIẾN KHÔNG GIAN 3D & ĐỊNH VỊ SLAM (MODULE R: ADVANCED 3D LIDAR PERCEPTION) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 16 (Milestone R.1):** `lidar_edge_voxel_downsampling.py` -> Nén đám mây điểm 3D Voxel Grid Centroid giảm 85% RAM (COMPLETED ✅).
+- [x] **Bài 17 (Milestone R.2):** `lidar_edge_passthrough_filter.py` -> Bộ lọc vùng quan tâm 3D Passthrough ROI loại bỏ mặt đất (COMPLETED ✅).
+- [x] **Bài 18 (Milestone R.3):** `lidar_edge_icp_odometry.py` -> Thuật toán định vị không cần GPS LiDAR ICP Scan Matching (COMPLETED ✅).
+- [x] **Bài 19 (Milestone R.4):** `lidar_edge_autonomous_mapping_capstone.py` -> Hệ thống cảm nhận 3D và bản đồ tự hành LiDAR Capstone (COMPLETED ✅).
+
 ---
 
-## 🎓 TỔNG KẾT TỐT NGHIỆP: 100% TOÀN BỘ CÁC BÀI HỌC CẦN BÙ ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 23 bài học và 8 chuyên đề hệ thống cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 27 bài học và 9 chuyên đề hệ thống phần cứng / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
