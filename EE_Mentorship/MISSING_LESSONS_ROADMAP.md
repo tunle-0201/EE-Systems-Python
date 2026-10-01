@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **29/09/2026**  
+Bản cập nhật ngày: **30/09/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,7 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **6 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **7 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
 
 ### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI) [HOÀN THÀNH 100% ✅]
 - [x] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid (COMPLETED ✅).
@@ -71,7 +71,13 @@ Tổng cộng trò có **6 Nhóm chuyên đề lớn** đã được làm chủ 
 - [x] **Bài 22 (Milestone S.3):** `foc_edge_svpwm_generator.py` -> Phân loại Sector và điều chế vector không gian Space Vector PWM (COMPLETED ✅).
 - [x] **Bài 23 (Milestone S.4):** `foc_edge_bldc_esc_capstone.py` -> Bộ điều tốc động cơ FOC BLDC Motor ESC toàn chuỗi (COMPLETED ✅).
 
+### 📡 NHÓM 7: XỬ LÝ TÍN HIỆU RADAR Ô TÔ 77GHz & PHANH KHẨN CẤP AEB (MODULE T: AUTOMOTIVE 77GHz FMCW RADAR BASEBAND DSP & AEB) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 24 (Milestone T.1):** `radar_edge_fmcw_chirp_generator.py` -> Bộ tạo Chirp FMCW và mạch trộn Dechirping tín hiệu IF 77GHz (COMPLETED ✅).
+- [x] **Bài 25 (Milestone T.2):** `radar_edge_range_fft.py` -> Biến đổi Range-FFT Fast-Time phát hiện cự ly đa mục tiêu (COMPLETED ✅).
+- [x] **Bài 26 (Milestone T.3):** `radar_edge_doppler_fft_cfar.py` -> Biến đổi Doppler-FFT Slow-Time và bộ dò thích nghi CA-CFAR 1D (COMPLETED ✅).
+- [x] **Bài 27 (Milestone T.4):** `radar_edge_automotive_radar_capstone.py` -> Động cơ Baseband Radar 77GHz và hệ thống phanh khẩn cấp AEB Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 31 bài học và 10 chuyên đề hệ thống phần cứng / điện tử công suất / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 35 bài học và 11 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
