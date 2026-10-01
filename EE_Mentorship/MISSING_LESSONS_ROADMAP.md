@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **30/09/2026**  
+Bản cập nhật ngày: **01/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **7 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **8 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+
 
 ### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI) [HOÀN THÀNH 100% ✅]
 - [x] **Bài 1:** `ml_dl_perceptron.py` -> Bản chất Trọng số W, Bias b và hàm kích hoạt Sigmoid (COMPLETED ✅).
@@ -77,7 +78,14 @@ Tổng cộng trò có **7 Nhóm chuyên đề lớn** đã được làm chủ 
 - [x] **Bài 26 (Milestone T.3):** `radar_edge_doppler_fft_cfar.py` -> Biến đổi Doppler-FFT Slow-Time và bộ dò thích nghi CA-CFAR 1D (COMPLETED ✅).
 - [x] **Bài 27 (Milestone T.4):** `radar_edge_automotive_radar_capstone.py` -> Động cơ Baseband Radar 77GHz và hệ thống phanh khẩn cấp AEB Capstone (COMPLETED ✅).
 
+### ⚡ NHÓM 8: ĐIỆN TỬ CÔNG SUẤT SỐ & HỆ THỐNG NĂNG LƯỢNG KHÔNG GIAN (MODULE U: EMBEDDED DIGITAL POWER ELECTRONICS & SPACE POWER SYSTEMS) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 28 (Milestone U.1):** `power_edge_sync_buck_converter.py` -> Mạch chuyển đổi hạ áp đồng bộ Synchronous Buck 48V xuống 3.3V hiệu suất 92% (COMPLETED ✅).
+- [x] **Bài 29 (Milestone U.2):** `power_edge_pid_voltage_regulator.py` -> Bộ điều khiển số Digital PID Voltage Regulator ổn định điện áp khi sốc tải (COMPLETED ✅).
+- [x] **Bài 30 (Milestone U.3):** `power_edge_mppt_solar_tracker.py` -> Thuật toán bám điểm công suất cực đại MPPT Perturb & Observe tối ưu 99% pin mặt trời (COMPLETED ✅).
+- [x] **Bài 31 (Milestone U.4):** `power_edge_space_power_system_capstone.py` -> Động cơ quản lý năng lượng vệ tinh Spacecraft Power Management Engine và bảo vệ eFuse (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 35 bài học và 11 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 39 bài học và 12 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
