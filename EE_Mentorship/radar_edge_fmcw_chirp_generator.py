@@ -1,67 +1,108 @@
 """
 ================================================================================
-          MODULE AJ: EMBEDDED AUTOMOTIVE FMCW RADAR BASEBAND DSP
-              MILESTONE AJ.1: BỘ TẠO CHIRP FMCW & MẠCH TRỘN DECHIRPING TÍN HIỆU IF
+          MODULE T: EMBEDDED AUTOMOTIVE 77GHz FMCW RADAR BASEBAND DSP
+    MILESTONE T.1: BO TAO CHIRP FMCW & MACH TRON DECHIRPING TIN HIEU TRUNG TAN IF
 ================================================================================
 
-NGUYÊN LÝ RADAR SÓNG LIÊN TỤC BIẾN ĐIỆU TẦN SỐ (FMCW RADAR - 77 GHz):
-Trong hệ thống tự lái (Tesla Autopilot, Radar 77GHz cho ô tô và máy bay không người lái),
-radar phát ra các xung tuyến tính gọi là Chirp (tần số quét tăng dần theo thời gian):
+1. NGUYEN LY VAT LY & PHAN CUNG RADAR 77GHz (AUTOMOTIVE RADAR RF FRONT-END):
+   - Tai sao xe tu lai (Tesla, Waymo, Mercedes Drive Pilot) bat buoc phai co Radar 77GHz?
+     + Trong dieu kien thoi tiet khac nghiet (muong mu day dac, mua bao, bui mit mu,
+       anh sang chieu thang gay loa camera), Camera va LiDAR bi vo hieu hoa hoan toan.
+     + Song dien tu milimet (buoc song ~ 3.9 mm) xuyen qua giot mua va hat bui de dang!
+   - Nguyen ly Radar song lien tuc bien dieu tan so (FMCW - Frequency Modulated Continuous Wave):
+     + Bo tao dao dong (VCO/PLL) phat ra chuoi tin hieu Chirp co tan so tang tuyen tinh
+       theo thoi gian tu f_carrier den f_carrier + B (vi du tu 77 GHz den 78 GHz).
+     + Song gap vat can o cu ly R se doi ve sau thoi gian tre tau = 2*R/c.
+     + Bo tron RF Mixer nhan tin hieu phat TX va tin hieu thu RX, tao ra hien tuong
+       phach tan (Dechirping). Qua mach loc thong thap LPF ta thu duoc tin hieu phach IF
+       co tan so f_beat ty le thuan tuyet doi voi khoang cach R cua vat can!
 
-                   Băng thông quét B
-  Độ dốc Chirp S = ─────────────────
-                   Thời gian quét T_c
+2. SO DO PHAN CUNG RF & HOP CONG CU TOAN HOC (ASCII MATH BLOCKS):
 
-1. Tín hiệu phát TX(t): Tần số quét từ f_c đến f_c + B.
-2. Mục tiêu ở cự ly R phản xạ sóng về bộ thu sau thời gian trễ trượt:
-                 2 * R
-      tau = ─────────────   (c = 3e8 m/s: Vận tốc ánh sáng)
-                   c
+   So do khoi phan cung bo thu phat Radar 77GHz (FMCW RF Front-End Architecture):
 
-3. Mạch trộn vô tuyến (RF Mixer) nhân tín hiệu TX và RX rồi qua bộ lọc thông thấp (LPF):
-   Tạo ra tín hiệu phách trung tần IF (Intermediate Frequency / Beat Signal):
-   
-                 2 * S * R
-      f_beat = ─────────────
-                     c
+   [ Bo tao xung Chirp (PLL/VCO) ]
+              │
+              ├───► [ Bo khuech dai cong suat PA ] ──► [ Anten Phat TX ]
+              │                                                │
+              │ (Song ban di f_tx)                            │ 77 GHz
+              │                                                ▼
+              │                                            [ MUC TIEU ] (Cuc ly R)
+              │                                                │
+              │ (Song doi ve sau tau = 2R/c)                   │
+              │                                                ▼
+              └───► [ Bo tron vo tuyen RF Mixer ] ◄── [ Anten Thu RX + LNA ]
+                                  │
+                                  ▼
+                      [ Bo loc thong thap LPF ]
+                                  │
+                                  ▼
+                      [ Bo bien doi ADC 25MHz ] ──► Tin hieu phach IF (Beat Signal)
 
-4. Từ tần số phách f_beat đo được, Radar tính ngược cự ly mục tiêu R:
-                 c * f_beat
-      Range R = ─────────────
-                    2 * S
+   Do doc tan so cua xung Chirp (Chirp Slope):
+
+                    Bang thong quet B
+   Do doc Chirp S = ──────────────────
+                    Thoi gian quet Tc
+
+   Thoi gian tre phan xa (Round-trip Delay):
+             2 * R
+   tau   = ─────────   (c = 3e8 m/s la van toc anh sang)
+               c
+
+   Tan so phach trung tan (IF Beat Frequency):
+             2 * S * R
+   f_beat = ───────────
+                 c
+
+   Cong thuc tinh nguoc cu ly muc tieu R tu tan so do duoc:
+             c * f_beat
+   Range R = ───────────
+                2 * S
 """
 
+from typing import Tuple
 import numpy as np
 
+
 class FMCWChirpGenerator:
-    def __init__(self, f_carrier: float = 77e9, bandwidth: float = 1e9, chirp_duration: float = 50e-6, fs: float = 25e6):
+    """
+    Bo mo phong tao xung Chirp FMCW va mach tron dechirping trung tan IF cho Radar 77GHz.
+    """
+    def __init__(
+        self,
+        f_carrier: float = 77e9,
+        bandwidth: float = 1e9,
+        chirp_duration: float = 50e-6,
+        fs: float = 25e6
+    ):
         """
-        - f_carrier: Tần số sóng mang (77 GHz chuẩn Automotive Radar)
-        - bandwidth: Băng thông quét tần số (1 GHz -> độ phân giải cự ly c / (2B) = 15 cm)
-        - chirp_duration: Thời gian quét 1 chirp (50 micro-giây)
-        - fs: Tần số lấy mẫu ADC trung tần (25 MHz)
+        - f_carrier: Tan so song mang (77 GHz chuan Automotive Radar)
+        - bandwidth: Bang thong quet tan so (1 GHz -> Do phan giai cuc ly c / (2B) = 15 cm)
+        - chirp_duration: Thoi gian quet 1 chirp (50 micro-giay)
+        - fs: Tan so lay mau ADC trung tan (25 MHz)
         """
         self.c = 3e8
-        self.fc = f_carrier
-        self.B = bandwidth
-        self.Tc = chirp_duration
-        self.fs = fs
-        self.slope = bandwidth / chirp_duration
-        self.num_samples = int(chirp_duration * fs)
-        self.time_axis = np.linspace(0, chirp_duration, self.num_samples, endpoint=False)
+        self.fc = float(f_carrier)
+        self.B = float(bandwidth)
+        self.Tc = float(chirp_duration)
+        self.fs = float(fs)
+        self.slope = self.B / self.Tc
+        self.num_samples = int(self.Tc * self.fs)
+        self.time_axis = np.linspace(0, self.Tc, self.num_samples, endpoint=False)
 
-    def generate_beat_signal(self, target_distance_m: float) -> tuple:
+    def generate_beat_signal(self, target_distance_m: float) -> Tuple[np.ndarray, np.ndarray, float]:
         """
-        Mô phỏng bộ trộn RF Mixer tạo tín hiệu Beat IF thời gian thực:
-        1. Tính thời gian trễ phản xạ sóng: tau = 2 * R / c
-        2. Tần số phách lý thuyết: f_beat = slope * tau = 2 * slope * R / c
-        3. Tín hiệu phách IF: s_if(t) = cos(2 * pi * f_beat * t + phi)
-        Trả về: (time_axis, if_signal, f_beat_theoretical)
+        Mo phong bo tron RF Mixer tao tin hieu Beat IF thoi gian thuc:
+        1. Tinh thoi gian tre phan xa song: tau = 2 * R / c
+        2. Tan so phach ly thuyet: f_beat = slope * tau = 2 * slope * R / c
+        3. Tin hieu phach IF: s_if(t) = cos(2 * pi * f_beat * t + phi)
+        Tra ve: (time_axis, if_signal, f_beat_theoretical)
         """
-        tau = 2.0 * target_distance_m / self.c
+        tau = 2.0 * float(target_distance_m) / self.c
         f_beat_expected = self.slope * tau
 
-        # Tín hiệu phách sau trộn tần (Down-converted Beat Signal)
+        # Tin hieu phach sau tron tan (Down-converted Beat Signal)
         phi_phase = 2.0 * np.pi * self.fc * tau
         if_signal = np.cos(2.0 * np.pi * f_beat_expected * self.time_axis + phi_phase).astype(np.float32)
 
@@ -69,7 +110,8 @@ class FMCWChirpGenerator:
 
     def calculate_range_from_beat(self, beat_frequency_hz: float) -> float:
         """
-        Tính toán cự ly mục tiêu từ tần số phách IF
+        Tinh toan cuc ly muc tieu R tu tan so phach IF:
+        Range R = (c * f_beat) / (2 * S)
         """
         return float((self.c * beat_frequency_hz) / (2.0 * self.slope))
 
@@ -81,7 +123,7 @@ if __name__ == "__main__":
 
     radar = FMCWChirpGenerator(f_carrier=77e9, bandwidth=1e9, chirp_duration=50e-6, fs=25e6)
 
-    test_distances = [15.0, 45.0, 75.0, 120.0]  # Mục tiêu ở 15m, 45m, 75m, 120m
+    test_distances = [15.0, 45.0, 75.0, 120.0]  # Muc tieu o 15m, 45m, 75m, 120m
 
     print("1. KIEM DINH TINH TOAN TAN SO PHACH TRUNG TAN (IF BEAT FREQUENCY):")
     for dist in test_distances:
