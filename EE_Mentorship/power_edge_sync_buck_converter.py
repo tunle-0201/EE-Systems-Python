@@ -1,71 +1,106 @@
 """
 ================================================================================
-          MODULE AL: EMBEDDED POWER ELECTRONICS & DIGITAL POWER SYSTEMS
-              MILESTONE AL.1: MẠCH CHUYỂN ĐỔI HẠ ÁP ĐỒNG BỘ (SYNCHRONOUS BUCK CONVERTER)
+          MODULE U: EMBEDDED DIGITAL POWER ELECTRONICS & SPACE POWER SYSTEMS
+    MILESTONE U.1: MACH CHUYEN DOI HA AP DONG BO (SYNCHRONOUS BUCK CONVERTER)
 ================================================================================
 
-TẠI SAO PHẢI DÙNG BỘ HẠ ÁP ĐỒNG BỘ (SYNCHRONOUS BUCK) TRÊN MÁY TÍNH BAY & XE ĐIỆN?
-Trong xe điện Tesla (kiến trúc 48V) hoặc Drone/Vệ tinh:
-- Đường truyền chính có điện áp cao V_in = 48V (hoặc 24V) để giảm hao phí dòng điện I^2*R.
-- Vi điều khiển nhúng, cảm biến và chip AI chỉ hoạt động ở V_out = 3.3V (hoặc 5.0V).
-- Dùng IC ổn áp tuyến tính (LDO như LM7805) sẽ làm nóng bỏng bo mạch (Hiệu suất chỉ 10%!).
-- Bộ hạ áp xung đồng bộ (Synchronous Buck) dùng 2 MOSFET đóng cắt tần số cao (250 kHz)
-  đạt hiệu suất vượt trội trên 92%!
+1. NGUYEN LY DIEN TU CONG SUAT & NGUON NHUNG (POWER ELECTRONICS FOUNDATION):
+   - Tai sao kien truc 48V tren xe dien Tesla (Cybertruck) va ve tinh bat buoc
+     phai dung Bo ha ap dong bo (Synchronous Buck)?
+     + Dien ap bus chinh cao (V_in = 48V hoac 28V) de giam dong dien truyen dan,
+       tu do giam thiet hai toa nhiet tren day dan theo dinh luat Joule (P_loss = I^2 * R).
+     + Tuy nhien, vi dieu khien nhung ARM Cortex-M, cam bien va chip Edge AI
+       chi hoat dong o dien ap V_out = 3.3V hoac 1.2V (Dong len toi 5A - 10A).
+     + Neu dung IC on ap tuyen tinh LDO (nhu LM7805):
+       Hieu suat chi dat: eta = 3.3V / 48V = 6.8%! Toan bo 93.2% nang luong bien
+       thanh nhiet thieu chay bo mach ngay tuc thi!
+     + Bo ha ap xung dong bo Synchronous Buck: dung 2 van Power MOSFET dong cat o tan
+       so cao (250 kHz), thay the diode flyback bang MOSFET Q2 duoi de giam sup ap,
+       dat hieu suat vuot troi tren 92%!
 
-CÔNG THỨC ĐIỆN TỬ CÔNG SUẤT (DẠNG ASCII TEXT):
-1. Hệ số chu kỳ xung điều khiển (Duty Cycle D):
-                       V_out
-        Duty Cycle D = ─────
-                       V_in
+2. SO DO PHAN CUNG & HOP CONG CU TOAN HOC (ASCII MATH BLOCKS):
 
-2. Độ gợn dòng điện qua cuộn cảm L (Inductor Current Ripple):
-                       (V_in - V_out) * D
-        Delta_I_L    = ──────────────────
-                            L * f_sw
+   So do mach ha ap dong bo Synchronous Buck (2 MOSFETs + LC Filter):
 
-3. Độ gợn điện áp ngõ ra tụ điện C (Output Voltage Ripple):
-                          Delta_I_L
-        Delta_V_out  = ────────────────
-                       8 * C_out * f_sw
+   V_in (48V) ──► [ Top MOSFET Q1 ] ──┬── [ Cuon cam L ] ──┬────► V_out (3.3V)
+                        ▲             │                    │
+                   PWM1 │             ▼                    ▼
+                        │     [ Bottom MOSFET Q2 ]    [ Tu C ]   [ Tai R ]
+                   PWM2 │             │                    │        │
+                        │             ▼                    ▼        ▼
+                  [ Dead-time ]      GND                  GND      GND
+
+   He so chu ky xung dong cat (Duty Cycle D):
+
+                  V_out
+   Duty Cycle D = ─────
+                  V_in
+
+   Do gon dong dien qua cuon cam L (Inductor Current Ripple):
+
+                  (V_in - V_out) * D
+   Delta_I_L    = ──────────────────
+                       L * f_sw
+
+   Do gon dien ap ngo ra tren tu C (Output Voltage Ripple):
+
+                    Delta_I_L
+   Delta_V_out  = ────────────────
+                  8 * C_out * f_sw
+
+   Che do dan lien tuc (Continuous Conduction Mode - CCM):
+   Dieu kien de dong khong bi ve 0: I_load > (Delta_I_L / 2)
 """
 
+from typing import Dict, List, Any
 import numpy as np
 
-class SynchronousBuckConverter:
-    def __init__(self, v_in: float = 48.0, v_out: float = 3.3, f_sw: float = 250e3, inductance: float = 22e-6, capacitance: float = 47e-6):
-        """
-        - v_in: Điện áp bus nguồn vào (48V)
-        - v_out: Điện áp đích cấp cho vi điều khiển (3.3V)
-        - f_sw: Tần số đóng cắt xung PWM (250 kHz)
-        - inductance: Cuộn cảm lọc công suất L (22 uH)
-        - capacitance: Tụ điện lọc phẳng ngõ ra C (47 uF)
-        """
-        self.v_in = v_in
-        self.v_out = v_out
-        self.f_sw = f_sw
-        self.L = inductance
-        self.C = capacitance
-        self.t_period = 1.0 / f_sw
 
-    def calculate_steady_state_metrics(self, load_current: float = 2.0) -> dict:
+class SynchronousBuckConverter:
+    """
+    Mo hinh mach chuyen doi ha ap dong bo Synchronous Buck DC-DC Converter.
+    """
+    def __init__(
+        self,
+        v_in: float = 48.0,
+        v_out: float = 3.3,
+        f_sw: float = 250e3,
+        inductance: float = 22e-6,
+        capacitance: float = 47e-6
+    ):
         """
-        Tính toán các thông số điện tử công suất ở trạng thái xác lập:
+        - v_in: Dien ap bus nguon vao (48V)
+        - v_out: Dien ap dich cap cho vi dieu khien (3.3V)
+        - f_sw: Tan so dong cat xung PWM (250 kHz)
+        - inductance: Cuon cam loc cong suat L (22 uH)
+        - capacitance: Tu dien loc phang ngo ra C (47 uF)
+        """
+        self.v_in = float(v_in)
+        self.v_out = float(v_out)
+        self.f_sw = float(f_sw)
+        self.L = float(inductance)
+        self.C = float(capacitance)
+        self.t_period = 1.0 / self.f_sw
+
+    def calculate_steady_state_metrics(self, load_current: float = 2.0) -> Dict[str, Any]:
+        """
+        Tinh toan cac thong so dien tu cong suat o trang thai xac lap:
         - Duty cycle D
-        - Độ gợn dòng cuộn cảm Delta_I_L
-        - Độ gợn áp ngõ ra Delta_V_out
-        - Trạng thái dẫn liên tục (CCM) hay gián đoạn (DCM)
+        - Do gon dong cuon cam Delta_I_L
+        - Do gon ap ngo ra Delta_V_out
+        - Trang thai dan lien tuc (CCM) hay gian doan (DCM)
         """
-        # 1. Tính Duty Cycle lý thuyết
+        # 1. Tinh Duty Cycle ly thuyet
         duty_cycle = self.v_out / self.v_in
 
-        # 2. Tính độ gợn dòng cuộn cảm
+        # 2. Tinh do gon dong cuon cam
         t_on = duty_cycle * self.t_period
         delta_i_l = ((self.v_in - self.v_out) * t_on) / self.L
 
-        # 3. Tính độ gợn áp ngõ ra trên tụ điện
+        # 3. Tinh do gon ap ngo ra tren tu dien
         delta_v_out = delta_i_l / (8.0 * self.C * self.f_sw)
 
-        # 4. Kiểm tra chế độ dẫn: CCM nếu I_load > Delta_I_L / 2
+        # 4. Kiem tra che do dan: CCM neu I_load > Delta_I_L / 2
         is_ccm = bool(load_current > (delta_i_l / 2.0))
 
         return {
@@ -75,22 +110,27 @@ class SynchronousBuckConverter:
             "is_ccm": is_ccm
         }
 
-    def simulate_step_response(self, initial_voltage: float = 0.0, target_duty: float = 0.06875, sim_steps: int = 100) -> list:
+    def simulate_step_response(
+        self,
+        initial_voltage: float = 0.0,
+        target_duty: float = 0.06875,
+        sim_steps: int = 100
+    ) -> List[float]:
         """
-        Mô phỏng động học nạp xả vi phân (L-C Filter) theo từng chu kỳ đóng cắt
+        Mo phong dong hoc nap xa vi phan (L-C Filter) theo tung chu ky dong cat
         """
         dt = self.t_period
-        v_c = initial_voltage
+        v_c = float(initial_voltage)
         i_l = 0.0
         v_history = []
 
         for _ in range(sim_steps):
-            # Điện áp trung bình sau chuyển mạch MOSFET
+            # Dien ap trung binh sau chuyen mach MOSFET
             v_sw_avg = target_duty * self.v_in
 
-            # Phương trình vi phân trạng thái cuộn cảm và tụ điện
+            # Phuong trinh vi phan trang thai cuon cam va tu dien:
             # L * di/dt = v_sw - v_c
-            # C * dv/dt = i_l - v_c / R_load (giả sử tải R = 3.3V / 2A = 1.65 Ohm)
+            # C * dv/dt = i_l - v_c / R_load (tai R = 3.3V / 2A = 1.65 Ohm)
             r_load = 1.65
             di_l = ((v_sw_avg - v_c) / self.L) * dt
             i_l += di_l
@@ -124,7 +164,7 @@ if __name__ == "__main__":
     assert metrics['delta_v_out_mv'] < 50.0, "Do gon ap qua lon, gay hong vi dieu khien!"
     assert metrics['is_ccm'] is True, "Mach phai hoat dong trong che do CCM!"
 
-    # Mô phỏng động học quá độ L-C
+    # Mo phong dong hoc qua do L-C
     v_curve = buck.simulate_step_response(initial_voltage=0.0, target_duty=metrics['duty_cycle'], sim_steps=300)
     v_final = v_curve[-1]
     print("2. DONG HOC KHOI DONG MEM (SOFT-START LC SIMULATION):")
