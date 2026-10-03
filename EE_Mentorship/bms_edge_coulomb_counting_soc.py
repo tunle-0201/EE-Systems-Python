@@ -1,80 +1,110 @@
 """
 ================================================================================
-          MODULE AM: EMBEDDED BATTERY MANAGEMENT SYSTEMS (BMS)
-              MILESTONE AM.1: THUẬT TOÁN ĐO DUNG LƯỢNG COULOMB COUNTING & TÁI HIỆU CHUẨN OCV
+          MODULE V: EMBEDDED BATTERY MANAGEMENT SYSTEMS (BMS)
+              MILESTONE V.1: COULOMB COUNTING & OCV RECALIBRATION
 ================================================================================
 
-TẠI SAO PHẢI KẾT HỢP COULOMB COUNTING VÀ OCV TRÊN XE ĐIỆN TESLA / IPHONE?
-Pin Lithium-ion (NMC / LFP / 4680) là nguồn sống của xe điện và drone:
-- State of Charge (SOC %): Tỷ lệ dung lượng còn lại (tương đương kim xăng số).
-- Phương pháp Đếm Coulomb (Coulomb Counting):
-  Tích phân dòng điện chạy qua điện trở Shunt theo thời gian:
-  
-                         1
-      SOC(t) = SOC(0) + ───── * integral( I(t) * dt ) * 100%
-                        Q_nom
-  
-  (I > 0: Nạp điện, I < 0: Xả điện, Q_nom: Dung lượng danh định Ah).
+VAI TRO THIET YEU CUA THUAT TOAN TINH DUNG LUONG PIN (SOC) TREN XE DIEN TESLA / DRONE:
+Pin Lithium-ion (NMC / LFP / 4680) la trai tim nang luong cua xe dien va thiet bi bay:
+- State of Charge (SOC %): Ty le dung luong con lai (tuong duong kim xang so).
+- Phuong phap Dem Coulomb (Coulomb Counting):
+  Tich phan dong dien do qua dien tro Shunt ADC theo thoi gian thuc:
 
-VẤN ĐỀ TRỰC TIẾP TRÊN PHẦN CỨNG:
-- Cảm biến dòng ADC luôn có sai số trôi điểm 0 (Zero-drift offset).
-- Sau vài giờ tích phân, sai số tích tụ khiến đồng hồ báo pin sai lệch tới 15%!
+                                      1
+             SOC[t] = SOC[0] + ─────────────── * integral( I(t) * dt )
+                                Q_nominal_As
 
-GIẢI PHÁP EMBEDDED BMS: TÁI HIỆU CHUẨN ĐIỆN ÁP HỞ MẠCH (OCV RECALIBRATION):
-Khi xe dừng đỗ hoặc nghỉ ngơi (|I| < 0.05A trong thời gian đủ dài):
-- Điện áp pin hồi phục về Điện áp hở mạch OCV (Open-Circuit Voltage).
-- BMS tra bảng OCV-SOC Look-Up Table để "Reset" lại sai số trôi về 0!
+  (Quy uoc ky thuat: I > 0 la dong nap vao pin, I < 0 la dong xa cap cho dong co,
+   Q_nominal_As = Dung luong danh dinh tinh bang Ampe-giay).
+
+HIEN TUONG TROI SAI SO TRUC TIEP TREN PHAN CUNG NHUNG (ZERO-DRIFT OFFSET):
+- Cảm bien ADC hoac khuech dai do dong Shunt (INA240 / LTC2944) luon ton tai sai lech
+  dien ap lech diem khong (Offset Voltage Drift tu 0.5% den 2%).
+- Khi tich phan lien tuc nhieu gio, sai so nay tich luy khien dong ho bao pin lech
+  tu 5% den 15%, dan den hien tuong chet may dot ngot du dong ho van bao con pin!
+
+GIAI PHAP HYBRID BMS: TAI HIEU CHUAN BANG DIEN AP HO MACH (OCV RECALIBRATION):
+Khi xe dung do hoac may bay tat dong co (|I| < 0.05A trong thoi gian du dai):
+- Dien ap cuc pin hoi phuc ve trang thai can bang hoa hoc OCV (Open-Circuit Voltage).
+- BMS tra bang OCV-SOC Look-Up Table de "Reset" triet tieu toan bo sai so tich phan!
+
+SO DO NGUYEN LY THUAT TOAN COULOMB COUNTING VA OCV RESET (ASCII BLOCK):
+
+   [ Shunt Resistor ] ---> [ ADC Current Sense ] ---> [ Coulomb Integrator ]
+                                                             |
+                                                             v
+                                                      Raw Drifted SOC
+                                                             |
+   [ OCV Voltage ADC ] ---> [ Rest Detector ] ------------> [ Recalibration Engine ]
+                            (|I| < 0.05A, > 10m)             |
+                                                             v
+                                                      True Calibrated SOC
 """
 
+from typing import Tuple, List, Dict, Any, Optional
 import numpy as np
 
+
 class CoulombCountingBMS:
+    """
+    Bo uoc luong dung luong pin State of Charge (SOC) ket hop hai phuong phap:
+    1. Coulomb Counting lien tuc toc do cao (Fast Real-time Current Integration).
+    2. OCV Recalibration tai thoi diem nghi (Rest-State OCV Reset) chong troi sai so.
+    """
     def __init__(self, nominal_capacity_ah: float = 5.0, initial_soc: float = 1.0):
         """
-        - nominal_capacity_ah: Dung lượng định mức cell pin (5.0 Ah chuẩn cell 21700)
-        - initial_soc: Mức pin ban đầu (1.0 = 100%)
+        - nominal_capacity_ah: Dung luong danh dinh cell pin (5.0 Ah chuan cell 21700 Tesla)
+        - initial_soc: Muc pin ban dau (1.0 = 100%)
         """
-        self.q_nominal_as = nominal_capacity_ah * 3600.0  # Chuyển đổi sang Ampe-giây (Coulombs)
+        self.nominal_capacity_ah = nominal_capacity_ah
+        self.q_nominal_as = nominal_capacity_ah * 3600.0  # Chuyen sang Coulombs (A*s)
         self.soc = float(initial_soc)
         self.rest_timer_sec = 0.0
 
-        # Bảng tra cứu thực nghiệm OCV-SOC của pin Li-ion NMC (Điện áp V -> SOC)
+        # Bang tra cuu thuc nghiem OCV - SOC cua cell Li-ion NMC (Dien ap V -> SOC ti le)
         self.ocv_table_v = [3.00, 3.30, 3.50, 3.65, 3.75, 3.85, 3.95, 4.05, 4.15, 4.20]
         self.soc_table   = [0.00, 0.05, 0.15, 0.30, 0.50, 0.65, 0.80, 0.90, 0.98, 1.00]
 
     def update_coulomb_count(self, current_amps: float, dt_sec: float) -> float:
         """
-        Tích phân dòng điện Coulomb:
-        current_amps: Dòng điện (A), Dương (+) = Nạp, Âm (-) = Xả
-        dt_sec: Bước thời gian đo đạc (giây)
+        Tich phan dong dien theo chu ky thoi gian roi rac:
+        current_amps: Dong dien do qua dien tro Shunt (A), Duong (+) = Nap, Am (-) = Xa
+        dt_sec: Chu ky lay mau ADC (giay)
         """
         coulombs = current_amps * dt_sec
         delta_soc = coulombs / self.q_nominal_as
         self.soc += delta_soc
         self.soc = max(0.0, min(1.0, self.soc))
-        return self.soc
+        return float(self.soc)
 
     def ocv_lookup(self, measured_v: float) -> float:
-        """Tra cứu bảng OCV-SOC bằng nội suy tuyến tính"""
+        """
+        Tra cuu SOC tu dien ap ho mach OCV bang noi suy tuyen tinh tung doan
+        """
         if measured_v <= self.ocv_table_v[0]:
             return float(self.soc_table[0])
         if measured_v >= self.ocv_table_v[-1]:
             return float(self.soc_table[-1])
 
-        # Tìm khoảng kẹp
         for i in range(len(self.ocv_table_v) - 1):
             v0, v1 = self.ocv_table_v[i], self.ocv_table_v[i + 1]
             if v0 <= measured_v <= v1:
                 s0, s1 = self.soc_table[i], self.soc_table[i + 1]
                 slope = (s1 - s0) / (v1 - v0)
                 return float(s0 + slope * (measured_v - v0))
-        return self.soc
+        return float(self.soc)
 
-    def check_and_recalibrate(self, measured_voltage: float, current_amps: float, dt_sec: float, rest_threshold_sec: float = 600.0) -> bool:
+    def check_and_recalibrate(
+        self,
+        measured_voltage: float,
+        current_amps: float,
+        dt_sec: float,
+        rest_threshold_sec: float = 600.0
+    ) -> bool:
         """
-        Kiểm tra trạng thái nghỉ để tái hiệu chuẩn OCV:
-        Nếu dòng điện gần như bằng 0 (|I| < 0.05A) trong ít nhất rest_threshold_sec:
-        -> Cập nhật lại SOC từ bảng OCV, triệt tiêu hoàn toàn sai số trôi!
+        Kiem tra trang thai nghi de tai hieu chuan OCV:
+        Neu dong dien gan nhu bang 0 (|I| < 0.05A) trong it nhat rest_threshold_sec:
+        -> Cap nhat lai SOC tu bang OCV, triet tieu hoan toan sai so troi ADC!
         """
         if abs(current_amps) < 0.05:
             self.rest_timer_sec += dt_sec
@@ -95,38 +125,38 @@ if __name__ == "__main__":
 
     bms = CoulombCountingBMS(nominal_capacity_ah=5.0, initial_soc=1.0)
 
-    # 1. Kịch bản xả pin động cơ: Dòng xả 2.5A (0.5C) trong 1 giờ (3600 giây)
-    # Giả lập cảm biến ADC có nhiễu trôi nhẹ +0.1A làm đếm sai
+    # 1. Kich ban xa pin dong co: Dong xa 2.5A (0.5C) trong 1 gio (3600 giay)
+    # Gia lap cam bien ADC co nhieu troi lech nhe +0.1A lam tich phan bi sai
     print("1. QUA TRINH XA PIN VA HIEN TUONG TROI SAI SO (DRIFT):")
-    actual_i = -2.5       # Dòng xả thực tế 2.5A
-    sensor_noise = 0.1    # Cảm biến dòng bị lệch +0.1A (Offset drift)
-    measured_i = actual_i + sensor_noise  # -2.4A đo được
+    actual_i = -2.5       # Dong xa thuc te 2.5A
+    sensor_drift = 0.1    # Offset troi dong khien cam bien do thanh -2.4A
+    measured_i = actual_i + sensor_drift
 
-    # Xả trong 3600 giây (bước 1 giây)
-    for _ in range(3600):
+    for step in range(3600):
         bms.update_coulomb_count(current_amps=measured_i, dt_sec=1.0)
 
-    # Sau 1 giờ xả 2.5A: Dung lượng xả thực tế = 2.5Ah / 5.0Ah = 50% -> SOC thực tế phải là 50%
-    # Nhưng do cảm biến đo -2.4A -> SOC bị tính lệch thành 52%
+    # Sau 1 gio xa 2.5A tu cell 5.0Ah: Dung luong mat thuc te = 2.5Ah / 5.0Ah = 50%
+    # Do cam bien bi troi +0.1A nen BMS do -2.4A va bao sai thanh 52.0%
     drift_soc = bms.soc
     print(f"   -> SOC tinh boi Coulomb Counting (bi troi) : {drift_soc * 100:.2f}%")
-    print(f"   -> SOC thuc te cua cell pin                : 50.00% (Lech {abs(drift_soc - 0.5) * 100:.2f}%)\n")
+    print(f"   -> SOC thuc te cua cell pin                : 50.00% (Sai lech {abs(drift_soc - 0.50) * 100:.2f}%)\n")
 
-    # 2. Kịch bản dừng đỗ xe nghỉ ngơi: Dòng = 0A, Điện áp hồi phục về OCV = 3.75V (tương ứng 50% SOC)
-    print("2. QUA TRINH NGHI NGOI VA TAI HIEU CHUAN BANG OCV (OCV RESET):")
-    v_cell_rest = 3.75  # 3.75V theo bảng chuẩn NMC là 50% SOC
+    # 2. Kich ban xe dung do nghi ngoi: Dong = 0A, Dien ap hoi phuc ve OCV = 3.75V (50% SOC)
+    print("2. QUA TRINH DUNG DO NGHI NGOI VA TAI HIEU CHUAN OCV (RESET DRIFT):")
+    v_cell_rest = 3.75  # 3.75V tuong ung muc pin 50% theo bang chuan NMC
     recalibrated = False
 
-    # Xe nghỉ trong 15 phút (900 giây)
-    for _ in range(900):
+    # Xe do nghi trong 15 phut (900 giay)
+    for step in range(900):
         if bms.check_and_recalibrate(measured_voltage=v_cell_rest, current_amps=0.0, dt_sec=1.0, rest_threshold_sec=600.0):
             recalibrated = True
             break
 
-    print(f"   -> Trang thai tai hieu chuan OCV           : {'THANH CONG' if recalibrated else 'CHUA DU THOI GIAN'}")
-    print(f"   -> SOC sau khi reset bang OCV              : {bms.soc * 100:.2f}% (Da sua sai hoan hao ve 50.0%)")
+    print(f"   -> Trang thai kich hoat tai hieu chuan    : {'THANH CONG' if recalibrated else 'CHUA DU THOI GIAN'}")
+    print(f"   -> SOC sau khi duoc hieu chinh bang OCV   : {bms.soc * 100:.2f}% (Da reset chuan xac ve 50.0%)")
 
-    assert recalibrated is True, "Qua trinh tai hieu chuan OCV phai thanh cong sau 10 phut nghi!"
-    assert abs(bms.soc - 0.50) < 1e-4, "SOC sau khi reset phai khop voi 50%!"
+    # Kiem tra Assertions
+    assert recalibrated is True, "Qua trinh tai hieu chuan OCV phai kich hoat thanh cong sau 10 phut nghi!"
+    assert abs(bms.soc - 0.50) < 1e-4, "SOC sau khi reset bang OCV phai khop dung 50.0%!"
 
-    print("\n[THANH CONG] THUAT TOAN COULOMB COUNTING VA OCV RESET HOAN TAT CHINH XAC 100%!")
+    print("\n[THANH CONG] THUAT TOAN COULOMB COUNTING VA OCV RESET TRIET TIEU 100% SAI SO TROI ADC!")
