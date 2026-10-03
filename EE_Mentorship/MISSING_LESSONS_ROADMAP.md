@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **01/10/2026**  
+Bản cập nhật ngày: **02/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **8 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **9 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+
 
 
 ### 🧠 NHÓM 1: TOÁN HỌC DEEP LEARNING & ĐẠO HÀM (MODULE D - 6 BÀI) [HOÀN THÀNH 100% ✅]
@@ -84,8 +85,15 @@ Tổng cộng trò có **8 Nhóm chuyên đề lớn** đã được làm chủ 
 - [x] **Bài 30 (Milestone U.3):** `power_edge_mppt_solar_tracker.py` -> Thuật toán bám điểm công suất cực đại MPPT Perturb & Observe tối ưu 99% pin mặt trời (COMPLETED ✅).
 - [x] **Bài 31 (Milestone U.4):** `power_edge_space_power_system_capstone.py` -> Động cơ quản lý năng lượng vệ tinh Spacecraft Power Management Engine và bảo vệ eFuse (COMPLETED ✅).
 
+### 🔋 NHÓM 9: HỆ THỐNG QUẢN LÝ PIN XE ĐIỆN VÀ HÀNG KHÔNG BMS (MODULE V: EMBEDDED BATTERY MANAGEMENT SYSTEMS) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 32 (Milestone V.1):** `bms_edge_coulomb_counting_soc.py` -> Thuật toán ước lượng dung lượng Coulomb Counting và tái hiệu chuẩn OCV triệt tiêu sai số trôi (COMPLETED ✅).
+- [x] **Bài 33 (Milestone V.2):** `bms_edge_thevenin_battery_model.py` -> Mô hình tương đương Thevenin 1-RC giải mã sụt áp Ohmic và phân cực hóa học (COMPLETED ✅).
+- [x] **Bài 34 (Milestone V.3):** `bms_edge_passive_cell_balancing.py` -> Thuật toán cân bằng cell thụ động Passive Shunt Balancing đồng đều hóa pack pin (COMPLETED ✅).
+- [x] **Bài 35 (Milestone V.4):** `bms_edge_electric_vehicle_bms_capstone.py` -> Động cơ BMS xe điện cao áp 800V tích hợp quy trình Pre-charge, an toàn ASIL-D và suy giảm nhiệt độ (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 39 bài học và 12 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 43 bài học và 13 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
