@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **02/10/2026**  
+Bản cập nhật ngày: **03/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **9 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **10 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+
 
 
 
@@ -91,9 +92,16 @@ Tổng cộng trò có **9 Nhóm chuyên đề lớn** đã được làm chủ 
 - [x] **Bài 34 (Milestone V.3):** `bms_edge_passive_cell_balancing.py` -> Thuật toán cân bằng cell thụ động Passive Shunt Balancing đồng đều hóa pack pin (COMPLETED ✅).
 - [x] **Bài 35 (Milestone V.4):** `bms_edge_electric_vehicle_bms_capstone.py` -> Động cơ BMS xe điện cao áp 800V tích hợp quy trình Pre-charge, an toàn ASIL-D và suy giảm nhiệt độ (COMPLETED ✅).
 
+### 🛰️ NHÓM 10: HỆ THỐNG ĐIỀU KHIỂN VÀ XÁC ĐỊNH TƯ THẾ VỆ TINH (MODULE W: SATELLITE ATTITUDE DETERMINATION & CONTROL SYSTEMS - ADCS) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 36 (Milestone W.1):** `adcs_edge_bdot_detumbling.py` -> Thuật toán hãm quay B-Dot Magnetorquer Detumbling triệt tiêu vận tốc xoay lộn nhào khi tách tên lửa (COMPLETED ✅).
+- [x] **Bài 37 (Milestone W.2):** `adcs_edge_sun_sensor_vector.py` -> Thuật toán trích xuất vector Mặt Trời đơn vị từ cảm biến quang 6 mặt và phát hiện vùng tối Eclipse (COMPLETED ✅).
+- [x] **Bài 38 (Milestone W.3):** `adcs_edge_reaction_wheel_desat.py` -> Thuật toán xả động lượng bánh đà phản lực Reaction Wheel Desaturation chống kịch trần tốc độ (COMPLETED ✅).
+- [x] **Bài 39 (Milestone W.4):** `adcs_edge_satellite_attitude_capstone.py` -> Động cơ điều khiển tư thế vệ tinh toàn diện Satellite ADCS Flight Engine Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 43 bài học và 13 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 47 bài học và 14 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
