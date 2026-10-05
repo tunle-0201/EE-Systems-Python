@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **03/10/2026**  
+Bản cập nhật ngày: **04/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **10 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **11 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+
 
 
 
@@ -98,10 +99,17 @@ Tổng cộng trò có **10 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 38 (Milestone W.3):** `adcs_edge_reaction_wheel_desat.py` -> Thuật toán xả động lượng bánh đà phản lực Reaction Wheel Desaturation chống kịch trần tốc độ (COMPLETED ✅).
 - [x] **Bài 39 (Milestone W.4):** `adcs_edge_satellite_attitude_capstone.py` -> Động cơ điều khiển tư thế vệ tinh toàn diện Satellite ADCS Flight Engine Capstone (COMPLETED ✅).
 
+### 🛡️ NHÓM 11: BỘ KHỞI ĐỘNG NHÚNG VÀ AN TOÀN PHẦN CỨNG (MODULE X: MISSION-CRITICAL EMBEDDED BOOTLOADER & WINDOWED WATCHDOG) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 40 (Milestone X.1):** `boot_edge_windowed_watchdog.py` -> Mạch phòng vệ cửa sổ Windowed Watchdog WWDG chống vòng lặp bất thường và trôi chu kỳ (COMPLETED ✅).
+- [x] **Bài 41 (Milestone X.2):** `boot_edge_dual_bank_ota.py` -> Phân vùng bộ nhớ Flash kép Dual-Bank A/B và nâng cấp Firmware không dây OTA (COMPLETED ✅).
+- [x] **Bài 42 (Milestone X.3):** `boot_edge_firmware_rollback.py` -> Cơ chế đếm số lần khởi động Boot Counter và tự động hoàn nguyên Rollback chống biến thành cục gạch (COMPLETED ✅).
+- [x] **Bài 43 (Milestone X.4):** `boot_edge_failsafe_bootloader_capstone.py` -> Động cơ khởi động an toàn toàn diện Failsafe Avionics Bootloader Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 47 bài học và 14 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 51 bài học và 15 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
