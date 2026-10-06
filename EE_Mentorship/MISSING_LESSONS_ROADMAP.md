@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **04/10/2026**  
+Bản cập nhật ngày: **05/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **11 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **12 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+
 
 
 
@@ -105,10 +106,17 @@ Tổng cộng trò có **11 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 42 (Milestone X.3):** `boot_edge_firmware_rollback.py` -> Cơ chế đếm số lần khởi động Boot Counter và tự động hoàn nguyên Rollback chống biến thành cục gạch (COMPLETED ✅).
 - [x] **Bài 43 (Milestone X.4):** `boot_edge_failsafe_bootloader_capstone.py` -> Động cơ khởi động an toàn toàn diện Failsafe Avionics Bootloader Capstone (COMPLETED ✅).
 
+### ⚡ NHÓM 12: ĐIỀU KHIỂN PHẦN CỨNG VI ĐIỀU KHIỂN VÀ TĂNG TỐC DMA (MODULE Y: EMBEDDED HARDWARE DRIVERS & ZERO-CPU DMA ACCELERATION) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 44 (Milestone Y.1):** `dma_edge_circular_channel.py` -> Kênh truyền bộ nhớ trực tiếp Circular DMA Buffer giải phóng 100% tài nguyên CPU (COMPLETED ✅).
+- [x] **Bài 45 (Milestone Y.2):** `dma_edge_spi_master_driver.py` -> Trình điều khiển giao tiếp ngoại vi tốc độ cao SPI Master Driver kết nối cảm biến IMU (COMPLETED ✅).
+- [x] **Bài 46 (Milestone Y.3):** `dma_edge_nvic_irq_queue.py` -> Bộ điều phối hàng đợi ngắt lồng nhau NVIC Priority Queue theo thời gian thực (COMPLETED ✅).
+- [x] **Bài 47 (Milestone Y.4):** `dma_edge_firmware_engine_capstone.py` -> Động cơ điều hành trình điều khiển phần cứng toàn diện Embedded Firmware Engine Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 51 bài học và 15 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 55 bài học và 16 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
