@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **05/10/2026**  
+Bản cập nhật ngày: **06/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,8 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **12 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **13 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+
 
 
 
@@ -112,10 +113,17 @@ Tổng cộng trò có **12 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 46 (Milestone Y.3):** `dma_edge_nvic_irq_queue.py` -> Bộ điều phối hàng đợi ngắt lồng nhau NVIC Priority Queue theo thời gian thực (COMPLETED ✅).
 - [x] **Bài 47 (Milestone Y.4):** `dma_edge_firmware_engine_capstone.py` -> Động cơ điều hành trình điều khiển phần cứng toàn diện Embedded Firmware Engine Capstone (COMPLETED ✅).
 
+### 🛸 NHÓM 13: ĐIỀU KHIỂN BAY KHÔNG GIAN DUNG LỖI VÀ CHỐNG BỨC XẠ (MODULE Z: RADIATION-HARDENED TMR & FAULT-TOLERANT SPACE AVIONICS) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 48 (Milestone Z.1):** `tmr_edge_majority_voter.py` -> Bộ biểu quyết đa số phần cứng 2/3 Triple Modular Redundancy (TMR) chống tia vũ trụ (COMPLETED ✅).
+- [x] **Bài 49 (Milestone Z.2):** `tmr_edge_seu_bitflip_scrubber.py` -> Bộ quét sửa lỗi đảo bit bộ nhớ Single Event Upset (SEU) bằng mã Hamming SEC-DED (COMPLETED ✅).
+- [x] **Bài 50 (Milestone Z.3):** `tmr_edge_byzantine_resilient_bus.py` -> Giao thức phân xử đồng thuận Byzantine Resilient Bus 4-Node loại trừ nút phản bội (COMPLETED ✅).
+- [x] **Bài 51 (Milestone Z.4):** `tmr_edge_space_avionics_capstone.py` -> Động cơ điều hành máy tính bay tàu vũ trụ toàn chuỗi Space Avionics Fault-Tolerance Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 55 bài học và 16 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 59 bài học và 17 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
