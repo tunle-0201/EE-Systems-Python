@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **06/10/2026**  
+Bản cập nhật ngày: **07/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -119,10 +119,17 @@ Tổng cộng trò có **13 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 50 (Milestone Z.3):** `tmr_edge_byzantine_resilient_bus.py` -> Giao thức phân xử đồng thuận Byzantine Resilient Bus 4-Node loại trừ nút phản bội (COMPLETED ✅).
 - [x] **Bài 51 (Milestone Z.4):** `tmr_edge_space_avionics_capstone.py` -> Động cơ điều hành máy tính bay tàu vũ trụ toàn chuỗi Space Avionics Fault-Tolerance Capstone (COMPLETED ✅).
 
+### 🤖 NHÓM 14: ĐỘNG LỰC HỌC VÀ LẬP QUỸ ĐẠO CHUYỂN ĐỘNG ROBOT TỰ HÀNH (MODULE AA: ROBOTIC KINODYNAMICS & AUTONOMOUS MOTION PLANNING) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 52 (Milestone AA.1):** `robotics_edge_ackermann_kinematics.py` -> Mô hình động học xe tự hành Ackermann Bicycle Model & Bán kính quay vòng tối thiểu cho Tesla (COMPLETED ✅).
+- [x] **Bài 53 (Milestone AA.2):** `robotics_edge_dwa_obstacle_avoidance.py` -> Thuật toán né vật cản thời gian thực Dynamic Window Approach (DWA) (COMPLETED ✅).
+- [x] **Bài 54 (Milestone AA.3):** `robotics_edge_scurve_trajectory.py` -> Bộ tạo quỹ đạo S-Curve 7 đoạn giảm xóc cơ học và triệt tiêu giật Jerk (COMPLETED ✅).
+- [x] **Bài 55 (Milestone AA.4):** `robotics_edge_autonomous_navigation_capstone.py` -> Động cơ điều hướng và lập quỹ đạo xe tự hành toàn chuỗi Navigation Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 59 bài học và 17 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 63 bài học và 18 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
