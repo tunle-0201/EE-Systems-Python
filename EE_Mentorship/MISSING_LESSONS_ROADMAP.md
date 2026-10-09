@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **07/10/2026**  
+Bản cập nhật ngày: **08/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -125,10 +125,17 @@ Tổng cộng trò có **13 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 54 (Milestone AA.3):** `robotics_edge_scurve_trajectory.py` -> Bộ tạo quỹ đạo S-Curve 7 đoạn giảm xóc cơ học và triệt tiêu giật Jerk (COMPLETED ✅).
 - [x] **Bài 55 (Milestone AA.4):** `robotics_edge_autonomous_navigation_capstone.py` -> Động cơ điều hướng và lập quỹ đạo xe tự hành toàn chuỗi Navigation Capstone (COMPLETED ✅).
 
+### ⚡ NHÓM 15: KIẾN TRÚC TRUYỀN DẪN SIÊU TỐC SERDES VÀ TÍNH TOÀN VẸN TÍN HIỆU (MODULE AB: HIGH-SPEED SERDES & SIGNAL INTEGRITY ARCHITECTURE) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 56 (Milestone AB.1):** `serdes_edge_prbs_generator.py` -> Bộ phát chuỗi bit giả ngẫu nhiên PRBS-7 / PRBS-15 LFSR và máy đo tỷ lệ lỗi bit BERT (COMPLETED ✅).
+- [x] **Bài 57 (Milestone AB.2):** `serdes_edge_channel_loss_isi.py` -> Mô hình suy hao đường truyền PCB (Skin Effect & Dielectric Loss) và nhiễu xuyên ký tự ISI (COMPLETED ✅).
+- [x] **Bài 58 (Milestone AB.3):** `serdes_edge_dfe_equalizer.py` -> Bộ cân bằng máy thu CTLE và Bộ cân bằng hồi tiếp quyết định 2-Tap DFE triệt tiêu ISI (COMPLETED ✅).
+- [x] **Bài 59 (Milestone AB.4):** `serdes_edge_eye_diagram_capstone.py` -> Động cơ đo kiểm tính toàn vẹn tín hiệu SerDes và Phân tích biểu đồ mắt Eye Diagram Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 63 bài học và 18 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 67 bài học và 19 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
