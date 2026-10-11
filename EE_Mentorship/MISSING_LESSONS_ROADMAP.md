@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **08/10/2026**  
+Bản cập nhật ngày: **10/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -131,10 +131,17 @@ Tổng cộng trò có **13 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 58 (Milestone AB.3):** `serdes_edge_dfe_equalizer.py` -> Bộ cân bằng máy thu CTLE và Bộ cân bằng hồi tiếp quyết định 2-Tap DFE triệt tiêu ISI (COMPLETED ✅).
 - [x] **Bài 59 (Milestone AB.4):** `serdes_edge_eye_diagram_capstone.py` -> Động cơ đo kiểm tính toàn vẹn tín hiệu SerDes và Phân tích biểu đồ mắt Eye Diagram Capstone (COMPLETED ✅).
 
+### 🌐 NHÓM 16: MẠNG TRUYỀN THÔNG THỜI GIAN THỰC TIỀN ĐỊNH TSN & PTP CHO XE TỰ HÀNH VÀ TÀU VŨ TRỤ (MODULE AC: TIME-SENSITIVE NETWORKING & DETERMINISTIC ETHERNET) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 60 (Milestone AC.1):** `tsn_edge_ptp_clock_sync.py` -> Giao thức đồng bộ xung nhịp PTP IEEE 802.1AS chuẩn nano/micro-giây (COMPLETED ✅).
+- [x] **Bài 61 (Milestone AC.2):** `tsn_edge_credit_based_shaper.py` -> Bộ điều tiết băng thông Credit-Based Shaper IEEE 802.1Qav cho LiDAR và Camera (COMPLETED ✅).
+- [x] **Bài 62 (Milestone AC.3):** `tsn_edge_time_aware_shaper.py` -> Bộ định thời cổng Time-Aware Shaper IEEE 802.1Qbv và GCL schedule triệt tiêu Jitter (COMPLETED ✅).
+- [x] **Bài 63 (Milestone AC.4):** `tsn_edge_deterministic_switch_capstone.py` -> Động cơ chuyển mạch mạng thời gian thực tiền định TSN Deterministic Switch Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 67 bài học và 19 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 71 bài học và 20 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
