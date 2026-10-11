@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **10/10/2026**  
+Bản cập nhật ngày: **11/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -137,10 +137,17 @@ Tổng cộng trò có **13 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 62 (Milestone AC.3):** `tsn_edge_time_aware_shaper.py` -> Bộ định thời cổng Time-Aware Shaper IEEE 802.1Qbv và GCL schedule triệt tiêu Jitter (COMPLETED ✅).
 - [x] **Bài 63 (Milestone AC.4):** `tsn_edge_deterministic_switch_capstone.py` -> Động cơ chuyển mạch mạng thời gian thực tiền định TSN Deterministic Switch Capstone (COMPLETED ✅).
 
+### 🛰️ NHÓM 17: GIAO THỨC TRUYỀN THÔNG MÁY TÍNH BAY VŨ TRỤ & HÀNG KHÔNG (MODULE AD: MISSION-CRITICAL AEROSPACE AVIONICS PROTOCOLS - MIL-STD-1553B & ARINC 429) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 64 (Milestone AD.1):** `avionics_edge_mil1553_protocol.py` -> Giao thức mạng máy tính bay vũ trụ MIL-STD-1553B, mã hóa Manchester II và cấu trúc từ 20-bit (COMPLETED ✅).
+- [x] **Bài 65 (Milestone AD.2):** `avionics_edge_arinc429_words.py` -> Giao thức truyền tin hàng không dân dụng ARINC 429 và mã hóa 32-bit BNR (COMPLETED ✅).
+- [x] **Bài 66 (Milestone AD.3):** `avionics_edge_dual_bus_redundancy.py` -> Cơ chế chuyển mạch dự phòng kép Dual-Redundant Bus A/B Failsafe cho tàu vũ trụ (COMPLETED ✅).
+- [x] **Bài 67 (Milestone AD.4):** `avionics_edge_flight_gateway_capstone.py` -> Động cơ cầu nối máy tính bay vũ trụ toàn chuỗi ARINC 429 & MIL-STD-1553B Gateway Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 71 bài học và 20 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 75 bài học và 21 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+
 
 
 
