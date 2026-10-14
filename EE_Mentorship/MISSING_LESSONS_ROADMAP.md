@@ -149,10 +149,16 @@ Tổng cộng trò có **13 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 70 (Milestone AE.3):** `ins_edge_extended_kalman_filter.py` -> Bộ lọc Kalman mở rộng ES-EKF 15 trạng thái dung hợp IMU và GNSS (COMPLETED ✅).
 - [x] **Bài 71 (Milestone AE.4):** `ins_edge_spacecraft_navigation_capstone.py` -> Động cơ định vị dẫn đường tàu vũ trụ 6-DOF và dung hợp EKF Capstone (COMPLETED ✅).
 
+### 🎧 NHÓM 19: XỬ LÝ ÂM THANH SỐ PHẦN CỨNG VÀ MẢNG MICROPHONE ĐỊNH HƯỚNG CHÙM SÓNG (MODULE AF: HARDWARE AUDIO DSP & I2S / PDM MICROPHONE BEAMFORMING) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 72 (Milestone AF.1):** `audio_edge_i2s_bus_protocol.py` -> Giao thức bus âm thanh số I2S và mã hóa giải mã Stereo 24-bit PCM (COMPLETED ✅).
+- [x] **Bài 73 (Milestone AF.2):** `audio_edge_pdm_cic_decimation.py` -> Bộ lọc suy giảm CIC Decimation chuyển đổi PDM sang PCM cho micro MEMS (COMPLETED ✅).
+- [x] **Bài 74 (Milestone AF.3):** `audio_edge_microphone_beamforming.py` -> Thuật toán định hướng chùm sóng âm học Delay-and-Sum Beamforming cho mảng micro (COMPLETED ✅).
+- [x] **Bài 75 (Milestone AF.4):** `audio_edge_spatial_acoustic_capstone.py` -> Động cơ thu âm không gian và lọc chùm sóng Beamforming Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 79 bài học và 22 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / định vị quán tính 6-DOF Strapdown INS & bộ lọc sai số trạng thái ES-EKF 15 trạng thái chống trôi ZUPT cho Tàu vũ trụ SpaceX Starship & Robot Tesla Optimus / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 83 bài học và 23 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / định vị quán tính 6-DOF Strapdown INS & bộ lọc sai số trạng thái ES-EKF 15 trạng thái chống trôi ZUPT cho Tàu vũ trụ SpaceX Starship & Robot Tesla Optimus / xử lý âm thanh số phần cứng I2S 24-bit Stereo, giải điều chế micro MEMS PDM bằng bộ lọc CIC Multiplierless và mảng 4-micro Beamforming khử tiếng ồn cho Apple AirPods Pro & Tesla Cabin Voice / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
 
 
 
