@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **16/10/2026**  
+Bản cập nhật ngày: **17/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,7 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **22 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **23 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
 
 
 
@@ -173,10 +173,16 @@ Tổng cộng trò có **22 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 86 (Milestone AI.3):** `rf_edge_sar_backprojection_imaging.py` -> Thuật toán tái tạo ảnh Radar khẩu độ tổng hợp SAR Backprojection Algorithm (COMPLETED ✅).
 - [x] **Bài 87 (Milestone AI.4):** `rf_edge_starlink_sar_radar_capstone.py` -> Động cơ Radar quét pha và tạo ảnh SAR vệ tinh Starlink và Tesla FSD Capstone (COMPLETED ✅).
 
+### 📷 NHÓM 23: GIAO THỨC TRUYỀN DẪN CẢM BIẾN CAMERA SIÊU TỐC MIPI CSI-2 & D-PHY TỰ HÀNH (MODULE AJ: MIPI CSI-2 CAMERA SERIAL INTERFACE & D-PHY HARDWARE PIPELINE) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 88 (Milestone AJ.1):** `mipi_edge_dphy_state_machine.py` -> Máy trạng thái chuyển mạch vật lý D-PHY (LP-to-HS Transition State Machine & Ultra-Low Power State) (COMPLETED ✅).
+- [x] **Bài 89 (Milestone AJ.2):** `mipi_edge_csi2_packet_protocol.py` -> Tầng giao thức gói tin MIPI CSI-2: Short/Long Packet, Đồng bộ Khung hình FS/FE và Kênh ảo Virtual Channel (COMPLETED ✅).
+- [x] **Bài 90 (Milestone AJ.3):** `mipi_edge_ecc_crc_payload_validator.py` -> Bộ giải mã sửa sai ECC Hamming SECDED Header & Kiểm chuẩn toàn vẹn CRC-16 dữ liệu ảnh thô RAW12 (COMPLETED ✅).
+- [x] **Bài 91 (Milestone AJ.4):** `mipi_edge_tesla_fsd_camera_capstone.py` -> Động cơ thu nhận dữ liệu đa camera 8-Kênh CSI-2 chuẩn không độ trễ Zero-Drop Frame cho Tesla Autopilot FSD HW4 Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 95 bài học và 26 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / định vị quán tính 6-DOF Strapdown INS & bộ lọc sai số trạng thái ES-EKF 15 trạng thái chống trôi ZUPT cho Tàu vũ trụ SpaceX Starship & Robot Tesla Optimus / xử lý âm thanh số phần cứng I2S 24-bit Stereo, giải điều chế micro MEMS PDM bằng bộ lọc CIC Multiplierless và mảng 4-micro Beamforming khử tiếng ồn cho Apple AirPods Pro & Tesla Cabin Voice / điều khiển mở rộng vùng tốc độ cao Field Weakening, tối ưu hóa MTPA/MTPV và quá điều chế biến tần Space Vector Overmodulation OVM1/OVM2 Six-Step cho hệ truyền động xe điện Tesla Model S Plaid & Robot Optimus / tính toàn vẹn nguồn điện Power Integrity, trở kháng mục tiêu PDN Target Impedance, mô phỏng sụt áp dI/dt Transient Droop và bộ điều phối năng lượng DVFS P-States cho chip Apple Silicon & Tesla FSD SoC / mảng quét pha điện tử AESA, bộ dịch pha số hóa, triệt tiêu méo búp sóng True Time Delay TTD và tái tạo ảnh viễn thám Radar khẩu độ tổng hợp SAR Backprojection cho vệ tinh SpaceX Starlink & radar xe tự hành Tesla FSD / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 99 bài học và 27 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / định vị quán tính 6-DOF Strapdown INS & bộ lọc sai số trạng thái ES-EKF 15 trạng thái chống trôi ZUPT cho Tàu vũ trụ SpaceX Starship & Robot Tesla Optimus / xử lý âm thanh số phần cứng I2S 24-bit Stereo, giải điều chế micro MEMS PDM bằng bộ lọc CIC Multiplierless và mảng 4-micro Beamforming khử tiếng ồn cho Apple AirPods Pro & Tesla Cabin Voice / điều khiển mở rộng vùng tốc độ cao Field Weakening, tối ưu hóa MTPA/MTPV và quá điều chế biến tần Space Vector Overmodulation OVM1/OVM2 Six-Step cho hệ truyền động xe điện Tesla Model S Plaid & Robot Optimus / tính toàn vẹn nguồn điện Power Integrity, trở kháng mục tiêu PDN Target Impedance, mô phỏng sụt áp dI/dt Transient Droop và bộ điều phối năng lượng DVFS P-States cho chip Apple Silicon & Tesla FSD SoC / mảng quét pha điện tử AESA, bộ dịch pha số hóa, triệt tiêu méo búp sóng True Time Delay TTD và tái tạo ảnh viễn thám Radar khẩu độ tổng hợp SAR Backprojection cho vệ tinh SpaceX Starlink & radar xe tự hành Tesla FSD / tầng vật lý MIPI D-PHY vi sai tốc độ cao, giao thức gói tin MIPI CSI-2, mã sửa sai ECC SECDED, thuật toán đóng gói điểm ảnh RAW12 HDR và động cơ thu nhận 8 camera không trễ Zero-Drop cho hệ thống xe tự hành Tesla FSD HW4 / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
 
 
 
