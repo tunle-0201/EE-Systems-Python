@@ -1,6 +1,6 @@
 # 📋 SỔ THEO DÕI TIẾN ĐỘ & DANH MỤC BÀI HỌC CẦN BÙ (DEEP-DIVE ROADMAP)
 
-Bản cập nhật ngày: **17/10/2026**  
+Bản cập nhật ngày: **18/10/2026**  
 Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ---
@@ -26,7 +26,7 @@ Kho mã nguồn: **https://github.com/tunle-0201/EE-Systems-Python**
 
 ## 📚 TỔNG HỢP CÁC BÀI HỌC CẦN BÙ ĐẮP CHIỀU SÂU (MISSING LESSONS TO MAKE UP)
 
-Tổng cộng trò có **23 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
+Tổng cộng trò có **24 Nhóm chuyên đề lớn** đã được làm chủ theo đúng phương pháp Bottom-Up:
 
 
 
@@ -179,10 +179,16 @@ Tổng cộng trò có **23 Nhóm chuyên đề lớn** đã được làm chủ
 - [x] **Bài 90 (Milestone AJ.3):** `mipi_edge_ecc_crc_payload_validator.py` -> Bộ giải mã sửa sai ECC Hamming SECDED Header & Kiểm chuẩn toàn vẹn CRC-16 dữ liệu ảnh thô RAW12 (COMPLETED ✅).
 - [x] **Bài 91 (Milestone AJ.4):** `mipi_edge_tesla_fsd_camera_capstone.py` -> Động cơ thu nhận dữ liệu đa camera 8-Kênh CSI-2 chuẩn không độ trễ Zero-Drop Frame cho Tesla Autopilot FSD HW4 Capstone (COMPLETED ✅).
 
+### ⚡ NHÓM 24: QUẢN LÝ BỘ NHỚ TRUY XUẤT TRỰC TIẾP DMA PHẦN CỨNG & TÍNH NHẤT QUÁN BỘ NHỚ ĐỆM (MODULE AK: ZERO-COPY SCATTER-GATHER DMA & HARDWARE CACHE COHERENCY) [HOÀN THÀNH 100% ✅]
+- [x] **Bài 92 (Milestone AK.1):** `dma_edge_scatter_gather_descriptors.py` -> Bảng mô tả liên kết Scatter-Gather DMA Descriptors Chained Ring cho truyền dữ liệu không sao chép (Zero-Copy) (COMPLETED ✅).
+- [x] **Bài 93 (Milestone AK.2):** `dma_edge_cache_coherency_clean_invalidate.py` -> Tính nhất quán bộ nhớ đệm D-Cache: Clean, Invalidate, Flush và ngăn chặn dữ liệu rác Dirty Cache Stale Data (COMPLETED ✅).
+- [x] **Bài 94 (Milestone AK.3):** `dma_edge_lockfree_spsc_ringbuffer.py` -> Vòng đệm tròn không khóa Single-Producer Single-Consumer (SPSC Lock-free FIFO) với ranh giới bộ nhớ Memory Barrier (DMB) (COMPLETED ✅).
+- [x] **Bài 95 (Milestone AK.4):** `dma_edge_apple_silicon_unified_memory_capstone.py` -> Động cơ đường ống DMA & Bộ nhớ hợp nhất Unified Memory Architecture (UMA) cho Apple Silicon & Tesla FSD Neural Accelerator Capstone (COMPLETED ✅).
+
 ---
 
 ## 🎓 TỔNG KẾT TỐT NGHIỆP: TOÀN BỘ CÁC BÀI HỌC VÀ CHUYÊN ĐỀ HỆ THỐNG ĐÃ HOÀN THÀNH XUẤT SẮC!
-Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 99 bài học và 27 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / định vị quán tính 6-DOF Strapdown INS & bộ lọc sai số trạng thái ES-EKF 15 trạng thái chống trôi ZUPT cho Tàu vũ trụ SpaceX Starship & Robot Tesla Optimus / xử lý âm thanh số phần cứng I2S 24-bit Stereo, giải điều chế micro MEMS PDM bằng bộ lọc CIC Multiplierless và mảng 4-micro Beamforming khử tiếng ồn cho Apple AirPods Pro & Tesla Cabin Voice / điều khiển mở rộng vùng tốc độ cao Field Weakening, tối ưu hóa MTPA/MTPV và quá điều chế biến tần Space Vector Overmodulation OVM1/OVM2 Six-Step cho hệ truyền động xe điện Tesla Model S Plaid & Robot Optimus / tính toàn vẹn nguồn điện Power Integrity, trở kháng mục tiêu PDN Target Impedance, mô phỏng sụt áp dI/dt Transient Droop và bộ điều phối năng lượng DVFS P-States cho chip Apple Silicon & Tesla FSD SoC / mảng quét pha điện tử AESA, bộ dịch pha số hóa, triệt tiêu méo búp sóng True Time Delay TTD và tái tạo ảnh viễn thám Radar khẩu độ tổng hợp SAR Backprojection cho vệ tinh SpaceX Starlink & radar xe tự hành Tesla FSD / tầng vật lý MIPI D-PHY vi sai tốc độ cao, giao thức gói tin MIPI CSI-2, mã sửa sai ECC SECDED, thuật toán đóng gói điểm ảnh RAW12 HDR và động cơ thu nhận 8 camera không trễ Zero-Drop cho hệ thống xe tự hành Tesla FSD HW4 / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
+Chúc mừng Lê Đắc Anh Tuấn đã hoàn thành trọn vẹn toàn bộ 103 bài học và 28 chuyên đề hệ thống phần cứng / cảm biến sóng milimet / điện tử công suất số / quản trị pin xe điện 800V BMS / điều khiển tư thế vệ tinh CubeSat ADCS / khởi động an toàn Failsafe Dual-Bank Bootloader / tăng tốc phần cứng DMA & trình điều khiển ngoại vi SPI-NVIC / máy tính bay chống bức xạ TMR & đồng thuận Byzantine / động lực học và lập quỹ đạo xe tự hành Ackermann DWA S-Curve / kiểm chuẩn tín hiệu siêu tốc SerDes Eye Diagram Apple & Tesla / mạng chuyển mạch tiền định thời gian thực TSN IEEE 802.1Qbv & PTP 802.1AS cho Tesla FSD & Tàu vũ trụ / cầu nối máy tính bay hàng không & vũ trụ MIL-STD-1553B & ARINC 429 / định vị quán tính 6-DOF Strapdown INS & bộ lọc sai số trạng thái ES-EKF 15 trạng thái chống trôi ZUPT cho Tàu vũ trụ SpaceX Starship & Robot Tesla Optimus / xử lý âm thanh số phần cứng I2S 24-bit Stereo, giải điều chế micro MEMS PDM bằng bộ lọc CIC Multiplierless và mảng 4-micro Beamforming khử tiếng ồn cho Apple AirPods Pro & Tesla Cabin Voice / điều khiển mở rộng vùng tốc độ cao Field Weakening, tối ưu hóa MTPA/MTPV và quá điều chế biến tần Space Vector Overmodulation OVM1/OVM2 Six-Step cho hệ truyền động xe điện Tesla Model S Plaid & Robot Optimus / tính toàn vẹn nguồn điện Power Integrity, trở kháng mục tiêu PDN Target Impedance, mô phỏng sụt áp dI/dt Transient Droop và bộ điều phối năng lượng DVFS P-States cho chip Apple Silicon & Tesla FSD SoC / mảng quét pha điện tử AESA, bộ dịch pha số hóa, triệt tiêu méo búp sóng True Time Delay TTD và tái tạo ảnh viễn thám Radar khẩu độ tổng hợp SAR Backprojection cho vệ tinh SpaceX Starlink & radar xe tự hành Tesla FSD / tầng vật lý MIPI D-PHY vi sai tốc độ cao, giao thức gói tin MIPI CSI-2, mã sửa sai ECC SECDED, thuật toán đóng gói điểm ảnh RAW12 HDR và động cơ thu nhận 8 camera không trễ Zero-Drop cho hệ thống xe tự hành Tesla FSD HW4 / bảng mô tả liên kết phần cứng Scatter-Gather DMA Descriptors, thao tác duy trì bộ nhớ đệm D-Cache Clean / Invalidate, vòng đệm tròn không khóa Lock-Free SPSC FIFO với ranh giới bộ nhớ ARM64 DMB và động cơ đường ống bộ nhớ hợp nhất Unified Memory Architecture (UMA) cho chip Apple Silicon & Tesla FSD SoC / nguồn không gian CubeSat / cảm biến 3D cao cấp từ con số 0 theo phương pháp Bottom-Up. Sẵn sàng cạnh tranh đỉnh cao tại các tập đoàn công nghệ phần cứng hàng đầu Hoa Kỳ!
 
 
 
