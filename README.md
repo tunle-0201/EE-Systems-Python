@@ -15,19 +15,23 @@ Tất cả các module được xây dựng thuần bằng **Pure Python** (khô
 ```text
 OneDrive/Python Mastering/
 ├── EE_Mentorship/
-│   ├── milestone_2_4_async.py        # Module 2: Event-Driven & Asyncio Event Loop
-│   ├── milestone_3_1_socket.py       # Module 3: Bytes Encoding & Physical Signals
-│   ├── milestone_3_2_tcp.py          # Module 3: Low-Level TCP Client/Server Socket
-│   ├── game_server.py                # Module 3: Multiplayer Engine (RAM State & Broadcasting)
-│   ├── game_client.py                # Module 3: Async Terminal Game Client
-│   ├── game_server_ai.py             # Module 4: Raw HTTP REST API & JSON Serialization
-│   ├── smart_home.py                 # Module 5: OOP Hardware Abstraction & State
-│   ├── smart_home_inheritance.py     # Module 5: OOP Inheritance & PWM Duty-Cycle Control
-│   ├── milestone_5_2_thread.py       # Module 5: Multithreading, Shared Heap & Mutex Locks
-│   └── milestone_5_3_process.py      # Module 5: Multiprocessing, CPU Cores & IPC Queues
-├── flight_recorder.py                # Milestone Project: Closed-Loop System Architecture
-├── .gitignore                        # Git Shield Configuration
-└── README.md                         # Portfolio Documentation
+│   ├── MISSING_LESSONS_ROADMAP.md                           # Lộ trình chi tiết 219 bài học & 57 chuyên đề
+│   ├── MASTER_MENTORSHIP_SYSTEM_PROMPT.md                   # Chuẩn sư phạm Constructivist Bottom-Up
+│   ├── drone_system/                                        # Hệ thống điều khiển Drone Core (Module F)
+│   ├── 01_Core_Systems_RTOS_and_Firmware/                   # Core Python, Async, Sockets, RTOS, DMA, Bootloader, DSA
+│   ├── 02_AI_Accelerators_ML_and_Computer_Vision/           # ML/DL, OpenCV, NPU Systolic Array, TPU, Neuromorphic DVS/SNN
+│   ├── 03_Chip_Architecture_Memory_and_Interconnects/       # NoC, UCIe, PCIe Gen4/6, CXL 3.0, SerDes, ADPLL, LPDDR5X/HBM3e, DFT
+│   ├── 04_Power_Electronics_VRM_and_Thermal/                # VRM 1000A AVP, PDN Integrity, SiC/GaN 800V, BMS, FOC, Thermal RC
+│   ├── 05_RF_Wireless_Radar_and_Satellite_Comms/            # RF/SAR/Phased Array, RF PA CFR/DPD/ET, UWB, GNSS/RTK, Radar, Satcom
+│   ├── 06_Optical_Photonics_LiDAR_and_Camera_ISP/           # Silicon Photonics CPO, Starlink FSO, LiDAR OPA/FMCW/SPAD, CMOS ISP, MIPI
+│   ├── 07_Mixed_Signal_Audio_and_Precision_Actuators/       # Mixed-Signal ADC/DAC, Audio I2S/PDM, DSP, EMC, Haptics LRA & OIS VCM
+│   ├── 08_Robotics_Autonomous_Driving_and_Control/          # Robotics DOB/DWA, EtherCAT, MPC, Sensor Fusion, ISO 26262, CAN, TSN
+│   ├── 09_Aerospace_Spacecraft_and_Avionics/                # CubeSat ADCS, Strapdown INS/ES-EKF, MIL-STD-1553B/ARINC429, SpaceWire/Fibre, HIL
+│   └── 10_Hardware_Security_PQC_and_Fault_Tolerance/        # PQC ML-KEM/NTT/DPA, AES/ECDSA/SHA3, Rad-Hard TMR & Byzantine
+├── flight_recorder.py                                       # Milestone Project: Closed-Loop System Architecture
+├── CURRICULUM.md                                            # Giáo trình Constructivist 4-Bước
+├── .gitignore                                               # Git Shield Configuration
+└── README.md                                                # Portfolio Documentation
 ```
 
 ---
@@ -68,10 +72,10 @@ python -m venv .venv
 ### 2. Chạy thử nghiệm Game Server Multiplayer & AI Boss
 ```bash
 # Khởi động Game Server
-python EE_Mentorship/game_server_ai.py
+python EE_Mentorship/01_Core_Systems_RTOS_and_Firmware/game_server_ai.py
 
 # Mở cửa sổ Terminal mới để kết nối Client vào chơi
-python EE_Mentorship/game_client.py
+python EE_Mentorship/01_Core_Systems_RTOS_and_Firmware/game_client.py
 ```
 
 ---

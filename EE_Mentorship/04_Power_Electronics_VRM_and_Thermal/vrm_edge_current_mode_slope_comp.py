@@ -342,3 +342,4 @@ def test_current_mode_slope_comp():
 
 if __name__ == "__main__":
     test_current_mode_slope_comp()
+
