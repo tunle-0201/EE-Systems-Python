@@ -1,6 +1,6 @@
 # 📁 EE Mentorship — Danh Mục Phân Loại 10 Thư Mục Chuyên Ngành
 
-Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 219`, **227 bài học & 59 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
+Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 223`, **231 bài học & 60 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
 
 | Thư mục | Phạm vi Kỹ thuật (Engineering Domain) | Các phân hệ tiêu biểu (Prefixes) | Số file |
 | :--- | :--- | :--- | :---: |
@@ -11,9 +11,27 @@ Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 219`, **227 bài
 | [`05_RF_Wireless_Radar_and_Satellite_Comms/`](05_RF_Wireless_Radar_and_Satellite_Comms/) | Viễn thông vô tuyến SDR/Smith/TDR/SAR, RF PA CFR/DPD/Envelope Tracking, UWB IEEE 802.15.4z, GNSS L1/L5 & RTK Centimet, Radar & Satcom | `rf_*`, `rfpa_*`, `uwb_*`, `gnss_*`, `radar_*`, `track_*`, `satcom_*` | 36 |
 | [`06_Optical_Photonics_LiDAR_and_Camera_ISP/`](06_Optical_Photonics_LiDAR_and_Camera_ISP/) | Silicon Photonics MZM/MRR/CPO, Quang không gian Starlink FSO, LiDAR OPA/FMCW/SPAD, Cảm biến CMOS 4T-PPD & ISP 5-Line, MIPI CSI-2 | `siph_*`, `fso_*`, `optics_*`, `lidar_*`, `isp_*`, `mipi_*` | 28 |
 | [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 28 |
-| [`08_Robotics_Autonomous_Driving_and_Control/`](08_Robotics_Autonomous_Driving_and_Control/) | Điều khiển Robot Ackermann/Admittance/DOB, EtherCAT DC, MPC Starship/FSD, Sensor Fusion, Mapping, ISO 26262 ASIL-D, CAN-FD & TSN | `robotics_*`, `ethercat_*`, `mpc_*`, `fusion_*`, `grid_*`, `safety_*`, `can_*`, `tsn_*` | 42 |
+| [`08_Robotics_Autonomous_Driving_and_Control/`](08_Robotics_Autonomous_Driving_and_Control/) | Điều khiển Robot Ackermann/Admittance/DOB, Encoder A/B/Z & Sin/Cos, BiSS-C SCD CRC-6, EtherCAT DC, MPC Starship/FSD, Sensor Fusion, Mapping, ISO 26262 ASIL-D, CAN-FD & TSN | `robotics_*`, `encoder_*`, `ethercat_*`, `mpc_*`, `fusion_*`, `grid_*`, `safety_*`, `can_*`, `tsn_*` | 46 |
 | [`09_Aerospace_Spacecraft_and_Avionics/`](09_Aerospace_Spacecraft_and_Avionics/) | Điều khiển tư thế vệ tinh CubeSat ADCS, Định vị quán tính 6-DOF INS/ES-EKF, MIL-STD-1553B & ARINC 429, SpaceWire/SpaceFibre, HIL | `adcs_*`, `ins_*`, `avionics_*`, `spacewire_*`, `spacefibre_*`, `hil_*` | 20 |
 | [`10_Hardware_Security_PQC_and_Fault_Tolerance/`](10_Hardware_Security_PQC_and_Fault_Tolerance/) | Mật mã hậu lượng tử PQC FIPS 203 ML-KEM/NTT/DPA, Bảo mật AES-GCM/ECDSA/SHA3 & Máy tính bay chống bức xạ TMR Byzantine | `pqc_*`, `crypto_*`, `tmr_*` | 16 |
 | [`drone_system/`](drone_system/) | Gói phần mềm điều khiển Drone hoàn chỉnh (Module F & Kiem thu Pytest) | `engine.py`, `protocol.py`, `flight_controller_capstone.py` | 7 |
 
 > **Lưu ý khi chạy các bài Capstone có `import` chéo:** Tất cả các module phụ thuộc nhau đã được xếp chung trong cùng một thư mục chuyên ngành, nên bạn chạy trực tiếp bằng `python EE_Mentorship/<Thu_muc>/<ten_file>.py` là hoạt động ngay 100%!
+
+## Chuyên đề BQ — Encoder & phản hồi góc khớp robot (20/11/2026)
+
+Học theo thứ tự hộp công cụ, bài tập tự làm, phân tích lỗi và demo trong từng file:
+
+1. [Bài 220 — A/B/Z quadrature x4](08_Robotics_Autonomous_Driving_and_Control/encoder_edge_quadrature_abz.py): đếm đa vòng, đảo chiều, homing và phát hiện mất cạnh.
+2. [Bài 221 — Hiệu chuẩn sin/cos](08_Robotics_Autonomous_Driving_and_Control/encoder_edge_sincos_calibration.py): bù offset/gain, `atan2`, kiểm tra biên độ và unwrap qua 360 deg.
+3. [Bài 222 — BiSS-C SCD CRC-6](08_Robotics_Autonomous_Driving_and_Control/encoder_edge_bissc_crc6.py): profile dữ liệu 18-bit + status + CRC đảo, kiểm tra lỗi từng bit. Mô phỏng kênh SCD, chưa triển khai full BiSS master.
+4. [Bài 223 — Robot joint feedback capstone](08_Robotics_Autonomous_Driving_and_Control/encoder_edge_robot_joint_feedback_capstone.py): so sánh hai kênh tại 1 kHz, chặn mẫu lỗi, watchdog 5 ms và chốt lỗi encoder kẹt/mất cạnh.
+
+Chạy capstone từ thư mục gốc repo:
+
+```bash
+python EE_Mentorship/08_Robotics_Autonomous_Driving_and_Control/encoder_edge_robot_joint_feedback_capstone.py
+python -m unittest discover -s tests -v
+```
+
+[Bộ kiểm thử BQ](../tests/test_encoder_bq.py) dùng thư viện chuẩn Python; kiểm tra CRC bằng phép chia đa thức độc lập, đảo chiều/qua vòng và các tình huống lỗi. Các kết quả là mô phỏng; cổng torque Boolean chưa phải cơ chế STO phần cứng.
