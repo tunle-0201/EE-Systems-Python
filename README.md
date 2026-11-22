@@ -15,7 +15,7 @@ Tất cả các module được xây dựng thuần bằng **Pure Python** (khô
 ```text
 OneDrive/Python Mastering/
 ├── EE_Mentorship/
-│   ├── MISSING_LESSONS_ROADMAP.md                           # Lộ trình đến Bài 223; tổng 231 bài học & 60 chuyên đề
+│   ├── MISSING_LESSONS_ROADMAP.md                           # Lộ trình đến Bài 227; tổng 235 bài học & 61 chuyên đề
 │   ├── MASTER_MENTORSHIP_SYSTEM_PROMPT.md                   # Chuẩn sư phạm Constructivist Bottom-Up
 │   ├── drone_system/                                        # Hệ thống điều khiển Drone Core (Module F)
 │   ├── 01_Core_Systems_RTOS_and_Firmware/                   # Core Python, Async, Sockets, RTOS, DMA, Bootloader, DSA
@@ -24,7 +24,7 @@ OneDrive/Python Mastering/
 │   ├── 04_Power_Electronics_VRM_and_Thermal/                # VRM 1000A AVP, PDN Integrity, SiC/GaN 800V, BMS, FOC, Thermal RC
 │   ├── 05_RF_Wireless_Radar_and_Satellite_Comms/            # RF/SAR/Phased Array, RF PA CFR/DPD/ET, UWB, GNSS/RTK, Radar, Satcom
 │   ├── 06_Optical_Photonics_LiDAR_and_Camera_ISP/           # Silicon Photonics CPO, Starlink FSO, LiDAR OPA/FMCW/SPAD, CMOS ISP, MIPI
-│   ├── 07_Mixed_Signal_Audio_and_Precision_Actuators/       # Mixed-Signal ADC/DAC, Audio I2S/PDM, DSP, EMC, Haptics LRA & OIS VCM
+│   ├── 07_Mixed_Signal_Audio_and_Precision_Actuators/       # Strain Gauge/Load Cell, Mixed-Signal ADC/DAC, Audio I2S/PDM, DSP, EMC, Haptics LRA & OIS VCM
 │   ├── 08_Robotics_Autonomous_Driving_and_Control/          # Robotics DOB/DWA, Encoder ABZ/SinCos/BiSS-C, EtherCAT, MPC, Sensor Fusion, ISO 26262, CAN, TSN
 │   ├── 09_Aerospace_Spacecraft_and_Avionics/                # CubeSat ADCS, Strapdown INS/ES-EKF, MIL-STD-1553B/ARINC429, SpaceWire/Fibre, HIL
 │   └── 10_Hardware_Security_PQC_and_Fault_Tolerance/        # PQC ML-KEM/NTT/DPA, AES/ECDSA/SHA3, Rad-Hard TMR & Byzantine
