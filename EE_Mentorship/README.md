@@ -1,6 +1,6 @@
 # 📁 EE Mentorship — Danh Mục Phân Loại 10 Thư Mục Chuyên Ngành
 
-Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 227`, **235 bài học & 61 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
+Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 231`, **239 bài học & 62 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
 
 | Thư mục | Phạm vi Kỹ thuật (Engineering Domain) | Các phân hệ tiêu biểu (Prefixes) | Số file |
 | :--- | :--- | :--- | :---: |
@@ -10,7 +10,7 @@ Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 227`, **235 bài
 | [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 36 |
 | [`05_RF_Wireless_Radar_and_Satellite_Comms/`](05_RF_Wireless_Radar_and_Satellite_Comms/) | Viễn thông vô tuyến SDR/Smith/TDR/SAR, RF PA CFR/DPD/Envelope Tracking, UWB IEEE 802.15.4z, GNSS L1/L5 & RTK Centimet, Radar & Satcom | `rf_*`, `rfpa_*`, `uwb_*`, `gnss_*`, `radar_*`, `track_*`, `satcom_*` | 36 |
 | [`06_Optical_Photonics_LiDAR_and_Camera_ISP/`](06_Optical_Photonics_LiDAR_and_Camera_ISP/) | Silicon Photonics MZM/MRR/CPO, Quang không gian Starlink FSO, LiDAR OPA/FMCW/SPAD, Cảm biến CMOS 4T-PPD & ISP 5-Line, MIPI CSI-2 | `siph_*`, `fso_*`, `optics_*`, `lidar_*`, `isp_*`, `mipi_*` | 28 |
-| [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | Strain Gauge/Load Cell, ADC ratiometric & hiệu chuẩn nhiệt, ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `strain_*`, `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 32 |
+| [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | Pt100/RTD 3-wire & tự nung, Strain Gauge/Load Cell, ADC ratiometric & hiệu chuẩn nhiệt, ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `rtd_*`, `strain_*`, `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 36 |
 | [`08_Robotics_Autonomous_Driving_and_Control/`](08_Robotics_Autonomous_Driving_and_Control/) | Điều khiển Robot Ackermann/Admittance/DOB, Encoder A/B/Z & Sin/Cos, BiSS-C SCD CRC-6, EtherCAT DC, MPC Starship/FSD, Sensor Fusion, Mapping, ISO 26262 ASIL-D, CAN-FD & TSN | `robotics_*`, `encoder_*`, `ethercat_*`, `mpc_*`, `fusion_*`, `grid_*`, `safety_*`, `can_*`, `tsn_*` | 46 |
 | [`09_Aerospace_Spacecraft_and_Avionics/`](09_Aerospace_Spacecraft_and_Avionics/) | Điều khiển tư thế vệ tinh CubeSat ADCS, Định vị quán tính 6-DOF INS/ES-EKF, MIL-STD-1553B & ARINC 429, SpaceWire/SpaceFibre, HIL | `adcs_*`, `ins_*`, `avionics_*`, `spacewire_*`, `spacefibre_*`, `hil_*` | 20 |
 | [`10_Hardware_Security_PQC_and_Fault_Tolerance/`](10_Hardware_Security_PQC_and_Fault_Tolerance/) | Mật mã hậu lượng tử PQC FIPS 203 ML-KEM/NTT/DPA, Bảo mật AES-GCM/ECDSA/SHA3 & Máy tính bay chống bức xạ TMR Byzantine | `pqc_*`, `crypto_*`, `tmr_*` | 16 |
@@ -51,3 +51,19 @@ python -m unittest discover -s tests -v
 ```
 
 [Bộ kiểm thử BR](../tests/test_strain_br.py) có **25 tests**, cùng 23 tests BQ tạo thành **48 tests**. Mô hình lý tưởng chỉ minh họa vật lý và xử lý tín hiệu; chưa mô phỏng nhiễu thực của ADC, cơ cấu kẹp hay mạch STO. Tài liệu gốc: [TI Bridge Measurements](https://www.ti.com/lit/an/sbaa532a/sbaa532a.pdf), [NI Full-Bridge Type I](https://www.ni.com/docs/en-US/bundle/ni-daqmx/page/full1.html).
+
+## Chuyên đề BS — Pt100/RTD & giám sát nhiệt cuộn dây robot (22/11/2026)
+
+Mỗi bài có hộp công cụ và phép tính trước code, bài tập tự làm, phân tích biên và demo:
+
+1. [Bài 228 — Pt100 Callendar–Van Dusen](07_Mixed_Signal_Audio_and_Precision_Actuators/rtd_edge_pt100_callendar_van_dusen.py): đặc tính danh định -200..850 degC, số hạng bổ sung khi nhiệt độ âm và nghịch đảo bằng chia đôi.
+2. [Bài 229 — RTD 3-wire ratiometric](07_Mixed_Signal_Audio_and_Precision_Actuators/rtd_edge_three_wire_ratiometric.py): mô hình MUX hai pha, bù điện trở dây cân bằng, sai số dây lệch và tham chiếu điện trở.
+3. [Bài 230 — Tự nung & dòng kích xung](07_Mixed_Signal_Audio_and_Precision_Actuators/rtd_edge_self_heating_pulsed_excitation.py): mô hình RC nhiệt, công suất I^2*R, duty 10% và sai số cuối khoảng ON.
+4. [Bài 231 — Robot winding thermal capstone](07_Mixed_Signal_Audio_and_Precision_Actuators/rtd_edge_robot_winding_thermal_capstone.py): đo 10 Hz, hysteresis giảm dòng 90/85 degC, chốt quá nhiệt 120 degC, timestamp lúc đo, phát hiện replay và watchdog 250 ms.
+
+```bash
+python EE_Mentorship/07_Mixed_Signal_Audio_and_Precision_Actuators/rtd_edge_robot_winding_thermal_capstone.py
+python -m unittest discover -s tests -v
+```
+
+[Bộ kiểm thử BS](../tests/test_rtd_bs.py) bổ sung **28 tests**, tổng **76 tests BQ+BR+BS**. Sai số số học/ADC trong demo không đại diện độ chính xác Pt100 thực; mô hình chưa có diagnostic đứt dây phần cứng, FOC, hotspot cuộn dây hay STO. Nguồn: [TI RTD Measurements](https://www.ti.com/lit/an/sbaa275a/sbaa275a.pdf), [ADI CN-0383](https://www.analog.com/media/en/reference-design-documentation/reference-designs/cn0383.pdf).
