@@ -1,13 +1,13 @@
 # 📁 EE Mentorship — Danh Mục Phân Loại 10 Thư Mục Chuyên Ngành
 
-Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 231`, **239 bài học & 62 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
+Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 235`, **243 bài học & 63 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
 
 | Thư mục | Phạm vi Kỹ thuật (Engineering Domain) | Các phân hệ tiêu biểu (Prefixes) | Số file |
 | :--- | :--- | :--- | :---: |
 | [`01_Core_Systems_RTOS_and_Firmware/`](01_Core_Systems_RTOS_and_Firmware/) | Lập trình hệ thống thuần Python, OOP phần cứng, FreeRTOS, DMA/SPI/NVIC, Dual-Bank Bootloader OTA, Bộ nhớ nhúng & DSA | `milestone_*`, `game_*`, `smart_*`, `rtos_*`, `dma_*`, `boot_*`, `dsa_*`, `mem_edge_*allocator/pool*` | 41 |
 | [`02_AI_Accelerators_ML_and_Computer_Vision/`](02_AI_Accelerators_ML_and_Computer_Vision/) | Machine Learning, Deep Learning Autograd, OpenCV, NPU Systolic Array, TPU INT4/INT8 & Thị giác sự kiện Neuromorphic DVS/SNN | `ml_*`, `cv_*`, `npu_*`, `tpu_*`, `hw_*`, `dvs_*`, `snn_*`, `neuromorphic_*` | 61 |
 | [`03_Chip_Architecture_Memory_and_Interconnects/`](03_Chip_Architecture_Memory_and_Interconnects/) | Kiến trúc SoC 2D NoC MESI & UCIe, PCIe Gen4/Gen6 PAM4 Flit, CXL 3.0, SerDes 64G DFE, ADPLL, LPDDR5X/HBM3e, DFT JTAG Shmoo & HFT | `noc_*`, `pcie_*`, `pcie6_*`, `cxl_*`, `serdes_*`, `adpll_*`, `lpddr5_*`, `mem_edge_lpddr5x*`, `dft_*`, `hft_*` | 36 |
-| [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 36 |
+| [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Đo dòng shunt AFE & cửa sổ PWM, Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `current_*`, `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 40 |
 | [`05_RF_Wireless_Radar_and_Satellite_Comms/`](05_RF_Wireless_Radar_and_Satellite_Comms/) | Viễn thông vô tuyến SDR/Smith/TDR/SAR, RF PA CFR/DPD/Envelope Tracking, UWB IEEE 802.15.4z, GNSS L1/L5 & RTK Centimet, Radar & Satcom | `rf_*`, `rfpa_*`, `uwb_*`, `gnss_*`, `radar_*`, `track_*`, `satcom_*` | 36 |
 | [`06_Optical_Photonics_LiDAR_and_Camera_ISP/`](06_Optical_Photonics_LiDAR_and_Camera_ISP/) | Silicon Photonics MZM/MRR/CPO, Quang không gian Starlink FSO, LiDAR OPA/FMCW/SPAD, Cảm biến CMOS 4T-PPD & ISP 5-Line, MIPI CSI-2 | `siph_*`, `fso_*`, `optics_*`, `lidar_*`, `isp_*`, `mipi_*` | 28 |
 | [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | Pt100/RTD 3-wire & tự nung, Strain Gauge/Load Cell, ADC ratiometric & hiệu chuẩn nhiệt, ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `rtd_*`, `strain_*`, `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 36 |
@@ -67,3 +67,19 @@ python -m unittest discover -s tests -v
 ```
 
 [Bộ kiểm thử BS](../tests/test_rtd_bs.py) bổ sung **28 tests**, tổng **76 tests BQ+BR+BS**. Sai số số học/ADC trong demo không đại diện độ chính xác Pt100 thực; mô hình chưa có diagnostic đứt dây phần cứng, FOC, hotspot cuộn dây hay STO. Nguồn: [TI RTD Measurements](https://www.ti.com/lit/an/sbaa275a/sbaa275a.pdf), [ADI CN-0383](https://www.analog.com/media/en/reference-design-documentation/reference-designs/cn0383.pdf).
+
+## Chuyên đề BT — Shunt current AFE & vòng dòng rotor đứng yên (23/11/2026)
+
+Mỗi bài đi từ hộp công cụ và công thức đến bài tập tự làm, phân tích biên rồi demo:
+
+1. [Bài 232 — Shunt AFE & hiệu chuẩn](04_Power_Electronics_VRM_and_Thermal/current_edge_shunt_afe_calibration.py): shunt 1 milliohm, khuếch đại x50, ADC 12-bit bipolar qua bias giữa thang, hiệu chuẩn gain/offset và bù TCR.
+2. [Bài 233 — Cửa sổ lấy mẫu PWM](04_Power_Electronics_VRM_and_Thermal/current_edge_pwm_sampling_windows.py): tính trigger cho hai shunt low-side, xét deadtime, amplifier settling và aperture ADC tại 20 kHz.
+3. [Bài 234 — Dựng dòng pha thứ ba](04_Power_Electronics_VRM_and_Thermal/current_edge_two_shunt_reconstruction.py): `ic=-ia-ib`, Clarke alpha/beta, kiểm tra cửa sổ/ADC. Tổng ba dòng bằng 0 sau phép dựng không phải phép kiểm tra sensor độc lập.
+4. [Bài 235 — Current-loop capstone](04_Power_Electronics_VRM_and_Thermal/current_edge_motor_current_loop_capstone.py): PI có anti-windup trên plant RL hai trục, lệnh `0 -> 8 -> -5 A`, fault chốt khi sai cửa sổ, mất cycle hoặc quá dòng.
+
+```bash
+python EE_Mentorship/04_Power_Electronics_VRM_and_Thermal/current_edge_motor_current_loop_capstone.py
+python -m unittest discover -s tests -v
+```
+
+[Bộ kiểm thử BT](../tests/test_current_bt.py) bổ sung **24 tests**, tổng **100 tests BQ+BR+BS+BT**. Capstone dùng plant averaged khi rotor đứng yên, chưa có back-EMF, rotor motion, ripple, full PMSM FOC hay comparator bảo vệ phần cứng. Nguồn: [TI Current Sensing](https://www.ti.com/lit/an/slyt762/slyt762.pdf), [Microchip AN1299](https://ww1.microchip.com/downloads/en/AppNotes/01299A.pdf).
