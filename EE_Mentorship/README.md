@@ -1,13 +1,13 @@
 # 📁 EE Mentorship — Danh Mục Phân Loại 10 Thư Mục Chuyên Ngành
 
-Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 241`, **249 bài học & 64 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
+Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 247`, **255 bài học & 65 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
 
 | Thư mục | Phạm vi Kỹ thuật (Engineering Domain) | Các phân hệ tiêu biểu (Prefixes) | Số file |
 | :--- | :--- | :--- | :---: |
 | [`01_Core_Systems_RTOS_and_Firmware/`](01_Core_Systems_RTOS_and_Firmware/) | Lập trình hệ thống thuần Python, OOP phần cứng, FreeRTOS, DMA/SPI/NVIC, Dual-Bank Bootloader OTA, Bộ nhớ nhúng & DSA | `milestone_*`, `game_*`, `smart_*`, `rtos_*`, `dma_*`, `boot_*`, `dsa_*`, `mem_edge_*allocator/pool*` | 41 |
 | [`02_AI_Accelerators_ML_and_Computer_Vision/`](02_AI_Accelerators_ML_and_Computer_Vision/) | Machine Learning, Deep Learning Autograd, OpenCV, NPU Systolic Array, TPU INT4/INT8 & Thị giác sự kiện Neuromorphic DVS/SNN | `ml_*`, `cv_*`, `npu_*`, `tpu_*`, `hw_*`, `dvs_*`, `snn_*`, `neuromorphic_*` | 61 |
 | [`03_Chip_Architecture_Memory_and_Interconnects/`](03_Chip_Architecture_Memory_and_Interconnects/) | Kiến trúc SoC 2D NoC MESI & UCIe, PCIe Gen4/Gen6 PAM4 Flit, CXL 3.0, SerDes 64G DFE, ADPLL, LPDDR5X/HBM3e, DFT JTAG Shmoo & HFT | `noc_*`, `pcie_*`, `pcie6_*`, `cxl_*`, `serdes_*`, `adpll_*`, `lpddr5_*`, `mem_edge_lpddr5x*`, `dft_*`, `hft_*` | 36 |
-| [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Servo PMSM d–q & DC bus tái sinh, Đo dòng shunt AFE & cửa sổ PWM, Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `servo_*`, `current_*`, `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 46 |
+| [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Servo vị trí/homing, Servo PMSM d–q & DC bus tái sinh, Đo dòng shunt AFE & cửa sổ PWM, Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `axis_*`, `servo_*`, `current_*`, `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 52 |
 | [`05_RF_Wireless_Radar_and_Satellite_Comms/`](05_RF_Wireless_Radar_and_Satellite_Comms/) | Viễn thông vô tuyến SDR/Smith/TDR/SAR, RF PA CFR/DPD/Envelope Tracking, UWB IEEE 802.15.4z, GNSS L1/L5 & RTK Centimet, Radar & Satcom | `rf_*`, `rfpa_*`, `uwb_*`, `gnss_*`, `radar_*`, `track_*`, `satcom_*` | 36 |
 | [`06_Optical_Photonics_LiDAR_and_Camera_ISP/`](06_Optical_Photonics_LiDAR_and_Camera_ISP/) | Silicon Photonics MZM/MRR/CPO, Quang không gian Starlink FSO, LiDAR OPA/FMCW/SPAD, Cảm biến CMOS 4T-PPD & ISP 5-Line, MIPI CSI-2 | `siph_*`, `fso_*`, `optics_*`, `lidar_*`, `isp_*`, `mipi_*` | 28 |
 | [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | Pt100/RTD 3-wire & tự nung, Strain Gauge/Load Cell, ADC ratiometric & hiệu chuẩn nhiệt, ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `rtd_*`, `strain_*`, `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 36 |
@@ -101,3 +101,21 @@ python -m unittest discover -s tests -v
 ```
 
 [Bộ kiểm thử BU](../tests/test_servo_bu.py) có **27 tests mới**, tổng **127 tests BQ–BU**. Đây là mô hình averaged d–q với id/iq lý tưởng; chưa triển khai lấy mẫu abc/Park, gate PWM, sensorless observer, field weakening hay STO phần cứng. Nguồn: [NASA PMSM model](https://ntrs.nasa.gov/api/citations/20210025115/downloads/PMSM_v6.pdf), [TI Motor Control Compendium](https://www.ti.com/download/trng/docs/c2000/TI_MotorControlCompendium_2010.pdf).
+
+## Chuyên đề BV — Servo vị trí, homing & quỹ đạo quintic (25/11/2026)
+
+**5 bài nền tảng + 1 capstone**, tiếp nối plant và các vòng PI của BU. Mỗi bài có hộp công cụ, bài tập, phân tích biên và demo:
+
+1. [Bài 242 — Quỹ đạo quintic](04_Power_Electronics_VRM_and_Thermal/axis_edge_quintic_motion_profile.py): rest-to-rest, đạo hàm giải tích và chọn thời gian để giữ giới hạn vận tốc/gia tốc/jerk.
+2. [Bài 243 — Homing state machine](04_Power_Electronics_VRM_and_Thermal/axis_edge_homing_state_machine.py): seek, backoff, tiếp cận chậm, debounce, offset encoder, timeout và giới hạn hành trình raw.
+3. [Bài 244 — Vòng vị trí](04_Power_Electronics_VRM_and_Thermal/axis_edge_position_velocity_cascade.py): P vị trí cộng velocity feedforward, tạo lệnh cho vòng tốc độ và clamp đơn vị rad/s.
+4. [Bài 245 — Bù mô-men](04_Power_Electronics_VRM_and_Thermal/axis_edge_acceleration_feedforward.py): quán tính, ma sát nhớt, tải ước lượng và đổi torque sang dòng iq.
+5. [Bài 246 — Motion supervisor](04_Power_Electronics_VRM_and_Thermal/axis_edge_motion_supervisor.py): homing bắt buộc, soft limits, following error kéo dài, thời gian settling và lỗi chốt.
+6. [Bài 247 — Robot positioning capstone](04_Power_Electronics_VRM_and_Thermal/axis_edge_robot_positioning_capstone.py): home bằng fixture động học, rồi điều khiển PMSM tới `+0.6` và `-0.4 rad`; so sánh bù mô-men và thử kẹt trục lý tưởng.
+
+```bash
+python EE_Mentorship/04_Power_Electronics_VRM_and_Thermal/axis_edge_robot_positioning_capstone.py
+python -m unittest discover -s tests -v
+```
+
+[Bộ kiểm thử BV](../tests/test_axis_bv.py) bổ sung **22 tests**, tổng **149 tests BQ–BV**. Homing là fixture động học; plant PMSM chỉ chạy sau homing. Chưa có geartrain, contact mechanics, AFE/PWM, brake hoặc STO phần cứng. Nguồn: [Modern Robotics time scaling](https://modernrobotics.northwestern.edu/nu-gm-book-resource/9-1-and-9-2-point-to-point-trajectories-part-2-of-2/), [Beckhoff homing](https://download.beckhoff.com/download/document/automation/twincat3/TF5200_homing_en.pdf).
