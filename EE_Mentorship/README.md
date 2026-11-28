@@ -1,6 +1,6 @@
 # 📁 EE Mentorship — Danh Mục Phân Loại 10 Thư Mục Chuyên Ngành
 
-Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 256`, **264 bài học & 67 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
+Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 264`, **272 bài học & 68 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
 
 | Thư mục | Phạm vi Kỹ thuật (Engineering Domain) | Các phân hệ tiêu biểu (Prefixes) | Số file |
 | :--- | :--- | :--- | :---: |
@@ -11,7 +11,7 @@ Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 256`, **264 bài
 | [`05_RF_Wireless_Radar_and_Satellite_Comms/`](05_RF_Wireless_Radar_and_Satellite_Comms/) | Viễn thông vô tuyến SDR/Smith/TDR/SAR, RF PA CFR/DPD/Envelope Tracking, UWB IEEE 802.15.4z, GNSS L1/L5 & RTK Centimet, Radar & Satcom | `rf_*`, `rfpa_*`, `uwb_*`, `gnss_*`, `radar_*`, `track_*`, `satcom_*` | 36 |
 | [`06_Optical_Photonics_LiDAR_and_Camera_ISP/`](06_Optical_Photonics_LiDAR_and_Camera_ISP/) | Silicon Photonics MZM/MRR/CPO, Quang không gian Starlink FSO, LiDAR OPA/FMCW/SPAD, Cảm biến CMOS 4T-PPD & ISP 5-Line, MIPI CSI-2 | `siph_*`, `fso_*`, `optics_*`, `lidar_*`, `isp_*`, `mipi_*` | 28 |
 | [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | Pt100/RTD 3-wire & tự nung, Strain Gauge/Load Cell, ADC ratiometric & hiệu chuẩn nhiệt, ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `rtd_*`, `strain_*`, `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 36 |
-| [`08_Robotics_Autonomous_Driving_and_Control/`](08_Robotics_Autonomous_Driving_and_Control/) | Điều khiển Robot Ackermann/Admittance/DOB, Encoder A/B/Z & Sin/Cos, BiSS-C SCD CRC-6, EtherCAT DC, MPC Starship/FSD, Sensor Fusion, Mapping, ISO 26262 ASIL-D, CAN-FD & TSN | `robotics_*`, `encoder_*`, `ethercat_*`, `mpc_*`, `fusion_*`, `grid_*`, `safety_*`, `can_*`, `tsn_*` | 46 |
+| [`08_Robotics_Autonomous_Driving_and_Control/`](08_Robotics_Autonomous_Driving_and_Control/) | Điều khiển lực tiếp xúc/BE admittance, Robot Ackermann/Admittance/DOB, Encoder A/B/Z & Sin/Cos, BiSS-C SCD CRC-6, EtherCAT DC, MPC Starship/FSD, Sensor Fusion, Mapping, ISO 26262 ASIL-D, CAN-FD & TSN | `contact_*`, `robotics_*`, `encoder_*`, `ethercat_*`, `mpc_*`, `fusion_*`, `grid_*`, `safety_*`, `can_*`, `tsn_*` | 54 |
 | [`09_Aerospace_Spacecraft_and_Avionics/`](09_Aerospace_Spacecraft_and_Avionics/) | Điều khiển tư thế vệ tinh CubeSat ADCS, Định vị quán tính 6-DOF INS/ES-EKF, MIL-STD-1553B & ARINC 429, SpaceWire/SpaceFibre, HIL | `adcs_*`, `ins_*`, `avionics_*`, `spacewire_*`, `spacefibre_*`, `hil_*` | 20 |
 | [`10_Hardware_Security_PQC_and_Fault_Tolerance/`](10_Hardware_Security_PQC_and_Fault_Tolerance/) | Mật mã hậu lượng tử PQC FIPS 203 ML-KEM/NTT/DPA, Bảo mật AES-GCM/ECDSA/SHA3 & Máy tính bay chống bức xạ TMR Byzantine | `pqc_*`, `crypto_*`, `tmr_*` | 16 |
 | [`drone_system/`](drone_system/) | Gói phần mềm điều khiển Drone hoàn chỉnh (Module F & Kiem thu Pytest) | `engine.py`, `protocol.py`, `flight_controller_capstone.py` | 7 |
@@ -152,3 +152,23 @@ python -m unittest discover -s tests -v
 ```
 
 [Bộ kiểm thử BX](../tests/test_play_bx.py) bổ sung **15 tests**, tổng **181 tests BQ–BX**. Backlash là mô hình tín hiệu massless, chưa có truyền mô-men phản lực, contact energy, gear tooth forces hay PMSM/STO. Bù kết hợp không đảm bảo sai số bằng 0 hoặc cải thiện trên mọi phần cứng. Nguồn: [MathWorks rotational friction](https://www.mathworks.com/help/simscape/ref/rotationalfriction.html), [MathWorks backlash](https://www.mathworks.com/help/simulink/slref/backlash.html), [Kollmorgen feedforward](https://webhelp.kollmorgen.com/essentials/English/Content/Tuning/Determining-FeedForwards.htm).
+
+## Chuyên đề BY — Tiếp cận bề mặt & giữ lực tiếp xúc (28/11/2026)
+
+**7 bài nền tảng + 1 capstone**, bổ sung phiên bản mô-đun có kiểm chứng rời rạc cho các bài admittance trước đây:
+
+1. [Bài 257 — Unilateral wall](08_Robotics_Autonomous_Driving_and_Control/contact_edge_unilateral_wall.py): Kelvin–Voigt 1D, dấu reaction force, separation và năng lượng đàn hồi.
+2. [Bài 258 — Cảm biến lực](08_Robotics_Autonomous_Driving_and_Control/contact_edge_force_sensor_calibration.py): ADC 16-bit, hai điểm hiệu chuẩn, clipping và timestamp lúc đo.
+3. [Bài 259 — Contact FSM](08_Robotics_Autonomous_Driving_and_Control/contact_edge_contact_state_machine.py): approach/regulate, hai ngưỡng hysteresis, dwell khi chạm hoặc mất tiếp xúc.
+4. [Bài 260 — PI lực ra vận tốc](08_Robotics_Autonomous_Driving_and_Control/contact_edge_force_pi_velocity.py): dấu feedback, velocity clamp, conditional anti-windup và bumpless reset.
+5. [Bài 261 — Backward Euler admittance](08_Robotics_Autonomous_Driving_and_Control/contact_edge_backward_euler_admittance.py): giải đồng thời mass/damper/spring rời rạc, không clamp nội bộ.
+6. [Bài 262 — Discrete energy observer](08_Robotics_Autonomous_Driving_and_Control/contact_edge_discrete_energy_observer.py): input work, storage change, damping vật lý và numerical dissipation của virtual BE subsystem.
+7. [Bài 263 — Force supervisor](08_Robotics_Autonomous_Driving_and_Control/contact_edge_force_supervisor.py): tuổi mẫu, replay, timeout, ADC clip và ngưỡng force/travel/velocity.
+8. [Bài 264 — Surface-force capstone](08_Robotics_Autonomous_Driving_and_Control/contact_edge_robot_surface_force_capstone.py): tiếp cận rồi giữ 10 N bằng PI hoặc admittance; đổi độ cứng và chèn frame cũ.
+
+```bash
+python EE_Mentorship/08_Robotics_Autonomous_Driving_and_Control/contact_edge_robot_surface_force_capstone.py
+python -m unittest discover -s tests -v
+```
+
+[Bộ kiểm thử BY](../tests/test_contact_by.py) bổ sung **29 tests**, tổng **210 tests BQ–BY**. Actuator vận tốc lý tưởng, chưa có motor inertia/servo lag, 6D hybrid projection hay STO. Energy identity chỉ áp dụng virtual BE trước clamp, không là chứng nhận passivity của toàn robot. Nguồn: [Modern Robotics force control](https://modernrobotics.northwestern.edu/nu-gm-book-resource/11-5-force-control/), [ROS 2 admittance](https://control.ros.org/rolling/doc/ros2_controllers/admittance_controller/doc/userdoc.html).
