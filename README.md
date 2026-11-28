@@ -15,13 +15,13 @@ Tất cả các module được xây dựng thuần bằng **Pure Python** (khô
 ```text
 OneDrive/Python Mastering/
 ├── EE_Mentorship/
-│   ├── MISSING_LESSONS_ROADMAP.md                           # Lộ trình đến Bài 252; tổng 260 bài học & 66 chuyên đề
+│   ├── MISSING_LESSONS_ROADMAP.md                           # Lộ trình đến Bài 256; tổng 264 bài học & 67 chuyên đề
 │   ├── MASTER_MENTORSHIP_SYSTEM_PROMPT.md                   # Chuẩn sư phạm Constructivist Bottom-Up
 │   ├── drone_system/                                        # Hệ thống điều khiển Drone Core (Module F)
 │   ├── 01_Core_Systems_RTOS_and_Firmware/                   # Core Python, Async, Sockets, RTOS, DMA, Bootloader, DSA
 │   ├── 02_AI_Accelerators_ML_and_Computer_Vision/           # ML/DL, OpenCV, NPU Systolic Array, TPU, Neuromorphic DVS/SNN
 │   ├── 03_Chip_Architecture_Memory_and_Interconnects/       # NoC, UCIe, PCIe Gen4/6, CXL 3.0, SerDes, ADPLL, LPDDR5X/HBM3e, DFT
-│   ├── 04_Power_Electronics_VRM_and_Thermal/                # Flexible Shaft/Resonance, Position Servo/Homing, PMSM Servo/Regenerative DC Link, Shunt Current AFE/PWM Sampling, VRM 1000A AVP, PDN Integrity, SiC/GaN 800V, BMS, FOC, Thermal RC
+│   ├── 04_Power_Electronics_VRM_and_Thermal/                # Friction/Backlash, Flexible Shaft/Resonance, Position Servo/Homing, PMSM Servo/Regenerative DC Link, Shunt Current AFE/PWM Sampling, VRM 1000A AVP, PDN Integrity, SiC/GaN 800V, BMS, FOC, Thermal RC
 │   ├── 05_RF_Wireless_Radar_and_Satellite_Comms/            # RF/SAR/Phased Array, RF PA CFR/DPD/ET, UWB, GNSS/RTK, Radar, Satcom
 │   ├── 06_Optical_Photonics_LiDAR_and_Camera_ISP/           # Silicon Photonics CPO, Starlink FSO, LiDAR OPA/FMCW/SPAD, CMOS ISP, MIPI
 │   ├── 07_Mixed_Signal_Audio_and_Precision_Actuators/       # Pt100/RTD, Strain Gauge/Load Cell, Mixed-Signal ADC/DAC, Audio I2S/PDM, DSP, EMC, Haptics LRA & OIS VCM

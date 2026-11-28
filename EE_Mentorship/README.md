@@ -1,13 +1,13 @@
 # 📁 EE Mentorship — Danh Mục Phân Loại 10 Thư Mục Chuyên Ngành
 
-Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 252`, **260 bài học & 66 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
+Tài liệu lộ trình chi tiết từng bài (`Bài 1 -> Bài 256`, **264 bài học & 67 chuyên đề**): xem [MISSING_LESSONS_ROADMAP.md](MISSING_LESSONS_ROADMAP.md).
 
 | Thư mục | Phạm vi Kỹ thuật (Engineering Domain) | Các phân hệ tiêu biểu (Prefixes) | Số file |
 | :--- | :--- | :--- | :---: |
 | [`01_Core_Systems_RTOS_and_Firmware/`](01_Core_Systems_RTOS_and_Firmware/) | Lập trình hệ thống thuần Python, OOP phần cứng, FreeRTOS, DMA/SPI/NVIC, Dual-Bank Bootloader OTA, Bộ nhớ nhúng & DSA | `milestone_*`, `game_*`, `smart_*`, `rtos_*`, `dma_*`, `boot_*`, `dsa_*`, `mem_edge_*allocator/pool*` | 41 |
 | [`02_AI_Accelerators_ML_and_Computer_Vision/`](02_AI_Accelerators_ML_and_Computer_Vision/) | Machine Learning, Deep Learning Autograd, OpenCV, NPU Systolic Array, TPU INT4/INT8 & Thị giác sự kiện Neuromorphic DVS/SNN | `ml_*`, `cv_*`, `npu_*`, `tpu_*`, `hw_*`, `dvs_*`, `snn_*`, `neuromorphic_*` | 61 |
 | [`03_Chip_Architecture_Memory_and_Interconnects/`](03_Chip_Architecture_Memory_and_Interconnects/) | Kiến trúc SoC 2D NoC MESI & UCIe, PCIe Gen4/Gen6 PAM4 Flit, CXL 3.0, SerDes 64G DFE, ADPLL, LPDDR5X/HBM3e, DFT JTAG Shmoo & HFT | `noc_*`, `pcie_*`, `pcie6_*`, `cxl_*`, `serdes_*`, `adpll_*`, `lpddr5_*`, `mem_edge_lpddr5x*`, `dft_*`, `hft_*` | 36 |
-| [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Trục đàn hồi/cộng hưởng, Servo vị trí/homing, Servo PMSM d–q & DC bus tái sinh, Đo dòng shunt AFE & cửa sổ PWM, Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `flex_*`, `axis_*`, `servo_*`, `current_*`, `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 57 |
+| [`04_Power_Electronics_VRM_and_Thermal/`](04_Power_Electronics_VRM_and_Thermal/) | Ma sát/backlash, Trục đàn hồi/cộng hưởng, Servo vị trí/homing, Servo PMSM d–q & DC bus tái sinh, Đo dòng shunt AFE & cửa sổ PWM, Nguồn đa pha 1000A VRM & AVP, PDN Integrity & DVFS, USB-PD 3.1 EPR 240W & 4-Switch Buck-Boost, SiC/GaN 800V Inverter & MPPT, 800V EV BMS, FOC/MTPA & Quản lý nhiệt RC | `play_*`, `flex_*`, `axis_*`, `servo_*`, `current_*`, `vrm_*`, `pdn_*`, `usbpd_*`, `power_*`, `bms_*`, `foc_*`, `thermal_*` | 61 |
 | [`05_RF_Wireless_Radar_and_Satellite_Comms/`](05_RF_Wireless_Radar_and_Satellite_Comms/) | Viễn thông vô tuyến SDR/Smith/TDR/SAR, RF PA CFR/DPD/Envelope Tracking, UWB IEEE 802.15.4z, GNSS L1/L5 & RTK Centimet, Radar & Satcom | `rf_*`, `rfpa_*`, `uwb_*`, `gnss_*`, `radar_*`, `track_*`, `satcom_*` | 36 |
 | [`06_Optical_Photonics_LiDAR_and_Camera_ISP/`](06_Optical_Photonics_LiDAR_and_Camera_ISP/) | Silicon Photonics MZM/MRR/CPO, Quang không gian Starlink FSO, LiDAR OPA/FMCW/SPAD, Cảm biến CMOS 4T-PPD & ISP 5-Line, MIPI CSI-2 | `siph_*`, `fso_*`, `optics_*`, `lidar_*`, `isp_*`, `mipi_*` | 28 |
 | [`07_Mixed_Signal_Audio_and_Precision_Actuators/`](07_Mixed_Signal_Audio_and_Precision_Actuators/) | Pt100/RTD 3-wire & tự nung, Strain Gauge/Load Cell, ADC ratiometric & hiệu chuẩn nhiệt, ADC/DAC Tín hiệu hỗn hợp, Cảm ứng điện dung PCAP I/Q & Water Rejection, Âm thanh I2S/PDM-CIC/Beamforming, DSP FIR/FFT/ANC, EMC, Haptics LRA Back-EMF & OIS VCM | `rtd_*`, `strain_*`, `mixed_*`, `touch_*`, `audio_*`, `dsp_*`, `emc_*`, `haptic_*` | 36 |
@@ -136,3 +136,19 @@ python -m unittest discover -s tests -v
 ```
 
 [Bộ kiểm thử BW](../tests/test_flex_bw.py) bổ sung **17 tests**, tổng **166 tests BQ–BW**. Torque sinusoid tại mode cộng hưởng là tín hiệu chèn có chủ đích; so sánh thay đổi cả notch và relative damping. Chưa có PMSM, backlash, gear ratio, delay hay STO phần cứng. Nguồn: [W3C Audio EQ Cookbook](https://www.w3.org/TR/audio-eq-cookbook/), [Kollmorgen resonance tuning](https://www.kollmorgen.com/sites/default/files/AKD%20Tuning%20Guide.pdf).
+
+## Chuyên đề BX — Ma sát, backlash & trục đảo chiều (27/11/2026)
+
+**3 bài nền tảng + 1 capstone**, mỗi bài có hộp công cụ, bài tập tự làm, phân tích biên và demo:
+
+1. [Bài 253 — Plant stick-slip](04_Power_Electronics_VRM_and_Thermal/play_edge_stick_slip_axis.py): static/Coulomb/viscous friction, nghiệm trượt giải tích và xử lý sự kiện dừng hoặc đổi chiều trong một bước thời gian.
+2. [Bài 254 — Backlash play operator](04_Power_Electronics_VRM_and_Thermal/play_edge_backlash_operator.py): độ rơ có nhớ, giữ đầu ra khi đảo chiều và phân biệt với deadzone tĩnh.
+3. [Bài 255 — Bù đảo chiều](04_Power_Electronics_VRM_and_Thermal/play_edge_reversal_compensator.py): offset bù backlash có giới hạn tốc độ, giữ hướng khi dừng và friction feedforward mượt.
+4. [Bài 256 — Reversing-axis capstone](04_Power_Electronics_VRM_and_Thermal/play_edge_reversing_axis_capstone.py): theo quỹ đạo `0 -> +0.3 -> -0.2 rad`, so baseline/bù kết hợp và chèn lỗi encoder tải.
+
+```bash
+python EE_Mentorship/04_Power_Electronics_VRM_and_Thermal/play_edge_reversing_axis_capstone.py
+python -m unittest discover -s tests -v
+```
+
+[Bộ kiểm thử BX](../tests/test_play_bx.py) bổ sung **15 tests**, tổng **181 tests BQ–BX**. Backlash là mô hình tín hiệu massless, chưa có truyền mô-men phản lực, contact energy, gear tooth forces hay PMSM/STO. Bù kết hợp không đảm bảo sai số bằng 0 hoặc cải thiện trên mọi phần cứng. Nguồn: [MathWorks rotational friction](https://www.mathworks.com/help/simscape/ref/rotationalfriction.html), [MathWorks backlash](https://www.mathworks.com/help/simulink/slref/backlash.html), [Kollmorgen feedforward](https://webhelp.kollmorgen.com/essentials/English/Content/Tuning/Determining-FeedForwards.htm).
